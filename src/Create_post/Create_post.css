@@ -1,0 +1,92 @@
+.Create_post {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 15px 15px 2px 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 15px;
+}
+
+.create_post_text {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+.create_post_text textarea {
+  flex-grow: 1;
+  border-radius: 15px;
+  border: 2px #f1f1f1 solid;
+  padding: 13px 8px 8px 50px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.create_post_user_avatar {
+  position: absolute;
+  left: 10px;
+  top: 8px;
+}
+
+.create_post_user_avatar img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.create_post_button .Round_btn {
+  background-color: #ffc0cb;
+}
+
+.create_post_button .Round_btn::before {
+  background-image: url("../img/send_icon.svg");
+}
+
+.create_post_media {
+  margin-left: auto;
+}
+
+.create_post_media_list {
+  display: flex;
+}
+
+.create_post_media_item {
+  width: 27px;
+  height: 27px;
+  margin: 8px;
+  border-radius: 50%;
+}
+
+.create_post_media_item.photo {
+  background: linear-gradient(to right, #f2994a, #f2c94c);
+}
+
+.create_post_media_item.video {
+  background-image: url("../img/video_icon.svg");
+  background: linear-gradient(135deg, rgb(0, 85, 255), rgb(7, 153, 250));
+}
+
+.create_post_media_item.audio {
+  background-image: url("../img/music_icon.svg");
+  background: linear-gradient(to right, #ee0979, #ff6a00);
+}
+
+.create_post_image {
+  width: 27px;
+  height: 27px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.create_post_image.photo {
+  background-image: url("../img/image_icon.svg");
+}
+
+.create_post_image.video {
+  background-image: url("../img/video_icon.svg");
+}
+.create_post_image.audio {
+  background-image: url("../img/music_icon.svg");
+}

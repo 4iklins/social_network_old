@@ -1,22 +1,22 @@
-.App{
+.App {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-body{
-  font-family: 'Open Sans', sans-serif;
+body {
+  font-family: "Open Sans", sans-serif;
   box-sizing: border-box;
   font-weight: 600;
+  /* background-color: #293145; */
 }
 
-ul{
+ul {
   list-style: none;
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
 
-a{
+a {
   text-decoration: none;
 }
-
