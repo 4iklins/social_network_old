@@ -1,0 +1,63 @@
+.Header {
+  position: fixed;
+  background-color: #ffffff;
+  width: 100%;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.03)
+}
+
+.header_wrapper{
+  height: 96px;
+  width:1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.header_menu{
+  margin-left: auto;
+  display: flex;
+}
+
+.header_logo a{
+  display:flex;
+}
+
+
+.header_logo_icon img{
+  height: 36px;
+  margin-top:4px;
+  margin-right: 4px;
+}
+
+.header_logo_name{
+  font-family: 'Fredoka One', cursive;
+  font-size: 36px;
+  color:#FFC0CB;
+}
+
+
+.header_settings .Round_btn{
+  background-color: #f5f5f5;
+  animation: setting_logo_spin infinite 10s linear;
+}
+
+.header_settings .Round_btn::before{
+  background-image: url('../img/settings_icon.svg');
+}
+
+@keyframes setting_logo_spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.header_user .Round_btn{
+  background-color: #f5f5f5;
+}
+
+.header_user .Round_btn::before{
+  background-image: url('../img/user_icon.svg');
+}

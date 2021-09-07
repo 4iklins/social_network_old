@@ -1,0 +1,16 @@
+.Content{
+  display: flex;
+  padding: 15px;
+  padding-left: 300px;
+}
+
+.main_content{
+  flex-grow: 1;
+  padding:15px 0;
+  box-sizing: border-box;
+}
+.other_content{
+  width:280px;
+  padding:15px;
+  box-sizing: border-box;
+}
