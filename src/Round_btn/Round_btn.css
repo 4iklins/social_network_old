@@ -4,11 +4,16 @@
   height: 50px;
   border-radius: 50%;
   margin: 8px;
+  cursor: pointer;
+}
+
+.Round_btn:hover {
+  box-shadow: 0 0 12px -5px rgb(0 0 0 / 50%);
 }
 
 .Round_btn::before {
   position: absolute;
-  content: '';
+  content: "";
   width: 24px;
   height: 24px;
   left: 50%;

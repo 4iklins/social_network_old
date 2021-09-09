@@ -1,0 +1,46 @@
+.Post {
+  padding: 15px 15px 5px 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 15px;
+  margin-top: 15px;
+}
+
+.post_user_info {
+  display: flex;
+  align-items: center;
+}
+
+.post_user_name {
+  margin-left: 20px;
+}
+
+.post_time {
+  margin: 0;
+  font-size: 12px;
+  color: #adb5bd;
+}
+
+.post_user_avatar img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.post_text {
+  margin: 20px;
+  font-size: 14px;
+  line-height: 26px;
+  font-weight: 500;
+  color: #adb5bd;
+}
+
+.post_grades ul {
+  display: flex;
+}
+
+.post_grade {
+  width: 27px;
+  height: 27px;
+  margin: 8px;
+  border-radius: 50%;
+}

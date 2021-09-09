@@ -1,7 +1,7 @@
 .Menu {
   width: 250px;
   border-radius: 15px;
-  box-shadow: 0 8px 30px rgba(0,0,0,.05);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
   box-sizing: border-box;
   padding: 15px;
 }
@@ -16,35 +16,38 @@
   padding-left: 10px;
 }
 
-.menu_item_newsfeed .Round_btn{
-  background: linear-gradient(to right,#0575e6,#021b79);
-}
-.menu_item_message .Round_btn{
-  background: linear-gradient(to right,#e44d26,#f16529);
-}
-.menu_item_images .Round_btn{
-  background: linear-gradient(to right,#f2994a,#f2c94c);
-}
-.menu_item_music .Round_btn{
-  background: linear-gradient(to right,#ee0979,#ff6a00);
-}
-.menu_item_video .Round_btn{
-  background: linear-gradient(135deg, rgb(0, 85, 255),rgb(7, 153, 250));
+.menu_item:hover .Round_btn {
+  box-shadow: 0 0 10px -2px rgb(0 0 0 / 50%);
 }
 
-.menu_item_newsfeed .Round_btn::before{
-  background-image: url('../img/logo_white.svg');
+.menu_item_newsfeed .Round_btn {
+  background: linear-gradient(to right, #0575e6, #021b79);
 }
-.menu_item_message .Round_btn::before{
-  background-image: url('../img/message_icon.svg');
+.menu_item_message .Round_btn {
+  background: linear-gradient(to right, #e44d26, #f16529);
 }
-.menu_item_images .Round_btn::before{
-  background-image: url('../img/images_icon.svg');
+.menu_item_images .Round_btn {
+  background: linear-gradient(to right, #f2994a, #f2c94c);
 }
-.menu_item_music .Round_btn::before{
-  background-image: url('../img/music_icon.svg');
+.menu_item_music .Round_btn {
+  background: linear-gradient(to right, #ee0979, #ff6a00);
 }
-.menu_item_video .Round_btn::before{
-  background-image: url('../img/video_icon.svg');
+.menu_item_video .Round_btn {
+  background: linear-gradient(135deg, rgb(0, 85, 255), rgb(7, 153, 250));
 }
 
+.menu_item_newsfeed .Round_btn::before {
+  background-image: url("../img/logo_white.svg");
+}
+.menu_item_message .Round_btn::before {
+  background-image: url("../img/message_icon.svg");
+}
+.menu_item_images .Round_btn::before {
+  background-image: url("../img/images_icon.svg");
+}
+.menu_item_music .Round_btn::before {
+  background-image: url("../img/music_icon.svg");
+}
+.menu_item_video .Round_btn::before {
+  background-image: url("../img/video_icon.svg");
+}

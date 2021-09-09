@@ -64,12 +64,10 @@
 }
 
 .create_post_media_item.video {
-  background-image: url("../img/video_icon.svg");
   background: linear-gradient(135deg, rgb(0, 85, 255), rgb(7, 153, 250));
 }
 
 .create_post_media_item.audio {
-  background-image: url("../img/music_icon.svg");
   background: linear-gradient(to right, #ee0979, #ff6a00);
 }
 
