@@ -1,5 +1,5 @@
 .Post {
-  padding: 15px 15px 5px 15px;
+  padding: 15px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
   border-radius: 15px;
   margin-top: 15px;
@@ -37,10 +37,32 @@
 .post_grades ul {
   display: flex;
 }
-
 .post_grade {
-  width: 27px;
-  height: 27px;
-  margin: 8px;
-  border-radius: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.post_grade_likeCount {
+  font-size: 14px;
+  font-weight: 500;
+  color: #adb5bd;
+  margin-right: 8px;
+}
+.post_grade_commentCount {
+  font-size: 14px;
+  font-weight: 500;
+  color: #adb5bd;
+}
+.post_grade.share {
+  margin-left: auto;
+}
+
+.post_grade.like .Small_btn::before {
+  background-image: url("../img/like_border_icon.svg");
+}
+.post_grade.comment .Small_btn::before {
+  background-image: url("../img/comment_icon.svg");
+}
+.post_grade.share .Small_btn::before {
+  background-image: url("../img/share_icon.svg");
 }

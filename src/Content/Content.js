@@ -8,6 +8,7 @@ function Content() {
       <div className="main_content">
         <CreatePost/>
         <Post/>
+        <Post/>
       </div>
       <div className="other_content"></div>
     </div>

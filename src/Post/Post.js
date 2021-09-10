@@ -1,5 +1,6 @@
 import './Post.css';
 import avatar from '../img/avatar.jpg'
+import SmallBtn from '../Small_btn/Small_btn';
 
 function Post() {
   return (
@@ -21,17 +22,25 @@ function Post() {
         <ul>
           <li className="post_grade like">
             <a href="">
-              <div className="post_grade_image "></div>
+              <div className="post_grade_image ">
+                <SmallBtn/>
+              </div>
             </a>
+            <div className="post_grade_likeCount">1337</div>
           </li>
           <li className="post_grade comment">
             <a href="">
-              <div className="post_grade_image "></div>
+              <div className="post_grade_image ">
+                <SmallBtn/>
+              </div>
             </a>
+            <div className="post_grade_commentCount">77</div>
           </li>
           <li className="post_grade share">
             <a href="">
-              <div className="post_grade_image "></div>                        
+              <div className="post_grade_image ">
+                <SmallBtn/>
+              </div>                        
             </a>         
           </li>
         </ul>

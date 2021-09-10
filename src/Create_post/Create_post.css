@@ -52,39 +52,12 @@
   display: flex;
 }
 
-.create_post_media_item {
-  width: 27px;
-  height: 27px;
-  margin: 8px;
-  border-radius: 50%;
-}
-
-.create_post_media_item.photo {
-  background: linear-gradient(to right, #f2994a, #f2c94c);
-}
-
-.create_post_media_item.video {
-  background: linear-gradient(135deg, rgb(0, 85, 255), rgb(7, 153, 250));
-}
-
-.create_post_media_item.audio {
-  background: linear-gradient(to right, #ee0979, #ff6a00);
-}
-
-.create_post_image {
-  width: 27px;
-  height: 27px;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-}
-
-.create_post_image.photo {
+.create_post_image.photo .Small_btn::before {
   background-image: url("../img/image_icon.svg");
 }
-
-.create_post_image.video {
+.create_post_image.video .Small_btn::before {
   background-image: url("../img/video_icon.svg");
 }
-.create_post_image.audio {
+.create_post_image.audio .Small_btn::before {
   background-image: url("../img/music_icon.svg");
 }

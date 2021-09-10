@@ -1,6 +1,7 @@
 .Main {
   padding-top: 96px;
   margin-bottom: auto;
-  width:1200px;
+  max-width: 1200px;
+  min-width: 700px;
   margin: 0 auto auto auto;
 }

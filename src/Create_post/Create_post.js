@@ -1,6 +1,7 @@
 import './Create_post.css';
 import avatar from  '../img/avatar.jpg';
 import RoundBtn from '../Round_btn/Round_btn';
+import SmallBtn from '../Small_btn/Small_btn';
 
 
 function CreatePost() {
@@ -16,17 +17,23 @@ function CreatePost() {
         <ul className="create_post_media_list">
           <li className="create_post_media_item photo">
             <a href="">
-              <div className="create_post_image photo"></div>
+              <div className="create_post_image photo">
+              <SmallBtn />
+              </div>
             </a>
           </li>
           <li className="create_post_media_item video">
             <a href="">
-              <div className="create_post_image video"></div>
+              <div className="create_post_image video">
+              <SmallBtn />
+              </div>
             </a>
           </li>
           <li className="create_post_media_item audio">
             <a href="">
-              <div className="create_post_image audio"></div>
+              <div className="create_post_image audio">
+              <SmallBtn />
+              </div>
             </a>
           </li>
         </ul>
