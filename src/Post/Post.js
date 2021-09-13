@@ -2,7 +2,7 @@ import './Post.css';
 import avatar from '../img/avatar.jpg'
 import SmallBtn from '../Small_btn/Small_btn';
 
-function Post() {
+function Post(props) {
   return (
     <div className="Post">
       <div className="post_user_info">
@@ -26,7 +26,7 @@ function Post() {
                 <SmallBtn/>
               </div>
             </a>
-            <div className="post_grade_likeCount">1337</div>
+            <div className="post_grade_likeCount">{props.like}</div>
           </li>
           <li className="post_grade comment">
             <a href="">
