@@ -1,0 +1,43 @@
+.events {
+  width: 210px;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  padding: 15px;
+}
+.event_item {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 30px;
+}
+
+.events_description {
+  color: #adb5bd;
+  font-size: 14px;
+  padding-left: 10px;
+}
+
+.event_date {
+  background-color: #ffc0cb;
+  color: #ffffff;
+  padding: 12px;
+  margin-right: 4px;
+  border-radius: 15px;
+  font-size: 16px;
+  text-align: center;
+  line-height: 16px;
+}
+
+.event_date span {
+  display: block;
+  font-size: 28px;
+  line-height: 22px;
+}
+.event_head {
+  font-size: 12px;
+}
+.event_descr {
+  font-size: 11px;
+  font-weight: 500;
+  color: #adb5bd;
+}
