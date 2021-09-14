@@ -5,7 +5,7 @@ import RoundBtn from '../Round_btn/Round_btn';
 
 function Header() {
   return (
-    <header className="Header">
+    <header className="header">
       <div className="header_wrapper">
         <div className="header_logo">
           <a href="#index.html">

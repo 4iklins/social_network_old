@@ -1,7 +1,8 @@
-.Footer {
+.footer {
   height: 35px;
-  box-shadow: 0 1px 30px rgba(0,0,0,.05);
+  box-shadow: 0 1px 30px rgba(0, 0, 0, 0.05);
   text-align: center;
   font-size: 11px;
-  color:#FFC0CB;
+  color: #ffc0cb;
+  width: 100%;
 }

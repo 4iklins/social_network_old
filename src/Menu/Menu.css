@@ -1,4 +1,4 @@
-.Menu {
+.menu {
   width: 210px;
   border-radius: 15px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
@@ -6,18 +6,18 @@
   padding: 15px;
 }
 
-.Menu a {
+.menu a {
   display: flex;
   flex-wrap: wrap;
   color: #888;
   align-items: center;
 }
 
-.menu_item .Small_btn {
+.menu_item .small_btn {
   transition: all 0.5s;
 }
 
-.menu_item:hover .Small_btn {
+.menu_item:hover .small_btn {
   transition: all 0.5s;
   transform: scale(1.1);
 }
@@ -37,30 +37,30 @@
   background-color: #5f9ea0;
 }
 
-.Menu p {
+.menu p {
   position: relative;
   padding-left: 10px;
 }
 
-.menu_item:hover .Round_btn {
+.menu_item:hover .sound_btn {
   box-shadow: 0 0 10px -2px rgb(0 0 0 / 50%);
 }
 
-.menu_item_newsfeed .Small_btn::before {
+.menu_item_newsfeed .small_btn::before {
   background-image: url("../img/logo.svg");
 }
-.menu_item_message .Small_btn::before {
+.menu_item_message .small_btn::before {
   background-image: url("../img/message_icon.svg");
 }
-.menu_item_friends .Small_btn::before {
+.menu_item_friends .small_btn::before {
   background-image: url("../img/friend_icon.svg");
 }
-.menu_item_images .Small_btn::before {
+.menu_item_images .small_btn::before {
   background-image: url("../img/images_icon.svg");
 }
-.menu_item_music .Small_btn::before {
+.menu_item_music .small_btn::before {
   background-image: url("../img/music_icon.svg");
 }
-.menu_item_video .Small_btn::before {
+.menu_item_video .small_btn::before {
   background-image: url("../img/video_icon.svg");
 }

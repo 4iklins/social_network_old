@@ -4,7 +4,7 @@ import SmallBtn from '../Small_btn/Small_btn';
 
 function Post(props) {
   return (
-    <div className="Post">
+    <div className="post">
       <div className="post_user_info">
         <div className="post_user_avatar">
           <img src={avatar} alt="" />

@@ -4,7 +4,7 @@ import Sidebar from '../Sidebar/Sidebar';
 
 function Main() {
   return (
-    <div className="Main">
+    <div className="main">
       <Sidebar />
       <Content />
     </div>

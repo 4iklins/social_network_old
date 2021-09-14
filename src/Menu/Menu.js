@@ -4,7 +4,7 @@ import SmallBtn from '../Small_btn/Small_btn';
 
 function Menu() {
   return (
-    <div className="Menu">
+    <div className="menu">
       <div className="menu_description"></div>
       <ul className="menu_list">
         <li className="menu_item">

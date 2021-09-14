@@ -1,4 +1,4 @@
-.Header {
+.header {
   position: fixed;
   background-color: #ffffff;
   width: 100%;
@@ -8,7 +8,8 @@
 
 .header_wrapper {
   height: 96px;
-  width: 1200px;
+  width: 75%;
+  min-width: 800px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -35,12 +36,12 @@
   color: #ffc0cb;
 }
 
-.header_settings .Round_btn {
+.header_settings .round_btn {
   background-color: #f5f5f5;
   animation: setting_logo_spin infinite 10s linear;
 }
 
-.header_settings .Round_btn::before {
+.header_settings .round_btn::before {
   background-image: url("../img/settings_icon.svg");
 }
 
@@ -53,10 +54,10 @@
   }
 }
 
-.header_user .Round_btn {
+.header_user .round_btn {
   background-color: #f5f5f5;
 }
 
-.header_user .Round_btn::before {
+.header_user .round_btn::before {
   background-image: url("../img/user_icon.svg");
 }

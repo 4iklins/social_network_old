@@ -1,4 +1,4 @@
-.Small_btn {
+.small_btn {
   position: relative;
   width: 24px;
   height: 24px;
@@ -6,7 +6,7 @@
   cursor: pointer;
 }
 
-.Small_btn::before {
+.small_btn::before {
   position: absolute;
   content: "";
   width: 24px;

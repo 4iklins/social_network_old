@@ -2,7 +2,7 @@ import './Round_btn.css';
 
 function Round_btn() {
   return (
-    <div className="Round_btn">
+    <div className="round_btn">
 
     </div>
   );

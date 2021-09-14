@@ -1,6 +1,6 @@
-.Sidebar {
+.sidebar {
   position: fixed;
-  width: 230px;
+  width: 240px;
   padding: 15px;
   box-sizing: border-box;
 }

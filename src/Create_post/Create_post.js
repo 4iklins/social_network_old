@@ -44,8 +44,8 @@ function CreatePost() {
         <RoundBtn/>
       </div>
     </div>
-    {/* <Post like='1337'/>
-    <Post like='1990'/> */}
+    <Post like='1337'/>
+    <Post like='1990'/>
     </div>
   );
 }

@@ -1,3 +1,6 @@
+.create_post_wrapper {
+  width: 100%;
+}
 .create_post {
   display: flex;
   flex-wrap: wrap;
@@ -10,18 +13,25 @@
 .create_post_text {
   box-sizing: border-box;
   position: relative;
-  display: flex;
   width: 100%;
 }
 
 .create_post_text textarea {
-  flex-grow: 1;
+  width: 100%;
+  resize: vertical;
+  height: 45px;
+  min-height: 45px !important;
+  box-sizing: border-box;
   border-radius: 15px;
   border: 2px #f1f1f1 solid;
   padding: 13px 8px 8px 50px;
   font-family: "Open Sans", sans-serif;
   font-weight: 500;
   font-size: 12px;
+}
+
+.create_post_text textarea:focus-visible {
+  outline: none;
 }
 
 .create_post_user_avatar {
@@ -36,11 +46,11 @@
   border-radius: 50%;
 }
 
-.create_post_button .Round_btn {
+.create_post_button .round_btn {
   background-color: #ffc0cb;
 }
 
-.create_post_button .Round_btn::before {
+.create_post_button .round_btn::before {
   background-image: url("../img/send_icon.svg");
 }
 
@@ -52,12 +62,12 @@
   display: flex;
 }
 
-.create_post_image.photo .Small_btn::before {
+.create_post_image.photo .small_btn::before {
   background-image: url("../img/image_icon.svg");
 }
-.create_post_image.video .Small_btn::before {
+.create_post_image.video .small_btn::before {
   background-image: url("../img/video_icon.svg");
 }
-.create_post_image.audio .Small_btn::before {
+.create_post_image.audio .small_btn::before {
   background-image: url("../img/music_icon.svg");
 }

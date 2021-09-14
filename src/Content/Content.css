@@ -1,14 +1,17 @@
-.Content {
-  display: flex;
+.content {
+  display: grid;
+  grid-template-columns: 1fr 240px;
   padding: 15px;
-  padding-left: 245px;
+  padding-left: 240px;
 }
 
 .main_content {
   box-sizing: border-box;
+  /* max-width: 505px;
+  flex-grow: 1; */
 }
 .other_content {
-  width: 280px;
-  padding: 15px;
+  width: 240px;
+  padding: 0 15px;
   box-sizing: border-box;
 }
