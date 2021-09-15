@@ -1,6 +1,7 @@
 import './Header.css';
 import logo from '../img/logo.svg';
 import RoundBtn from '../Round_btn/Round_btn';
+import {NavLink} from 'react-router-dom';
 
 
 function Header() {
@@ -8,12 +9,12 @@ function Header() {
     <header className="header">
       <div className="header_wrapper">
         <div className="header_logo">
-          <a href="#index.html">
+          <NavLink to="/">
             <div className="header_logo_icon">
               <img src={logo} alt="" />
             </div>
             <div className="header_logo_name">Bor</div>
-          </a>
+          </NavLink>
         </div>
         <div className="header_menu">
           <div className="header_settings">

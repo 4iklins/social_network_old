@@ -1,5 +1,6 @@
 import './Menu.css';
 import SmallBtn from '../Small_btn/Small_btn';
+import {NavLink} from 'react-router-dom';
 
 
 function Menu() {
@@ -8,19 +9,19 @@ function Menu() {
       <div className="menu_description"></div>
       <ul className="menu_list">
         <li className="menu_item">
-          <a href="">
+          <NavLink  to="/newsfeed">
             <div className="menu_item_newsfeed">
               <SmallBtn />
             </div>
             <p>Newsfeed</p>
-          </a>
+          </NavLink>
         </li>
         <li className="menu_item">
-          <a href="">
+          <a href="/messages">
             <div className="menu_item_message">
               <SmallBtn />
             </div>
-            <p>Message</p>
+            <p>Messages</p>
           </a>
         </li>
         <li className="menu_item">
