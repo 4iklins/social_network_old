@@ -1,5 +1,5 @@
 .create_post_wrapper {
-  width: 100%;
+  min-width: 650px;
 }
 .create_post {
   display: flex;
