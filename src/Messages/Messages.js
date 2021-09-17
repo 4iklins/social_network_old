@@ -9,6 +9,7 @@ function Messages() {
     <div className="messages">
       <div className="dialogs">
         <p className="dialogs_description">Dialogs</p>
+        <div className="dialogs_wrapper">
         <ul className="dialogs_list">
           {users.map(item =>
           <li className="dialogs_item">
@@ -17,6 +18,8 @@ function Messages() {
           </li>
           )}
         </ul>
+        </div>
+
       </div>
       <div className="chat">
 

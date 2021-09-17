@@ -1,8 +1,9 @@
 .messages {
   display: flex;
+  padding: 15px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
   border-radius: 15px;
-  height: 83vh;
+  height: 80vh;
   min-width: 650px;
 }
 
@@ -12,10 +13,22 @@
   padding-left: 10px;
 }
 
+.dialogs_wrapper {
+  padding: 10px;
+  border-radius: 15px;
+  border: 2px solid #f1f1f1;
+}
+.dialogs_list {
+  height: 73vh;
+  overflow: auto;
+  scrollbar-width: thin;
+  border-radius: 15px;
+}
+
 .dialogs_item {
   display: flex;
   align-items: center;
-  margin: 15px;
+  margin: 15px 10px 15px 0;
 }
 .dialogs_item a {
   color: #888;
