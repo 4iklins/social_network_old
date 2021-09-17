@@ -1,4 +1,4 @@
-import './Menu.css';
+import './Menu.scss';
 import SmallBtn from '../Small_btn/Small_btn';
 import {NavLink} from 'react-router-dom';
 

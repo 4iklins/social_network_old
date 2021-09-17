@@ -1,4 +1,4 @@
-import './Sidebar.css';
+import './Sidebar.scss';
 import SidebarMenu from '../Menu/Menu';
 import Account from '../Account/Account';
 

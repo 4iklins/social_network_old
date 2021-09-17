@@ -1,4 +1,4 @@
-import './Content.css';
+import './Content.scss';
 import CreatePost from '../Create_post/Create_post';
 import Messages from '../Messages/Messages';
 import Events from '../Events/Events';

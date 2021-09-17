@@ -1,4 +1,4 @@
-import './Messages.css';
+import './Messages.scss';
 import Message from '../Message/Message';
 import users from '../data/user.json';
 import {NavLink} from 'react-router-dom'

@@ -1,4 +1,4 @@
-import './Header.css';
+import './Header.scss';
 import logo from '../img/logo.svg';
 import RoundBtn from '../Round_btn/Round_btn';
 import {NavLink} from 'react-router-dom';

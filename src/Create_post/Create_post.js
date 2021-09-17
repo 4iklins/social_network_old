@@ -1,4 +1,4 @@
-import './Create_post.css';
+import './Create_post.scss';
 import avatar from  '../img/avatar.jpg';
 import RoundBtn from '../Round_btn/Round_btn';
 import SmallBtn from '../Small_btn/Small_btn';

@@ -1,4 +1,4 @@
-import './Post.css';
+import './Post.scss';
 import avatar from '../img/avatar.jpg'
 import SmallBtn from '../Small_btn/Small_btn';
 

@@ -1,4 +1,4 @@
-import './Small_btn.css';
+import './Small_btn.scss';
 
 function Small_btn() {
   return (

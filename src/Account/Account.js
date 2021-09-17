@@ -1,4 +1,4 @@
-import './Account.css';
+import './Account.scss';
 import SmallBtn from '../Small_btn/Small_btn';
 
 function Account() {

@@ -1,7 +1,7 @@
 import Header from './Header/Header';
 import Main from './Main/Main';
 import Footer from './Footer/Footer';
-import './App.css';
+import './App.scss';
 import {BrowserRouter} from 'react-router-dom';
 
 function App() {
