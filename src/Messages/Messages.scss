@@ -1,9 +1,11 @@
+@import "../variables.scss";
+
 .messages {
   display: flex;
   padding: 15px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
   border-radius: 15px;
-  height: 80vh;
+  height: calc(100vh - 195px);
   min-width: 650px;
 }
 
@@ -11,6 +13,7 @@
   color: #adb5bd;
   font-size: 14px;
   padding-left: 10px;
+  line-height: 20px;
 }
 
 .dialogs_wrapper {
@@ -19,10 +22,11 @@
   border: 2px solid #f1f1f1;
 }
 .dialogs_list {
-  height: 73vh;
+  height: calc(100vh - 265px);
   overflow: auto;
   scrollbar-width: thin;
   border-radius: 15px;
+  box-sizing: border-box;
 }
 
 .dialogs_item {
@@ -41,7 +45,29 @@
   border-radius: 50%;
   background-color: #ffc0cb;
 }
+.user_without_avatar {
+  margin: 0;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: $pink;
+  color: $white;
+  text-align: center;
+  line-height: 45px;
+}
 
-.chat {
+.chat_wrapper {
+  margin-top: 48px;
+  margin-left: 10px;
   flex-grow: 1;
+  border: 2px solid #f1f1f1;
+  border-radius: 15px;
+}
+.chat {
+  display: flex;
+  flex-direction: column-reverse;
+  flex-grow: 1;
+  height: 100%;
+}
+.chat_message_input {
 }

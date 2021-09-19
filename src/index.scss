@@ -24,7 +24,8 @@ body {
   scrollbar-width: thin;
 }
 ::-webkit-scrollbar {
-  width: 5px; /* ширина для вертикального скролла */
+  width: 5px;
+  height: 5px; /* ширина для вертикального скролла */
   border-radius: 5px;
   background-color: #f1f1f1;
 }
