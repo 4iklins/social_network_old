@@ -1,8 +1,10 @@
+@import "../variables.scss";
+
 .footer {
   height: 5%;
   box-shadow: 0 1px 30px rgba(0, 0, 0, 0.05);
   text-align: center;
   font-size: 11px;
-  color: #ffc0cb;
+  color: $pink;
   width: 100%;
 }

@@ -8,7 +8,7 @@
   flex-wrap: wrap;
   align-items: center;
   padding: 15px 15px 2px 15px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  box-shadow: $block-shadow;
   border-radius: 15px;
 }
 
@@ -25,7 +25,7 @@
   min-height: 45px !important;
   box-sizing: border-box;
   border-radius: 15px;
-  border: 2px #f1f1f1 solid;
+  border: $boeder-gray;
   padding: 13px 8px 8px 50px;
   font-family: "Open Sans", sans-serif;
   font-weight: 500;

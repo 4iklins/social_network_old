@@ -1,6 +1,8 @@
+@import "../variables.scss";
+
 .header {
   position: fixed;
-  background-color: #ffffff;
+  background-color: $white;
   width: 100%;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.03);
   z-index: 10;
@@ -33,7 +35,7 @@
 .header_logo_name {
   font-family: "Fredoka One", cursive;
   font-size: 36px;
-  color: #ffc0cb;
+  color: $pink;
 }
 
 .header_settings .round_btn {

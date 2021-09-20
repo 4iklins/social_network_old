@@ -1,7 +1,9 @@
+@import "../variables.scss";
+
 .account {
   width: 210px;
   border-radius: 15px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  box-shadow: $block-shadow;
   box-sizing: border-box;
   padding: 15px;
 }
@@ -9,7 +11,7 @@
 .account a {
   display: flex;
   flex-wrap: wrap;
-  color: #888;
+  color: $font-color;
   align-items: center;
 }
 
@@ -34,7 +36,7 @@
 
 .account_item:hover p {
   transition: all 0.5s;
-  color: #ffc0cb;
+  color: $pink;
 }
 
 .account_item:hover .sound_btn {

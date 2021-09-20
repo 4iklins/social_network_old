@@ -1,6 +1,7 @@
 import './Messages.scss';
 import Message from '../Message/Message';
 import users from '../data/user.json';
+import SmallBtn from '../Small_btn/Small_btn';
 import {NavLink} from 'react-router-dom';
 
 let Avatar = (item) => {
@@ -35,12 +36,20 @@ function Messages() {
       </div>
       <div className="chat_wrapper">
         <div className="chat">
+          <div className="chat_content">
+
+          </div>
           <div className="chat_message_input">
             <input type="text" />
             <div className="chat_buttons">
               <button className="chat_send"></button>
             </div>
           </div>
+          <div className="chat_media_buttons">
+              <SmallBtn/>
+              <SmallBtn/>
+              <SmallBtn/>
+            </div>
         </div>
       </div>
     </div>
