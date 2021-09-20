@@ -37,18 +37,30 @@ function Messages() {
       <div className="chat_wrapper">
         <div className="chat">
           <div className="chat_content">
-
+            <Message avatar=""/>
           </div>
           <div className="chat_message_input">
-            <input type="text" />
+            <textarea name="" id=""></textarea>
             <div className="chat_buttons">
               <button className="chat_send"></button>
             </div>
           </div>
           <div className="chat_media_buttons">
-              <SmallBtn/>
-              <SmallBtn/>
-              <SmallBtn/>
+          <a href="">
+              <div className="chat_media_button photo">
+              <SmallBtn />
+              </div>
+            </a>
+            <a href="">
+              <div className="chat_media_button video">
+              <SmallBtn />
+              </div>
+            </a>
+            <a href="">
+              <div className="chat_media_button audio">
+              <SmallBtn />
+              </div>
+            </a>
             </div>
         </div>
       </div>

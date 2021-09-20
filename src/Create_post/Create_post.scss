@@ -25,11 +25,12 @@
   min-height: 45px !important;
   box-sizing: border-box;
   border-radius: 15px;
-  border: $boeder-gray;
+  border: $border-gray;
   padding: 13px 8px 8px 50px;
   font-family: "Open Sans", sans-serif;
   font-weight: 500;
   font-size: 12px;
+  color: $font-color;
 }
 
 .create_post_text textarea:focus-visible {
