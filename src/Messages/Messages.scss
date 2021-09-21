@@ -22,6 +22,7 @@
   border: $border-gray;
 }
 .dialogs_list {
+  min-width: 190px;
   height: calc(100vh - 265px);
   overflow: auto;
   scrollbar-width: thin;
@@ -35,13 +36,39 @@
   margin: 15px 10px 15px 0;
 }
 .dialog_name.active {
-  border: $border-gray;
+  position: relative;
+  // border-bottom: 1px solid $green;
+  &::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: $green;
+    bottom: 0;
+    left: 0;
+    opacity: 1;
+    transition: all ease-in-out 0.5s;
+  }
+}
+.dialog_name {
+  transition: all ease-in-out 0.5s;
+  &::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: $green;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    transition: all ease-in-out 0.5s;
+  }
 }
 
 .dialogs_item a {
   color: $font-color;
   margin-left: 5px;
-  flex-grow: 1;
+  font-size: 14px;
 }
 
 .dialogs_item img {
@@ -72,11 +99,6 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-}
-
-.chat_content {
-  height: calc(100vh - 330px);
-  overflow: auto;
 }
 
 .chat_message_input {
@@ -133,4 +155,20 @@
 }
 .chat_media_button.audio .small_btn::before {
   background-image: url("../img/music_icon.svg");
+}
+.chat_content_wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  height: calc(100vh - 330px);
+  overflow-y: auto;
+  overflow-x: clip;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.chat_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  box-sizing: border-box;
 }

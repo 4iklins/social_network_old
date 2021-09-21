@@ -17,12 +17,12 @@ function Menu() {
           </NavLink>
         </li>
         <li className="menu_item">
-          <a href="/messages">
+          <NavLink to="/messages">
             <div className="menu_item_message">
               <SmallBtn />
             </div>
             <p>Messages</p>
-          </a>
+          </NavLink>
         </li>
         <li className="menu_item">
           <a href="">
