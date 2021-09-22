@@ -6,14 +6,14 @@ import {NavLink} from 'react-router-dom';
 import avatar from '../img/avatar.jpg';
 
 let Avatar = (item) => {
-  console.log(item.obj.avatar)
-  let name = item.obj.name;
+  console.log(item)
+  let name = item.user.name;
   let out = '';
   name.split(' ').map((word) =>
     out += word[0].toUpperCase()
     )
-  if(item.obj.avatar !== ""){
-    return <img src={item.obj.avatar} alt="" />
+  if(item.user.avatar !== ""){
+    return <img src={item.user.avatar} alt="" />
     }
   else return <p className="user_without_avatar">{out}</p>
 };
@@ -27,8 +27,8 @@ function Messages() {
         <div className="dialogs_wrapper">
         <ul className="dialogs_list">
           {users.map(item =>
-          <li className="dialogs_item">
-            <Avatar obj={item}/>
+          <li className="dialogs_item" >
+            <Avatar user={item}/>
             <NavLink to={`/messages/id${item.id}`} className="dialog_name">{item.name}</NavLink>
           </li>
           )}
