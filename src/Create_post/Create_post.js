@@ -1,7 +1,7 @@
 import './Create_post.scss';
 import avatar from  '../img/avatar.jpg';
-import RoundBtn from '../Round_btn/Round_btn';
-import SmallBtn from '../Small_btn/Small_btn';
+import RoundBtn from '../RoundBtn/RoundBtn';
+import MediaButton from '../MediaButton/MediaButton';
 import Post from '../Post/Post';
 
 
@@ -16,29 +16,9 @@ function CreatePost() {
         <textarea name="post_text" id="" rows="5" placeholder="What's on your mind?"></textarea>
       </div>
       <div className="create_post_media">
-        <ul className="create_post_media_list">
-          <li className="create_post_media_item photo">
-            <a href="">
-              <div className="create_post_image photo">
-              <SmallBtn />
-              </div>
-            </a>
-          </li>
-          <li className="create_post_media_item video">
-            <a href="">
-              <div className="create_post_image video">
-              <SmallBtn />
-              </div>
-            </a>
-          </li>
-          <li className="create_post_media_item audio">
-            <a href="">
-              <div className="create_post_image audio">
-              <SmallBtn />
-              </div>
-            </a>
-          </li>
-        </ul>
+        <MediaButton icon="image"/>
+        <MediaButton icon="video"/>
+        <MediaButton icon="audio"/>
       </div>
       <div className="create_post_button">
         <RoundBtn/>

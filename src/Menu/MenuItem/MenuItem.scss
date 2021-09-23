@@ -1,0 +1,73 @@
+@import "../../variables.scss";
+
+.menu_item {
+  a {
+    display: flex;
+    flex-wrap: wrap;
+    color: $font-color;
+    align-items: center;
+  }
+}
+
+.menu_item {
+  .small_icon {
+    transition: all 0.5s;
+  }
+}
+
+.menu_item:hover {
+  .small_icon {
+    transition: all 0.5s;
+    transform: scale(1.1);
+  }
+}
+
+.menu_item:hover {
+  p {
+    color: $pink;
+    transition: all 0.5s;
+  }
+}
+
+.menu_item {
+  p {
+    text-transform: capitalize;
+    position: relative;
+    padding-left: 10px;
+    transition: all 0.5s;
+  }
+}
+
+.menu_item .active {
+  color: $green;
+}
+
+.menu_item_newsfeed {
+  .small_icon {
+    &::before {
+      background-image: url("../../img/logo.svg");
+    }
+  }
+}
+.menu_item_messages .small_icon::before {
+  background-image: url("../../img/message_icon.svg");
+}
+.menu_item_friends .small_icon::before {
+  background-image: url("../../img/friend_icon.svg");
+}
+.menu_item_images .small_icon::before {
+  background-image: url("../../img/images_icon.svg");
+}
+.menu_item_music .small_icon::before {
+  background-image: url("../../img/music_icon.svg");
+}
+.menu_item_video .small_icon::before {
+  background-image: url("../../img/video_icon.svg");
+}
+
+.menu_item_settings .small_icon::before {
+  background-image: url("../../img/settings_icon.svg");
+}
+.menu_item_analytics .small_icon::before {
+  background-image: url("../../img/analytics_icon.svg");
+}

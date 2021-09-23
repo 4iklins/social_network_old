@@ -1,6 +1,6 @@
 import './Post.scss';
 import avatar from '../img/avatar.jpg'
-import SmallBtn from '../Small_btn/Small_btn';
+import MediaButton from '../MediaButton/MediaButton';
 
 function Post(props) {
   return (
@@ -19,31 +19,17 @@ function Post(props) {
       </div>
       <div className="post_media"></div>
       <div className="post_grades">
-        <ul>
-          <li className="post_grade like">
-            <a href="">
-              <div className="post_grade_image ">
-                <SmallBtn/>
-              </div>
-            </a>
-            <div className="post_grade_likeCount">{props.like}</div>
-          </li>
-          <li className="post_grade comment">
-            <a href="">
-              <div className="post_grade_image ">
-                <SmallBtn/>
-              </div>
-            </a>
-            <div className="post_grade_commentCount">77</div>
-          </li>
-          <li className="post_grade share">
-            <a href="">
-              <div className="post_grade_image ">
-                <SmallBtn/>
-              </div>                        
-            </a>         
-          </li>
-        </ul>
+      <div className="post_grade like">
+        <MediaButton icon="like"/>
+        <div className="post_grade_likeCount">{props.like}</div>
+      </div>
+      <div className="post_grade comment">
+        <MediaButton icon="comment"/>
+        <div className="post_grade_commentCount">{props.like}</div>
+      </div>
+      <div className="post_grade share">
+        <MediaButton icon="share"/>
+      </div>
       </div>
     </div>
   );

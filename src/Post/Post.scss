@@ -37,7 +37,7 @@
   color: #adb5bd;
 }
 
-.post_grades ul {
+.post_grades {
   display: flex;
 }
 .post_grade {
@@ -58,14 +58,4 @@
 }
 .post_grade.share {
   margin-left: auto;
-}
-
-.post_grade.like .small_btn::before {
-  background-image: url("../img/like_border_icon.svg");
-}
-.post_grade.comment .small_btn::before {
-  background-image: url("../img/comment_icon.svg");
-}
-.post_grade.share .small_btn::before {
-  background-image: url("../img/share_icon.svg");
 }

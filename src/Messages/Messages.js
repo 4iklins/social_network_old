@@ -1,23 +1,9 @@
 import './Messages.scss';
 import Message from '../Message/Message';
 import users from '../data/user.json';
-import SmallBtn from '../Small_btn/Small_btn';
-import {NavLink} from 'react-router-dom';
+import MediaButton from '../MediaButton/MediaButton';
+import DialogsList from '../DialogsList/DialogsList';
 import avatar from '../img/avatar.jpg';
-
-let Avatar = (item) => {
-  console.log(item)
-  let name = item.user.name;
-  let out = '';
-  name.split(' ').map((word) =>
-    out += word[0].toUpperCase()
-    )
-  if(item.user.avatar !== ""){
-    return <img src={item.user.avatar} alt="" />
-    }
-  else return <p className="user_without_avatar">{out}</p>
-};
-
 
 function Messages() {
   return (
@@ -25,14 +11,7 @@ function Messages() {
       <div className="dialogs">
         <p className="dialogs_description">Dialogs</p>
         <div className="dialogs_wrapper">
-        <ul className="dialogs_list">
-          {users.map(item =>
-          <li className="dialogs_item" >
-            <Avatar user={item}/>
-            <NavLink to={`/messages/id${item.id}`} className="dialog_name">{item.name}</NavLink>
-          </li>
-          )}
-        </ul>
+        <DialogsList users={users}/>
         </div>
       </div>
       <div className="chat_wrapper">
@@ -53,7 +32,6 @@ function Messages() {
             text="Ну и зря)"
             date={new Date(2021, 8, 21, 16, 40, 13)}/>
             
-            
           </div>
           </div>
           <div className="chat_message_input">
@@ -63,21 +41,9 @@ function Messages() {
             </div>
           </div>
           <div className="chat_media_buttons">
-          <a href="">
-              <div className="chat_media_button photo">
-              <SmallBtn />
-              </div>
-            </a>
-            <a href="">
-              <div className="chat_media_button video">
-              <SmallBtn />
-              </div>
-            </a>
-            <a href="">
-              <div className="chat_media_button audio">
-              <SmallBtn />
-              </div>
-            </a>
+            <MediaButton icon="image"/>
+            <MediaButton icon="video"/>
+            <MediaButton icon="audio"/>
             </div>
         </div>
       </div>

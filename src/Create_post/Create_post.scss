@@ -60,17 +60,3 @@
 .create_post_media {
   margin-left: auto;
 }
-
-.create_post_media_list {
-  display: flex;
-}
-
-.create_post_image.photo .small_btn::before {
-  background-image: url("../img/image_icon.svg");
-}
-.create_post_image.video .small_btn::before {
-  background-image: url("../img/video_icon.svg");
-}
-.create_post_image.audio .small_btn::before {
-  background-image: url("../img/music_icon.svg");
-}

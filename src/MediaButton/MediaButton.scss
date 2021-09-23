@@ -1,0 +1,32 @@
+@import "../variables.scss";
+
+.media_button.image .small_icon {
+  background-image: url("../img/image_icon.svg");
+}
+.media_button.video .small_icon {
+  background-image: url("../img/video_icon.svg");
+}
+.media_button.audio .small_icon {
+  background-image: url("../img/music_icon.svg");
+}
+.media_button.like .small_icon {
+  background-image: url("../img/like_border_icon.svg");
+}
+.media_button.comment .small_icon {
+  background-image: url("../img/comment_icon.svg");
+}
+.media_button.share .small_icon {
+  background-image: url("../img/share_icon.svg");
+}
+
+.media_button {
+  border: none;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  background-color: $white;
+}
+
+.media_button:hover .small_icon {
+  transform: scale(1.1);
+}
