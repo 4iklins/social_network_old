@@ -4,11 +4,11 @@ import Messages from '../Messages/Messages';
 import Events from '../Events/Events';
 import {Route} from 'react-router-dom';
 
-function Content() {
+function Content(props) {
   return (
     <div className="content">
       <div className="main_content">
-        <Route path='/newsfeed' component={CreatePost}/>
+        <Route path='/newsfeed' render={ () => <CreatePost postsData={props.postsData}/>}/>
         <Route path='/messages' component={Messages}/>
       </div>
       <div className="other_content">

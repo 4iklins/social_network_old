@@ -5,7 +5,7 @@ import MediaButton from '../MediaButton/MediaButton';
 import Post from '../Post/Post';
 
 
-function CreatePost() {
+function CreatePost(props) {
   return (
     <div className="create_post_wrapper">
     <div className="create_post">
@@ -24,8 +24,9 @@ function CreatePost() {
         <RoundBtn/>
       </div>
     </div>
-    <Post like='1337'/>
-    <Post like='1990'/>
+      {props.postsData.map(post => {
+        return <Post postData={post}/>
+      })}
     </div>
   );
 }

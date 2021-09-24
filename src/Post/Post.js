@@ -3,6 +3,7 @@ import avatar from '../img/avatar.jpg'
 import MediaButton from '../MediaButton/MediaButton';
 
 function Post(props) {
+  console.log(props)
   return (
     <div className="post">
       <div className="post_user_info">
@@ -15,17 +16,17 @@ function Post(props) {
         </div>
       </div>
       <div className="post_text">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis quis dolores quidem eum voluptates eaque, optio, cum alias deserunt esse voluptatibus totam unde consequatur, quos assumenda. Dolorem unde minima non?
+        {props.postData.text}
       </div>
       <div className="post_media"></div>
       <div className="post_grades">
       <div className="post_grade like">
         <MediaButton icon="like"/>
-        <div className="post_grade_likeCount">{props.like}</div>
+        <div className="post_grade_likeCount">{props.postData.likes}</div>
       </div>
       <div className="post_grade comment">
         <MediaButton icon="comment"/>
-        <div className="post_grade_commentCount">{props.like}</div>
+        <div className="post_grade_commentCount">{props.postData.comments}</div>
       </div>
       <div className="post_grade share">
         <MediaButton icon="share"/>
