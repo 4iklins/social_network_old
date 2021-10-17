@@ -6,6 +6,7 @@ import Post from '../Post/Post';
 
 
 function CreatePost(props) {
+  debugger
   return (
     <div className="create_post_wrapper">
     <div className="create_post">
@@ -24,7 +25,7 @@ function CreatePost(props) {
         <RoundBtn/>
       </div>
     </div>
-      {props.postsData.map(post => {
+      {props.posts.map(post => {
         return <Post postData={post}/>
       })}
     </div>

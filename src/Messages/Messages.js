@@ -1,55 +1,21 @@
 import './Messages.scss';
 import Message from '../Message/Message';
-import users from '../data/user.json';
-import MediaButton from '../MediaButton/MediaButton';
-import DialogsList from '../DialogsList/DialogsList';
 import avatar from '../img/avatar.jpg';
 
-function Messages() {
+function Messages ({id, state}) {
+  let avatar ="";
+  console.log(id);
   return (
-    <div className="messages">
-      <div className="dialogs">
-        <p className="dialogs_description">Dialogs</p>
-        <div className="dialogs_wrapper">
-        <DialogsList users={users}/>
-        </div>
-      </div>
-      <div className="chat_wrapper">
-        <div className="chat">
-          <div className="chat_content_wrapper">
-          <div className="chat_content">
-
-            <Message avatar="https://sun9-53.userapi.com/impf/c841421/v841421591/2b031/vffpFG3wGhc.jpg?size=1168x1172&quality=96&sign=2b0eb245091cfc23d4b5b38dd8ca77b4&type=album"
-            text="Ну шо ты?)"
-            date={new Date(2021, 8, 21, 13, 40, 13)}/>
-
-            <Message avatar={avatar}
-            text="А нишо)"
-            date={new Date(2021, 8, 21, 15, 40, 13)}
-            isMe={true}/>
-
-            <Message avatar="https://sun9-53.userapi.com/impf/c841421/v841421591/2b031/vffpFG3wGhc.jpg?size=1168x1172&quality=96&sign=2b0eb245091cfc23d4b5b38dd8ca77b4&type=album"
-            text="Ну и зря)"
-            date={new Date(2021, 8, 21, 16, 40, 13)}/>
-            
-          </div>
-          </div>
-          <div className="chat_message_input">
-            <textarea name="" id=""></textarea>
-            <div className="chat_buttons">
-              <button className="chat_send"></button>
-            </div>
-          </div>
-          <div className="chat_media_buttons">
-            <MediaButton icon="image"/>
-            <MediaButton icon="video"/>
-            <MediaButton icon="audio"/>
-            </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-
+    state.dialogs[id].messages.map(message => {
+      if(message.isMe === true){
+        avatar = '/static/media/avatar.38c7a0b0.jpg';
+      } else {
+        avatar = state.users[id].avatar
+      }
+      return(
+        <Message avatar = {avatar} text={message.message} date={message.date} isMe={message.isMe}/>
+      )
+    })
+  )
+}
 export default Messages

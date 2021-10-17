@@ -6,7 +6,7 @@ function Main(props) {
   return (
     <div className="main">
       <Sidebar />
-      <Content postsData={props.postsData}/>
+      <Content state={props.state}/>
     </div>
   );
 }

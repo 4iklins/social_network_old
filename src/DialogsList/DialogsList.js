@@ -2,7 +2,6 @@ import './DialogsList.scss';
 import {NavLink} from 'react-router-dom';
 
 let Avatar = (item) => {
-  console.log(item)
   let name = item.user.name;
   let out = '';
   name.split(' ').map((word) =>
