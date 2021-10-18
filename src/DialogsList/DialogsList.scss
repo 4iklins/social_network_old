@@ -33,6 +33,7 @@
 .dialog_name {
   transition: all ease-in-out 0.5s;
   position: relative;
+  cursor: pointer;
   &::after {
     position: absolute;
     content: "";

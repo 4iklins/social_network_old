@@ -2,10 +2,10 @@ import './Dialogs.scss';
 import Messages from '../Messages/Messages';
 import MediaButton from '../MediaButton/MediaButton';
 import DialogsList from '../DialogsList/DialogsList';
+import MessageInput from '../MessageInput/MessageInput';
 import {Route} from 'react-router-dom';
 
 function Dialogs(props) {
-  debugger
   return (
     <div className="dialogs_box">
       <div className="dialogs">
@@ -17,23 +17,13 @@ function Dialogs(props) {
       <div className="chat_wrapper">
         <div className="chat">
           <div className="chat_content_wrapper">
-          <div className="chat_content">
+            <div className="chat_content">
             {props.state.users.map(user => 
-              <Route path = {`/messages/id${user.id}`} render={ () => <Messages id={user.id} state={props.state} />}/>
+              <Route path = {`/messages/dialog/id${user.id}`} render={ () => <Messages id={user.id} state={props.state} />}/>
               )}
-          </div>
-          </div>
-          <div className="chat_message_input">
-            <textarea name="" id=""></textarea>
-            <div className="chat_buttons">
-              <button className="chat_send"></button>
             </div>
           </div>
-          <div className="chat_media_buttons">
-            <MediaButton icon="image"/>
-            <MediaButton icon="video"/>
-            <MediaButton icon="audio"/>
-            </div>
+          <Route path ="/messages/dialog" component={MessageInput}/>
         </div>
       </div>
     </div>

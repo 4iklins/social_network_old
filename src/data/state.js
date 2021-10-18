@@ -1,4 +1,10 @@
+
+
 let state = {
+  me:{
+    avatar: '/static/media/avatar.38c7a0b0.jpg'
+  },
+
   users:[  {
     id: 0,
     name: "Andrei Bakinovskiy",
@@ -51,49 +57,41 @@ let state = {
       { 
         isMe: false,
         message:"Yo man!",
-        date: new Date(2021, 8, 21, 13, 40, 13)
+        date: new Date(2021, 9, 16, 13, 40, 13)
       },
       {
         isMe: true,
         message: "Otherside ",
-        date: new Date(2021, 8, 21, 13, 40, 13)
+        date: new Date(2021, 9, 17, 13, 40, 13)
       }
     ]
   },
   {
     id: "2",
-    messages:[
-      { 
-        isMe: false,
-        message:"",
-        date: new Date(2021, 8, 21, 13, 40, 13)
-      },
-      { 
-        isMe: true,
-        message: "",
-        date: new Date(2021, 8, 21, 13, 40, 13)
-      }
-    ]
+    messages:[]
   },
   {
     id: "3",
     messages:[
-      { isMe: false,
+      { 
+        isMe: false,
         message:"Yo man!",
+        date: new Date(2021, 8, 21, 15, 40, 13)
       },
-      {isMe: true,
-      message: "Yo Flea"}
+      {
+        isMe: true,
+        message: "Yo Flea!",
+        date: new Date(2021, 8, 21, 16, 44, 13)
+      }
     ]
   },
   {
     id: "4",
-    messages:[
-      { isMe: false,
-        message:"",
-      },
-      {isMe: true,
-      message: ""}
-    ]
+    messages:[]
+  },
+  {
+    id: "5",
+    messages:[],
   }
   ],
 
