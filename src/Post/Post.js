@@ -3,7 +3,6 @@ import avatar from '../img/avatar.jpg'
 import MediaButton from '../MediaButton/MediaButton';
 
 function Post(props) {
-  console.log(props)
   return (
     <div className="post">
       <div className="post_user_info">
