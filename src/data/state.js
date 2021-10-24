@@ -96,17 +96,41 @@ let state = {
   ],
 
   posts:[
-    {
+    { 
+      id:1,
       text:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis quis dolores quidem eum voluptates eaque, optio, cum alias deserunt esse voluptatibus totam unde consequatur, quos assumenda. Dolorem unde minima non?",
       likes:1337,
       comments:10
     },
-    {
+    { 
+      id:0,
       text:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis quis dolores quidem eum voluptates eaque, optio.",
       likes:1303,
       comments:15
     }
-  ]
+  ],
+  newPostText:''
+}
+let rerenderEntireTree;
+
+export const newPost = () => {
+  let post = {};
+  post.id = state.posts.length;
+  post.text = state.newPostText;
+  post.likes = 0;
+  post.comment = 0;
+  state.posts.unshift(post);
+  state.newPostText = '';
+  rerenderEntireTree(state);
+}
+
+export const updateEnteredPostText = (text) => {
+  state.newPostText = text;
+  rerenderEntireTree(state);
+}
+
+export const subscribe = (observer) => {
+  rerenderEntireTree = observer
 }
 
 export default state;

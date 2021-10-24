@@ -6,7 +6,7 @@ function Main(props) {
   return (
     <div className="main">
       <Sidebar />
-      <Content state={props.state}/>
+      <Content state={props.state} newPost={props.newPost} updateEnteredPostText={props.updateEnteredPostText}/>
     </div>
   );
 }

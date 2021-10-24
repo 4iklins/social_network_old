@@ -1,17 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import './index.scss';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import state from './data/state.js'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import {newPost, updateEnteredPostText, subscribe} from './data/state.js'
 
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App state={state}/>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+function rerenderEntireTree(state){
+  console.log(state)
+  ReactDOM.render(
+    <React.StrictMode>
+      <App state={state} newPost={newPost} updateEnteredPostText={updateEnteredPostText}/>
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
+}
+
+rerenderEntireTree(state);
+subscribe(rerenderEntireTree)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
