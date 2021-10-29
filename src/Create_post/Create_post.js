@@ -14,6 +14,7 @@ function CreatePost(props) {
   }
 
   let onEnteredTextChange = () => {
+    debugger
     let text = newPostElement.current.value;
     props.updateEnteredPostText(text)
   }

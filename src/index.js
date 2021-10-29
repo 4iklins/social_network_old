@@ -1,24 +1,23 @@
 import './index.scss';
 import reportWebVitals from './reportWebVitals';
-import state from './data/state.js'
+import store from './data/state.js'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import {newPost, updateEnteredPostText, subscribe} from './data/state.js'
 
 
 function rerenderEntireTree(state){
   console.log(state)
   ReactDOM.render(
     <React.StrictMode>
-      <App state={state} newPost={newPost} updateEnteredPostText={updateEnteredPostText}/>
+      <App state={state} newPost={store.newPost.bind(store)} updateEnteredPostText={store.updateEnteredPostText.bind(store)}/>
     </React.StrictMode>,
     document.getElementById('root')
   );
 }
 
-rerenderEntireTree(state);
-subscribe(rerenderEntireTree)
+rerenderEntireTree(store.getState());
+store.subscribe(rerenderEntireTree)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
