@@ -9,7 +9,7 @@ function App(props) {
     <BrowserRouter>
     <div className="App">
       <Header />
-      <Main state={props.state} newPost={props.newPost} updateEnteredPostText={props.updateEnteredPostText}/>
+      <Main state={props.state} dispatch={props.dispatch}/>
       <Footer />
     </div>
     </BrowserRouter>

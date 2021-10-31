@@ -4,19 +4,20 @@ import avatar from  '../img/avatar.jpg';
 import RoundBtn from '../RoundBtn/RoundBtn';
 import MediaButton from '../MediaButton/MediaButton';
 import Post from '../Post/Post';
+import {addPostActionCreator, updateEnteredPostTextActionCreator} from '../data/state.js'
 
 
 function CreatePost(props) {
   let newPostElement = React.createRef();
 
   let addPost = () => {
-    props.newPost();
+    props.dispatch(addPostActionCreator());
   }
 
   let onEnteredTextChange = () => {
     debugger
     let text = newPostElement.current.value;
-    props.updateEnteredPostText(text)
+    props.dispatch(updateEnteredPostTextActionCreator(text))
   }
   
 

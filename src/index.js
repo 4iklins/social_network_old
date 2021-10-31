@@ -10,7 +10,7 @@ function rerenderEntireTree(state){
   console.log(state)
   ReactDOM.render(
     <React.StrictMode>
-      <App state={state} newPost={store.newPost.bind(store)} updateEnteredPostText={store.updateEnteredPostText.bind(store)}/>
+      <App state={state} dispatch={store.dispatch.bind(store)}/>
     </React.StrictMode>,
     document.getElementById('root')
   );
