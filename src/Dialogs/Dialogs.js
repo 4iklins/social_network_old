@@ -1,11 +1,11 @@
 import './Dialogs.scss';
 import Messages from '../Messages/Messages';
-import MediaButton from '../MediaButton/MediaButton';
 import DialogsList from '../DialogsList/DialogsList';
 import MessageInput from '../MessageInput/MessageInput';
 import {Route} from 'react-router-dom';
 
 function Dialogs(props) {
+
   return (
     <div className="dialogs_box">
       <div className="dialogs">

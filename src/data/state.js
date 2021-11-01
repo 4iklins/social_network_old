@@ -120,6 +120,7 @@ let store = {
       },
     ],
     newPostText: "",
+    newMessageText:""
   },
 
   _callSubscriber() {},
@@ -135,8 +136,22 @@ let store = {
     this._callSubscriber(this._state);
   },
 
+  _newMessage() {
+    let message = {}
+    message.isMe = true;
+    message.message = this._state.newMessageText;
+    message.date = new Date();
+    this._state.dialogs[]
+
+  },
+
   _updateEnteredPostText(text) {
     this._state.newPostText = text;
+    this._callSubscriber(this._state);
+  },
+
+  _updateEnteredMessageText(text){
+    this._state.newMessageText = text;
     this._callSubscriber(this._state);
   },
 
