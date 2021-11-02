@@ -8,7 +8,7 @@ function Messages ({id, state, dispatch}) {
   let dialogChoose = (id) => {
     dispatch(chooseDialogActionCreator(id));
   }
-  // dialogChoose(id)
+  dialogChoose(id);
   if(state.dialogs[id].messages.length !== 0){
     return (
       state.dialogs[id].messages.map(message => {

@@ -163,7 +163,6 @@ let store = {
 
   _chooseDialog(id) {
     this._state.currentDialog = id;
-    this._callSubscriber(this._state);
   },
 
   getState() {
