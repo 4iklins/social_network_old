@@ -1,8 +1,14 @@
 import './Messages.scss';
 import Message from '../Message/Message';
+import {chooseDialogActionCreator} from '../data/state.js';
 
-function Messages ({id, state}) {
+function Messages ({id, state, dispatch}) {
+  debugger
   let avatar ="";
+  let dialogChoose = (id) => {
+    dispatch(chooseDialogActionCreator(id));
+  }
+  // dialogChoose(id)
   if(state.dialogs[id].messages.length !== 0){
     return (
       state.dialogs[id].messages.map(message => {

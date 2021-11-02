@@ -11,7 +11,7 @@ function Dialogs(props) {
       <div className="dialogs">
         <p className="dialogs_description">Dialogs</p>
         <div className="dialogs_wrapper">
-        <DialogsList users={props.state.users}/>
+        <DialogsList state={props.state}/>
         </div>
       </div>
       <div className="chat_wrapper">
@@ -19,11 +19,11 @@ function Dialogs(props) {
           <div className="chat_content_wrapper">
             <div className="chat_content">
             {props.state.users.map(user => 
-              <Route path = {`/messages/dialog/id${user.id}`} render={ () => <Messages id={user.id} state={props.state} />}/>
+              <Route path = {`/messages/dialog/id${user.id}`} render={ () => <Messages id={user.id} state={props.state} dispatch={props.dispatch}/>}/>
               )}
             </div>
           </div>
-          <Route path ="/messages/dialog" component={MessageInput}/>
+          <Route path ="/messages/dialog" render={ () => <MessageInput state={props.state} dispatch={props.dispatch}/>}/>
         </div>
       </div>
     </div>

@@ -1,5 +1,8 @@
 const ADD_NEW_POST = 'ADD-NEW-POST';
 const UPDATE_ENTERED_POST_TEXT = 'UPDATE-ENTERED-POST-TEXT';
+const CHOOSE_DIALOG = 'CHOOSE_DIALOG';
+const SEND_MESSAGE = 'SEND-MESSAGE';
+const UPDATE_ENTERED_MESSAGE_TEXT = 'UPDATE_ENTERED_MESSAGE_TEXT';
 
 let store = {
   _state: {
@@ -52,7 +55,7 @@ let store = {
           {
             isMe: false,
             message: "Bor!",
-            date: new Date(2021, 8, 21, 13, 40, 13),
+            date: new Date(2021, 8, 21, 15, 20, 13),
           },
           {
             isMe: true,
@@ -120,7 +123,8 @@ let store = {
       },
     ],
     newPostText: "",
-    newMessageText:""
+    newMessageText:"",
+    currentDialog: null,
   },
 
   _callSubscriber() {},
@@ -141,8 +145,10 @@ let store = {
     message.isMe = true;
     message.message = this._state.newMessageText;
     message.date = new Date();
-    this._state.dialogs[]
-
+    let id = this._state.currentDialog;
+    this._state.dialogs[id].messages.push(message);
+    this._state.newMessageText = '';
+    this._callSubscriber(this._state);
   },
 
   _updateEnteredPostText(text) {
@@ -152,6 +158,11 @@ let store = {
 
   _updateEnteredMessageText(text){
     this._state.newMessageText = text;
+    this._callSubscriber(this._state);
+  },
+
+  _chooseDialog(id) {
+    this._state.currentDialog = id;
     this._callSubscriber(this._state);
   },
 
@@ -171,6 +182,15 @@ let store = {
       case UPDATE_ENTERED_POST_TEXT:
         this._updateEnteredPostText(action.text);
         break;
+      case CHOOSE_DIALOG:
+        this._chooseDialog(action.id);
+        break;
+      case SEND_MESSAGE:
+        this._newMessage();
+        break;
+      case UPDATE_ENTERED_MESSAGE_TEXT:
+        this._updateEnteredMessageText(action.text);
+        break;
       default://do_nothing
     }
   },
@@ -178,7 +198,10 @@ let store = {
 
 export const addPostActionCreator = () => ({type:ADD_NEW_POST});
 export const updateEnteredPostTextActionCreator = (text) => 
-  ({type:UPDATE_ENTERED_POST_TEXT, text:text})
+  ({type:UPDATE_ENTERED_POST_TEXT, text:text});
+export const chooseDialogActionCreator = (id) => ({type:CHOOSE_DIALOG, id:id});
+export const sendMessageActionCreator = () => ({type:SEND_MESSAGE});
+export const updateEnteredMessageTextActionCreator = (text) => ({type:UPDATE_ENTERED_MESSAGE_TEXT, text: text})
 
 window.store = store;
 export default store;

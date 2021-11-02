@@ -14,10 +14,11 @@ let Avatar = (item) => {
 };
 
 const DialogsList = (props) => {
+
   return (
     <ul className="dialogs_list">
-    {props.users.map(user =>
-    <li className="dialogs_item" >
+    {props.state.users.map(user =>
+    <li className="dialogs_item" key={user.id.toString()}>
       <Avatar user={user}/>
       <NavLink to={`/messages/dialog/id${user.id}`} className="dialog_name">{user.name}</NavLink>
     </li>
