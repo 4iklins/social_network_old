@@ -8,8 +8,8 @@ function Content(props) {
   return (
     <div className="content">
       <div className="main_content">
-        <Route path='/newsfeed' render={ () => <CreatePost state={props.state} dispatch={props.dispatch}/>}/>
-        <Route path='/messages' render={ () => <Dialogs state={props.state} dispatch={props.dispatch}/>}/>
+        <Route path='/newsfeed' render={ () => <CreatePost postsPage={props.state.postsPage} dispatch={props.dispatch}/>}/>
+        <Route path='/messages' render={ () => <Dialogs dialogsPage={props.state.dialogsPage} dispatch={props.dispatch}/>}/>
       </div>
       <div className="other_content">
         <Events/>

@@ -1,7 +1,7 @@
 import './MessageInput.scss';
 import React from 'react';
 import MediaButton from '../MediaButton/MediaButton';
-import { sendMessageActionCreator, updateEnteredMessageTextActionCreator } from '../data/state';
+import { sendMessageActionCreator, updateEnteredMessageTextActionCreator } from '../data/store.js';
 
 
 
@@ -23,7 +23,7 @@ function MessageInput (props) {
       <div className="chat_message_input">
 
       <textarea name="" id="" 
-                value={props.state.newMessageText}
+                value={props.dialogsPage.newMessageText}
                 ref={newMessageElement}
                 onChange={onEnteredTextChange}/>
 

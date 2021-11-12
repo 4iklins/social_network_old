@@ -1,6 +1,6 @@
 import './index.scss';
 import reportWebVitals from './reportWebVitals';
-import store from './data/state.js'
+import store from './data/store.js'
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';

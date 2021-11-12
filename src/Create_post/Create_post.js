@@ -4,7 +4,7 @@ import avatar from  '../img/avatar.jpg';
 import RoundBtn from '../RoundBtn/RoundBtn';
 import MediaButton from '../MediaButton/MediaButton';
 import Post from '../Post/Post';
-import {addPostActionCreator, updateEnteredPostTextActionCreator} from '../data/state.js'
+import {addPostActionCreator, updateEnteredPostTextActionCreator} from '../data/store.js'
 
 
 function CreatePost(props) {
@@ -32,7 +32,7 @@ function CreatePost(props) {
           name="post_text"
          id="" rows="5" 
          placeholder="What's on your mind?"
-         value={props.state.newPostText}
+         value={props.postsPage.newPostText}
           ref={newPostElement}
           onChange = {onEnteredTextChange}
          />
@@ -46,7 +46,7 @@ function CreatePost(props) {
         <RoundBtn />
       </div>
     </div>
-      {props.state.posts.map(post => {
+      {props.postsPage.posts.map(post => {
         return <Post postData={post}/>
       })}
     </div>

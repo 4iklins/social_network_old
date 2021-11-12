@@ -1,21 +1,16 @@
 import './Messages.scss';
 import Message from '../Message/Message';
-import {chooseDialogActionCreator} from '../data/state.js';
 
-function Messages ({id, state, dispatch}) {
-  debugger
+function Messages (props) {
   let avatar ="";
-  let dialogChoose = (id) => {
-    dispatch(chooseDialogActionCreator(id));
-  }
-  dialogChoose(id);
-  if(state.dialogs[id].messages.length !== 0){
+
+  if(props.dialogsPage.users[0].messages.length !== 0){
     return (
-      state.dialogs[id].messages.map(message => {
+      props.dialogsPage.users[0].messages.map(message => {
         if(message.isMe === true){
-          avatar = state.me.avatar;
+          avatar = props.dialogsPage.me.avatar;
         } else {
-          avatar = state.users[id].avatar
+          avatar = props.dialogsPage.users[0].avatar
         }
         return(
           <Message avatar = {avatar} text={message.message} date={message.date} isMe={message.isMe}/>
