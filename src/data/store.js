@@ -1,7 +1,6 @@
-const ADD_NEW_POST = 'ADD-NEW-POST';
-const UPDATE_ENTERED_POST_TEXT = 'UPDATE-ENTERED-POST-TEXT';
-const SEND_MESSAGE = 'SEND-MESSAGE';
-const UPDATE_ENTERED_MESSAGE_TEXT = 'UPDATE_ENTERED_MESSAGE_TEXT';
+import postsReduser from './posts-reduser.js';
+import dialogsReducer from './dialogs-reducer.js';
+
 
 let store = {
   _state: {
@@ -109,37 +108,6 @@ let store = {
 
   _callSubscriber() {},
 
-  _newPost() {
-    let post = {};
-    post.id = this._state.postsPage.posts.length;
-    post.text = this._state.postsPage.newPostText;
-    post.likes = 0;
-    post.comment = 0;
-    this._state.postsPage.posts.unshift(post);
-    this._state.postsPage.newPostText = "";
-    this._callSubscriber(this._state);
-  },
-
-  _newMessage() {
-    let message = {}
-    message.isMe = true;
-    message.message = this._state.dialogsPage.newMessageText;
-    message.date = new Date();
-    this._state.dialogsPage.users[0].messages.push(message);
-    this._state.dialogsPage.newMessageText = '';
-    this._callSubscriber(this._state);
-  },
-
-  _updateEnteredPostText(text) {
-    this._state.postsPage.newPostText = text;
-    this._callSubscriber(this._state);
-  },
-
-  _updateEnteredMessageText(text){
-    this._state.dialogsPage.newMessageText = text;
-    this._callSubscriber(this._state);
-  },
-
   getState() {
     return this._state;
   },
@@ -149,29 +117,12 @@ let store = {
   },
 
   dispatch(action) {
-    switch (action.type) {
-      case ADD_NEW_POST:
-        this._newPost();
-        break;
-      case UPDATE_ENTERED_POST_TEXT:
-        this._updateEnteredPostText(action.text);
-        break;
-      case SEND_MESSAGE:
-        this._newMessage();
-        break;
-      case UPDATE_ENTERED_MESSAGE_TEXT:
-        this._updateEnteredMessageText(action.text);
-        break;
-      default://do_nothing
-    }
+    this._state.postsPage = postsReduser(this._state.postsPage, action);
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+    this._callSubscriber(this._state);
   },
 };
 
-export const addPostActionCreator = () => ({type:ADD_NEW_POST});
-export const updateEnteredPostTextActionCreator = (text) => 
-  ({type:UPDATE_ENTERED_POST_TEXT, text:text});
-export const sendMessageActionCreator = () => ({type:SEND_MESSAGE});
-export const updateEnteredMessageTextActionCreator = (text) => ({type:UPDATE_ENTERED_MESSAGE_TEXT, text: text})
 
 window.store = store;
 export default store;

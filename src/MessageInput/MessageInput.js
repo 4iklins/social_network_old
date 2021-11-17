@@ -1,7 +1,7 @@
 import './MessageInput.scss';
 import React from 'react';
 import MediaButton from '../MediaButton/MediaButton';
-import { sendMessageActionCreator, updateEnteredMessageTextActionCreator } from '../data/store.js';
+import { sendMessageActionCreator, updateEnteredMessageTextActionCreator } from '../data/dialogs-reducer';
 
 
 

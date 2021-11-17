@@ -4,7 +4,7 @@ import avatar from  '../img/avatar.jpg';
 import RoundBtn from '../RoundBtn/RoundBtn';
 import MediaButton from '../MediaButton/MediaButton';
 import Post from '../Post/Post';
-import {addPostActionCreator, updateEnteredPostTextActionCreator} from '../data/store.js'
+import {addPostActionCreator, updateEnteredPostTextActionCreator} from '../data/posts-reduser'
 
 
 function CreatePost(props) {
