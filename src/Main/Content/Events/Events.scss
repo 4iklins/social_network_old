@@ -1,0 +1,45 @@
+@import "../../../variables.scss";
+
+.events {
+  width: 210px;
+  border-radius: 15px;
+  box-shadow: $block-shadow;
+  box-sizing: border-box;
+  padding: 15px;
+}
+.event_item {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 30px;
+}
+
+.events_description {
+  color: #adb5bd;
+  font-size: 14px;
+  padding-left: 10px;
+}
+
+.event_date {
+  background-color: $pink;
+  color: $white;
+  padding: 12px;
+  margin-right: 4px;
+  border-radius: 15px;
+  font-size: 16px;
+  text-align: center;
+  line-height: 16px;
+}
+
+.event_date span {
+  display: block;
+  font-size: 28px;
+  line-height: 22px;
+}
+.event_head {
+  font-size: 12px;
+}
+.event_descr {
+  font-size: 11px;
+  font-weight: 500;
+  color: #adb5bd;
+}

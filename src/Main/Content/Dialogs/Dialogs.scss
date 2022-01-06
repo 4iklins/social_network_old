@@ -1,0 +1,53 @@
+@import "../../../variables.scss";
+
+.dialogs_box {
+  display: flex;
+  padding: 15px;
+  box-shadow: $block-shadow;
+  border-radius: 15px;
+  height: calc(100vh - 195px);
+  min-width: 650px;
+}
+
+.dialogs_description {
+  color: #adb5bd;
+  font-size: 14px;
+  padding-left: 10px;
+  line-height: 20px;
+}
+
+.dialogs_wrapper {
+  padding: 10px;
+  border-radius: 15px;
+  border: $border-gray;
+}
+
+.chat_wrapper {
+  margin-top: 48px;
+  margin-left: 10px;
+  flex-grow: 1;
+  border: $border-gray;
+  border-radius: 15px;
+}
+.chat {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.chat_content_wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  height: calc(100vh - 330px);
+  overflow-y: auto;
+  overflow-x: clip;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.chat_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  box-sizing: border-box;
+}

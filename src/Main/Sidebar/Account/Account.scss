@@ -1,0 +1,9 @@
+@import "../../../variables.scss";
+
+.account {
+  width: 210px;
+  border-radius: 15px;
+  box-shadow: $block-shadow;
+  box-sizing: border-box;
+  padding: 15px;
+}
