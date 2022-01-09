@@ -102,8 +102,8 @@ let store = {
           messages: []
         },
       ],
-    },
-    newMessageText:""
+      newMessageText:""
+    }
   },
 
   _callSubscriber() {},

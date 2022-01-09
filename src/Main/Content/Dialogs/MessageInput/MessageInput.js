@@ -6,14 +6,14 @@ import { sendMessageActionCreator, updateEnteredMessageTextActionCreator } from 
 
 
 function MessageInput (props) {
-
+  
   let newMessageElement = React.createRef();
   let sendMessage = () => {
-    debugger;
     props.dispatch(sendMessageActionCreator());
   };
 
   let onEnteredTextChange = () => {
+
       let text = newMessageElement.current.value;
       props.dispatch(updateEnteredMessageTextActionCreator(text));
   };

@@ -1,4 +1,5 @@
 import './Events.scss';
+import Toggle from './Toggle';
 
 function Events() {
   return (
@@ -27,6 +28,7 @@ function Events() {
           </div>
         </li>
       </ul>
+      <Toggle/>
     </div>
   );
 }

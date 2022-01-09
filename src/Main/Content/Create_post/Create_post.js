@@ -15,12 +15,10 @@ function CreatePost(props) {
   }
 
   let onEnteredTextChange = () => {
-    debugger
     let text = newPostElement.current.value;
     props.dispatch(updateEnteredPostTextActionCreator(text))
   }
   
-
   return (
     <div className="create_post_wrapper">
     <div className="create_post">
