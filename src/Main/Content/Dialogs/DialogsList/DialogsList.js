@@ -4,7 +4,6 @@ import {NavLink} from 'react-router-dom';
 
 
 const DialogsList = (props) => {
-
   return (
     <ul className="dialogs_list">
     {props.dialogsPage.users.map(user =>

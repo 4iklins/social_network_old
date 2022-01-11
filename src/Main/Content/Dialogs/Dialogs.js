@@ -20,7 +20,7 @@ function Dialogs(props) {
               <Route path="/messages/dialog/id0" render={ ()=> <Messages dialogsPage={props.dialogsPage}/>}/>
             </div>
           </div>
-          <Route path ="/messages/dialog" render={ () => <MessageInput dialogsPage={props.dialogsPage} dispatch={props.dispatch}/>}/>
+          <Route path ="/messages/dialog" render={ () => <MessageInput sendMessage={props.sendMessage} enteredTextChange={props.enteredTextChange} dialogsPage={props.dialogsPage}/>}/>
         </div>
       </div>
     </div>

@@ -8,14 +8,14 @@ import { sendMessageActionCreator, updateEnteredMessageTextActionCreator } from 
 function MessageInput (props) {
   
   let newMessageElement = React.createRef();
-  let sendMessage = () => {
-    props.dispatch(sendMessageActionCreator());
+  let onSendMessage = () => {
+    props.sendMessage();
   };
 
   let onEnteredTextChange = () => {
 
       let text = newMessageElement.current.value;
-      props.dispatch(updateEnteredMessageTextActionCreator(text));
+      props.enteredTextChange(text);
   };
 
   return (
@@ -27,7 +27,7 @@ function MessageInput (props) {
                 ref={newMessageElement}
                 onChange={onEnteredTextChange}/>
 
-        <div className="chat_buttons" onClick = {sendMessage}>
+        <div className="chat_buttons" onClick = {onSendMessage}>
           <button className="chat_send"></button>
         </div>
       </div>
