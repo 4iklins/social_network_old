@@ -30,7 +30,11 @@ const newPost = (state) => {
 };
 
 const updateEnteredPostText = (state, text)=> {
-  state.newPostText = text;
+  debugger
+  return {
+    ...state,
+    newPostText: text,
+  }
 };
 
 const postsReducer = (state = initialState, action) => {
