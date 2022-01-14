@@ -20,17 +20,20 @@ let initialState = {
 
 
 const newPost = (state) => {
+  debugger
   let post = {};
   post.id = state.posts.length;
   post.text = state.newPostText;
   post.likes = 0;
   post.comments = 0;
-  state.posts.unshift(post);
-  state.newPostText = "";
+  return {
+      ...state,
+      posts:[post, ...state.posts],
+      newPostText: ""
+  }
 };
 
 const updateEnteredPostText = (state, text)=> {
-  debugger
   return {
     ...state,
     newPostText: text,
@@ -40,11 +43,9 @@ const updateEnteredPostText = (state, text)=> {
 const postsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_NEW_POST:
-      newPost(state);
-      return state;
+      return newPost(state);
     case UPDATE_ENTERED_POST_TEXT:
-      updateEnteredPostText(state, action.text);
-      return state;
+      return updateEnteredPostText(state, action.text);
     default: return state;
   }
 }

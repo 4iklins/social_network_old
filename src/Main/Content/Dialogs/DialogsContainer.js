@@ -1,21 +1,22 @@
 import './Dialogs.scss';
 import Dialogs from './Dialogs';
+import { connect } from 'react-redux';
 import { sendMessageActionCreator, updateEnteredMessageTextActionCreator } from '../../../data/dialogs-reducer';
 
-function DialogsContainer(props) {
-  let state = props.store.getState();
 
-  let sendMessage = () => {
-    props.store.dispatch(sendMessageActionCreator());
-  };
+const mapStateToProps = (state) => {
+  return {
+    dialogsPage:state.dialogsPage
+  }
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    sendMessage: () => {dispatch(sendMessageActionCreator())},
+    enteredTextChange: (text)=> {dispatch(updateEnteredMessageTextActionCreator(text))}
+  }
+}
 
-  let enteredTextChange = (text) => {
-      props.store.dispatch(updateEnteredMessageTextActionCreator(text));
-  };
-  return (
-    <Dialogs sendMessage={sendMessage} enteredTextChange={enteredTextChange} dialogsPage={state.dialogsPage}/>
-  );
-};
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
 
 
 export default DialogsContainer;

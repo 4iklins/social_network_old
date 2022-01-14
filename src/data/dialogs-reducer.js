@@ -85,26 +85,33 @@ let initialState = {
 }
 
 const newMessage = (state) => {
+  debugger
   let message = {}
   message.isMe = true;
   message.message = state.newMessageText;
   message.date = new Date();
-  state.users[0].messages.push(message);
-  state.newMessageText = '';
+
+  let stateCopy = {...state,
+    users: [...state.users],
+    newMessageText:''
+  }
+  stateCopy.users[0].messages = [...state.users[0].messages, message]
+
+  return stateCopy
 };
 
 const updateEnteredMessageText = (state, text) => {
-  state.newMessageText = text;
+  return {...state,
+    newMessageText: text
+  }
 }
 
 const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
     case SEND_MESSAGE:
-      newMessage(state);
-      return state;
+      return newMessage(state);
     case UPDATE_ENTERED_MESSAGE_TEXT:
-      updateEnteredMessageText(state, action.text);
-      return state;
+      return updateEnteredMessageText(state, action.text);
     default: return state;
   }
 }
