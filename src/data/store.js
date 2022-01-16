@@ -4,7 +4,7 @@ import dialogsReducer from './dialogs-reducer.js';
 
 let store = {
   _state: {
-    postsPage:{
+    profilePage:{
       posts: [
         {
           id: 1,
@@ -117,7 +117,7 @@ let store = {
   },
 
   dispatch(action) {
-    this._state.postsPage = postsReduser(this._state.postsPage, action);
+    this._state.profilePage = postsReduser(this._state.profilePage, action);
     this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
     this._callSubscriber(this._state);
   },

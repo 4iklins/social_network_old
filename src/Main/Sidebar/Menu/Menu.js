@@ -7,7 +7,7 @@ function Menu() {
     <div className="menu">
       <div className="menu_description"></div>
       <ul className="menu_list">
-        <MenuItem text="newsfeed"/>
+        <MenuItem text="profile"/>
         <MenuItem text="messages"/>
         <MenuItem text="friends"/>
         <MenuItem text="images"/>

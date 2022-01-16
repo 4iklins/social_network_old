@@ -1,12 +1,12 @@
 import React from 'react';
-import './CreatePost.scss';
+import './Profile.scss';
 import avatar from  '../../../img/avatar.jpg';
 import RoundBtn from '../../../RoundBtn/RoundBtn';
 import MediaButton from '../../../MediaButton/MediaButton';
 import Post from './Post/Post';
 
 
-function CreatePost(props) {
+function Profile(props) {
   let newPostElement = React.createRef();
 
   let onAddPost = () => {
@@ -29,7 +29,7 @@ function CreatePost(props) {
           name="post_text"
          id="" rows="5" 
          placeholder="What's on your mind?"
-         value={props.postsPage.newPostText}
+         value={props.profilePage.newPostText}
           ref={newPostElement}
           onChange = {onEnteredTextChange}
          />
@@ -43,11 +43,11 @@ function CreatePost(props) {
         <RoundBtn />
       </div>
     </div>
-      {props.postsPage.posts.map(post => {
+      {props.profilePage.posts.map(post => {
         return <Post postData={post}/>
       })}
     </div>
   );
 }
 
-export default CreatePost;
+export default Profile;

@@ -1,7 +1,7 @@
 const SEND_MESSAGE = 'SEND-MESSAGE';
 const UPDATE_ENTERED_MESSAGE_TEXT = 'UPDATE_ENTERED_MESSAGE_TEXT';
 
-let initialState = {
+const initialState = {
   me: {
     avatar: "/static/media/avatar.38c7a0b0.jpg",
   },
