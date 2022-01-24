@@ -20,7 +20,6 @@ let initialState = {
 
 
 const newPost = (state) => {
-  debugger
   let post = {};
   post.id = state.posts.length;
   post.text = state.newPostText;

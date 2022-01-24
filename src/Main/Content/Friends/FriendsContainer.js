@@ -1,6 +1,6 @@
 import Friends from "./Friends";
 import { connect } from "react-redux";
-import { followToggleActionCreator} from "../../../data/friends-reducer";
+import { followActionCreator, setUsersActioinCreator, unFollowActionCreator } from "../../../data/friends-reducer";
 
 
 const mapStateToProps = (state) => {
@@ -8,7 +8,9 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    followToggle:(id,list)=>{dispatch(followToggleActionCreator(id))}
+    follow:(id)=>{dispatch(followActionCreator(id))},
+    unFollow:(id)=>{dispatch(unFollowActionCreator(id))},
+    setUsers: (users)=>{dispatch(setUsersActioinCreator(users))}
   }
 }
 const FriendsContainer = connect(mapStateToProps, mapDispatchToProps)(Friends);

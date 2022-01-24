@@ -5,8 +5,8 @@ let Avatar = (props) => {
   name.split(' ').map((word) =>
     out += word[0].toUpperCase()
     )
-  if(props.user.avatar !== ""){
-    return <img src={props.user.avatar} alt="" />
+  if(props.user.photos.small !== null){
+    return <img src={props.user.photos.small} alt="" />
     }
   else return <p className="user_without_avatar">{out}</p>
 };

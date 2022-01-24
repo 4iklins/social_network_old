@@ -10,7 +10,7 @@ function Messages (props) {
         if(message.isMe === true){
           avatar = props.dialogsPage.me.avatar;
         } else {
-          avatar = props.dialogsPage.users[0].avatar
+          avatar = props.dialogsPage.users[0].photos.small
         }
         return(
           <Message avatar = {avatar} text={message.message} date={message.date} isMe={message.isMe}/>
