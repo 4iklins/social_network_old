@@ -8,11 +8,19 @@ import React from "react";
 class Friends extends React.Component {
 
   componentDidMount(){
+    document.addEventListener('scroll', this.onScroll)
     axios.get("https://social-network.samuraijs.com/api/1.0/users")
     .then(responce=>{
       console.log(responce.data.items)
       this.props.setUsers(responce.data.items)
     })
+  }
+  componentWillUnmount(){
+    document.removeEventListener('scroll',this.onScroll)
+  }
+
+  onScroll(evt){
+    console.log('scroll')
   }
 
   render(){
