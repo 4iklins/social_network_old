@@ -1,13 +1,14 @@
 import Friends from "./Friends";
 import { connect } from "react-redux";
-import { followActionCreator, resetUsersActionCreator, setUsersActioinCreator, startFetchingActionCreator, stopFetchigActionCreator, unFollowActionCreator, setCurrentPageActionCreator } from "../../../data/friends-reducer";
+import { followActionCreator, resetUsersActionCreator, setUsersActioinCreator, unFollowActionCreator, setCurrentPageActionCreator, setTotalCountActionCreator } from "../../../data/friends-reducer";
 
 
 const mapStateToProps = (state) => {
   return {
     users: state.friendsPage.users,
     currentPage: state.friendsPage.currentPage,
-    fetching: state.friendsPage.fetching
+    usersCount:state.friendsPage.usersCount,
+    totalCount:state.friendsPage.totalCount
   }
 
 }
@@ -17,9 +18,8 @@ const mapDispatchToProps = (dispatch) => {
     unFollow:(id)=>{dispatch(unFollowActionCreator(id))},
     setUsers: (users)=>{dispatch(setUsersActioinCreator(users))},
     resetUsers:()=>{dispatch(resetUsersActionCreator())},
-    startFetchig:(fetching)=>{dispatch(startFetchingActionCreator(fetching))},
-    stopFetchig:(fetching)=>{dispatch(stopFetchigActionCreator(fetching))},
-    setCurrentPage:(currentPage)=>{dispatch(setCurrentPageActionCreator(currentPage))}
+    setCurrentPage:(currentPage)=>{dispatch(setCurrentPageActionCreator(currentPage))},
+    setTotalCount:(totalCount)=>{dispatch(setTotalCountActionCreator(totalCount))}
   }
 }
 const FriendsContainer = connect(mapStateToProps, mapDispatchToProps)(Friends);
