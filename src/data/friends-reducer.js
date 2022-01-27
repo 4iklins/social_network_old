@@ -7,7 +7,7 @@ const SETTOTALCOUNT = "SET-TOTAL-COUNT"
 
 const initialState = {
   users: [],
-  currentPage:0,
+  currentPage:1,
   usersCount: 7,
   totalCount:0
 };
@@ -58,5 +58,5 @@ export const unFollowActionCreator = (id) => ({ type: UNFOLLOW, id: id });
 export const setUsersActioinCreator = (users) => ({type: SETUSERS,users: users,});
 export const resetUsersActionCreator = () => ({ type: RESETUSERS });
 export const setCurrentPageActionCreator = (currentPage) => ({type:SETCURRENTPAGE, currentPage:currentPage});
-export const setTotalCountActionCreator = (totalCount) => ({type:SETCURRENTPAGE, totalCount:totalCount})
+export const setTotalCountActionCreator = (totalCount) => ({type:SETTOTALCOUNT, totalCount:totalCount})
 export default friendsReducer;
