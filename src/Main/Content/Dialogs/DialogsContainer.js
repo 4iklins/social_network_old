@@ -1,7 +1,7 @@
 import './Dialogs.scss';
 import Dialogs from './Dialogs';
 import { connect } from 'react-redux';
-import { sendMessageActionCreator, updateEnteredMessageTextActionCreator } from '../../../data/dialogs-reducer';
+import { sendMessage, enteredTextChange} from '../../../data/dialogs-reducer';
 
 
 const mapStateToProps = (state) => {
@@ -9,11 +9,9 @@ const mapStateToProps = (state) => {
     dialogsPage:state.dialogsPage
   }
 }
-const mapDispatchToProps = (dispatch) => {
-  return {
-    sendMessage: () => {dispatch(sendMessageActionCreator())},
-    enteredTextChange: (text)=> {dispatch(updateEnteredMessageTextActionCreator(text))}
-  }
+const mapDispatchToProps = {
+    sendMessage:sendMessage,
+    enteredTextChange:enteredTextChange
 }
 
 const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);

@@ -3,13 +3,15 @@ const UNFOLLOW = "UNFOLLOW";
 const SETUSERS = "SET-USERS";
 const RESETUSERS = "RESET-USERS";
 const SETCURRENTPAGE = "SET-CURRENTPAGE";
-const SETTOTALCOUNT = "SET-TOTAL-COUNT"
+const SETTOTALCOUNT = "SET-TOTAL-COUNT";
+const ISFETCHING = "IS-FETCHING"
 
 const initialState = {
   users: [],
   currentPage:1,
   usersCount: 7,
-  totalCount:0
+  totalCount:0,
+  isFetching: false
 };
 
 const friendsReducer = (state = initialState, action) => {
@@ -46,17 +48,22 @@ const friendsReducer = (state = initialState, action) => {
     case SETCURRENTPAGE:
       return { ...state, currentPage:action.currentPage };
     case SETTOTALCOUNT:
-        return { ...state, totalCount:action.totalCount };
+      return { ...state, totalCount:action.totalCount };
+    case ISFETCHING:
+      stateCopy = {...state}
+      stateCopy.isFetching = !stateCopy.isFetching
+      return stateCopy
       
     default:
       return state;
   }
 };
 
-export const followActionCreator = (id) => ({ type: FOLLOW, id: id });
-export const unFollowActionCreator = (id) => ({ type: UNFOLLOW, id: id });
-export const setUsersActioinCreator = (users) => ({type: SETUSERS,users: users,});
-export const resetUsersActionCreator = () => ({ type: RESETUSERS });
-export const setCurrentPageActionCreator = (currentPage) => ({type:SETCURRENTPAGE, currentPage:currentPage});
-export const setTotalCountActionCreator = (totalCount) => ({type:SETTOTALCOUNT, totalCount:totalCount})
+export const follow = (id) => ({ type: FOLLOW, id: id });
+export const unFollow = (id) => ({ type: UNFOLLOW, id: id });
+export const setUsers = (users) => ({type: SETUSERS,users: users,});
+export const resetUsers = () => ({ type: RESETUSERS });
+export const setCurrentPage = (currentPage) => ({type:SETCURRENTPAGE, currentPage:currentPage});
+export const setTotalCount = (totalCount) => ({type:SETTOTALCOUNT, totalCount:totalCount});
+export const isFetchingToggle = () => ({type: ISFETCHING});
 export default friendsReducer;

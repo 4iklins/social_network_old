@@ -97,8 +97,7 @@ const initialState = {
   newMessageText:""
 }
 
-const newMessage = (state) => {
-  debugger
+const _newMessage = (state) => {
   let message = {}
   message.isMe = true;
   message.message = state.newMessageText;
@@ -113,7 +112,7 @@ const newMessage = (state) => {
   return stateCopy
 };
 
-const updateEnteredMessageText = (state, text) => {
+const _updateEnteredMessageText = (state, text) => {
   return {...state,
     newMessageText: text
   }
@@ -122,14 +121,14 @@ const updateEnteredMessageText = (state, text) => {
 const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
     case SEND_MESSAGE:
-      return newMessage(state);
+      return _newMessage(state);
     case UPDATE_ENTERED_MESSAGE_TEXT:
-      return updateEnteredMessageText(state, action.text);
+      return _updateEnteredMessageText(state, action.text);
     default: return state;
   }
 }
 
-export const sendMessageActionCreator = () => ({type:SEND_MESSAGE});
-export const updateEnteredMessageTextActionCreator = (text) => ({type:UPDATE_ENTERED_MESSAGE_TEXT, text: text});
+export const sendMessage = () => ({type:SEND_MESSAGE});
+export const enteredTextChange = (text) => ({type:UPDATE_ENTERED_MESSAGE_TEXT, text: text});
 
 export default dialogsReducer

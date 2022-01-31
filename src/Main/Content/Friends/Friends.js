@@ -1,11 +1,13 @@
 import "./Friends.scss";
 import Avatar from "../Avatar";
 import React from "react";
+import Preloader from "../../../common/Preloader/Preloader";
 
 
 function Friends (props) {
   return (
     <div className="friends">
+      {props.isFetching ? <Preloader/> :null}
       <div className="current-page">{props.currentPage}</div>
       <ul className="friends_list">
         {props.users.map((user) => (

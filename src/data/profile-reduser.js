@@ -19,7 +19,7 @@ let initialState = {
 }
 
 
-const newPost = (state) => {
+const _newPost = (state) => {
   let post = {};
   post.id = state.posts.length;
   post.text = state.newPostText;
@@ -32,7 +32,7 @@ const newPost = (state) => {
   }
 };
 
-const updateEnteredPostText = (state, text)=> {
+const _updateEnteredPostText = (state, text)=> {
   return {
     ...state,
     newPostText: text,
@@ -42,14 +42,14 @@ const updateEnteredPostText = (state, text)=> {
 const postsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_NEW_POST:
-      return newPost(state);
+      return _newPost(state);
     case UPDATE_ENTERED_POST_TEXT:
-      return updateEnteredPostText(state, action.text);
+      return _updateEnteredPostText(state, action.text);
     default: return state;
   }
 }
 
-export const addPostActionCreator = () => ({type:ADD_NEW_POST});
-export const updateEnteredPostTextActionCreator = (text) => ({type:UPDATE_ENTERED_POST_TEXT, text:text});
+export const addPost= () => ({type:ADD_NEW_POST});
+export const updateEnteredPostText = (text) => ({type:UPDATE_ENTERED_POST_TEXT, text:text});
 
 export default postsReducer;

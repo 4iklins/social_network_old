@@ -15,7 +15,7 @@ function Profile(props) {
 
   let onEnteredTextChange = () => {
     let text = newPostElement.current.value;
-    props.enteredTextChange(text);
+    props.updateEnteredPostText(text);
   }
   
   return (

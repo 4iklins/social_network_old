@@ -1,17 +1,15 @@
 
 import Profile from './Profile';
 import { connect } from 'react-redux';
-import {addPostActionCreator, updateEnteredPostTextActionCreator} from '../../../data/profile-reduser'
+import {addPost, updateEnteredPostText} from '../../../data/profile-reduser'
 
 const mapStateToProps = (state) => {
   return {profilePage:state.profilePage}
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    enteredTextChange:(text) => {dispatch(updateEnteredPostTextActionCreator(text))},
-    addPost:() => {dispatch(addPostActionCreator())}
-  }
+const mapDispatchToProps = {
+    updateEnteredPostText:updateEnteredPostText,
+    addPost:addPost
 }
 
 const ProfileContainer = connect(mapStateToProps,mapDispatchToProps)(Profile);

@@ -13,7 +13,6 @@ function MessageInput (props) {
   };
 
   let onEnteredTextChange = () => {
-
       let text = newMessageElement.current.value;
       props.enteredTextChange(text);
   };
