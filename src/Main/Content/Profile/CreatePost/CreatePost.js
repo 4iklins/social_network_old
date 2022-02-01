@@ -5,7 +5,7 @@ import MediaButton from '../../../../MediaButton/MediaButton';
 import React from 'react';
 
 function CreatePost (props) {
-  debugger
+
   let newPostElement = React.createRef();
 
   let onAddPost = () => {
@@ -26,7 +26,7 @@ function CreatePost (props) {
         name="post_text"
        id="" rows="5" 
        placeholder="What's on your mind?"
-       value={props.profilePage.newPostText}
+       value={props.newPostText}
         ref={newPostElement}
         onChange = {onEnteredTextChange}
        />

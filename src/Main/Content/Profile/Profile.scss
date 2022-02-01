@@ -6,6 +6,64 @@
 .profile_container {
   display: flex;
   margin-bottom: 15px;
+  padding: 15px;
   border-radius: $border-radius;
   box-shadow: $block-shadow;
+}
+.profile_photo {
+  img {
+    width: 200px;
+    height: 200px;
+    border-radius: $border-radius;
+  }
+}
+.profile_description {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.profile_about {
+  font-size: 14px;
+  line-height: 26px;
+  font-weight: 500;
+  color: #adb5bd;
+}
+.profile_contacts {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  line-height: 26px;
+  font-weight: 500;
+  color: #adb5bd;
+  div {
+    margin-right: 10px;
+  }
+  a {
+    width: 32px;
+    height: 32px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: 10px;
+  }
+  .contact_facebook {
+    background-image: url("../../../img/facebook.png");
+  }
+  .contact_twitter {
+    background-image: url("../../../img/twitter.png");
+  }
+  .contact_youtube {
+    background-image: url("../../../img/youtube.png");
+  }
+  .contact_vk {
+    background-image: url("../../../img/vk.png");
+  }
+  .contact_website {
+    background-image: url("../../../img/website.png");
+  }
+  .contact_github {
+    background-image: url("../../../img/github.png");
+  }
+  .contact_instagram {
+    background-image: url("../../../img/instagram.png");
+  }
 }
