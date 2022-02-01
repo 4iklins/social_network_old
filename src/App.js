@@ -4,12 +4,12 @@ import Footer from './Footer/Footer';
 import './App.scss';
 import {BrowserRouter} from 'react-router-dom';
 
-function App(props) {
+function App() {
   return (
     <BrowserRouter>
     <div className="App">
       <Header />
-      <Main store={props.store}/>
+      <Main />
       <Footer />
     </div>
     </BrowserRouter>

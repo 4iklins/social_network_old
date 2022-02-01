@@ -2,6 +2,7 @@ import "./Friends.scss";
 import Avatar from "../Avatar";
 import React from "react";
 import Preloader from "../../../common/Preloader/Preloader";
+import { NavLink } from "react-router-dom";
 
 
 function Friends (props) {
@@ -12,7 +13,9 @@ function Friends (props) {
       <ul className="friends_list">
         {props.users.map((user) => (
           <li className="friends_item" key={user.id}>
-            <Avatar user={user} />
+            <NavLink to ={`profile/${user.id}`}>
+              <Avatar user={user} />
+            </NavLink>
             <div className="friend_name_box">
               <p className="friend_name">{user.name}</p>
               <div className ="friends_buttons">

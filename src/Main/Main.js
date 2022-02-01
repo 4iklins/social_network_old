@@ -2,11 +2,11 @@ import './Main.scss';
 import Content from './Content/Content';
 import Sidebar from './Sidebar/Sidebar';
 
-function Main(props) {
+function Main() {
   return (
     <div className="main">
       <Sidebar />
-      <Content store={props.store}/>
+      <Content />
     </div>
   );
 }

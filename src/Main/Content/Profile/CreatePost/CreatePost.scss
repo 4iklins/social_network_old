@@ -1,0 +1,59 @@
+@import "../../../../variables.scss";
+
+.create_post {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 15px 15px 2px 15px;
+  box-shadow: $block-shadow;
+  border-radius: 15px;
+}
+
+.create_post_text {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+}
+
+.create_post_text textarea {
+  width: 100%;
+  resize: vertical;
+  height: 45px;
+  min-height: 45px !important;
+  box-sizing: border-box;
+  border-radius: 15px;
+  border: $border-gray;
+  padding: 13px 8px 8px 50px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: $font-color;
+}
+
+.create_post_text textarea:focus-visible {
+  outline: none;
+}
+
+.create_post_user_avatar {
+  position: absolute;
+  left: 10px;
+  top: 8px;
+}
+
+.create_post_user_avatar img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.create_post_button .round_btn {
+  background-color: $pink;
+}
+
+.create_post_button .round_btn::before {
+  background-image: url("../../../../img/send_icon.svg");
+}
+
+.create_post_media {
+  margin-left: auto;
+}
