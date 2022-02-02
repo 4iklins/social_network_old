@@ -1,4 +1,4 @@
-import Header from './Header/Header';
+import HeaderContainer from './Header/HeaderContainer';
 import Main from './Main/Main';
 import Footer from './Footer/Footer';
 import './App.scss';
@@ -8,7 +8,7 @@ function App() {
   return (
     <BrowserRouter>
     <div className="App">
-      <Header />
+      <HeaderContainer />
       <Main />
       <Footer />
     </div>

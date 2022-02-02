@@ -19,7 +19,8 @@ let initialState = {
     },
   ],
   newPostText: "",
-  profile: null
+  profile: null,
+  authId:null
 }
 
 

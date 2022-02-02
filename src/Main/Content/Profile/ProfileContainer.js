@@ -11,10 +11,14 @@ import {addPost, setUserProfile, updateEnteredPostText} from '../../../data/prof
 class ProfileContainer extends React.Component{
 
   componentDidMount(){
-    debugger
-    axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${this.props.match.params.id}`)
-    .then(responce => {
-      this.props.setUserProfile(responce.data);
+    let userId = this.props.match.params.id
+    if(!userId){
+      userId = this.props.authId
+    }
+
+    axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
+    .then(response => {
+      this.props.setUserProfile(response.data);
     })
   }
 
@@ -33,7 +37,8 @@ const mapStateToProps = (state) => {
   return {
     posts:state.profilePage.posts,
     newPostText:state.profilePage.newPostText,
-    profile:state.profilePage.profile
+    profile:state.profilePage.profile,
+    authId:state.auth.id
   }
 }
 

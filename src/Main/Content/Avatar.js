@@ -1,6 +1,13 @@
 
 let Avatar = (props) => {
-  let name = props.user.name;
+  let name
+  if("name" in props.user){
+    name = props.user.name;
+  }
+  if("fullName" in props.user){
+    name = props.user.fullName;
+  }
+  
   let out = '';
   name.split(' ').map((word) =>
     out += word[0].toUpperCase()

@@ -1,10 +1,11 @@
 import './Header.scss';
 import logo from '../img/logo.svg';
 import RoundBtn from '../RoundBtn/RoundBtn';
+import Avatar from '../Main/Content/Avatar';
 import {NavLink} from 'react-router-dom';
 
 
-function Header() {
+function Header(props) {
   return (
     <header className="header">
       <div className="header_wrapper">
@@ -18,10 +19,18 @@ function Header() {
         </div>
         <div className="header_menu">
           <div className="header_settings">
-            <RoundBtn />
+            <NavLink to ="/settings">
+              <RoundBtn />
+            </NavLink>
           </div>
           <div className="header_user">
-            <RoundBtn />
+            {props.isAuth && props.profile
+            ?<NavLink to="/logout">
+              <Avatar user={props.profile}/>
+             </NavLink>
+            :<NavLink to ="/login">
+              <RoundBtn />
+            </NavLink>}
           </div>
         </div>
 
