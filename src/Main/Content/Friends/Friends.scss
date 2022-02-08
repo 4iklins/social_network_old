@@ -38,12 +38,22 @@
     border: none;
     color: $white;
     cursor: pointer;
+    padding: 10px;
+    border-radius: $border-radius;
   }
   .friend_unfollow_button {
     background-color: $pink;
+    &:disabled {
+      background-color: gray;
+      cursor: auto;
+    }
   }
   .friend_follow_button {
     background-color: $green;
+    &:disabled {
+      background-color: gray;
+      cursor: auto;
+    }
   }
 }
 

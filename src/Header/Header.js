@@ -1,6 +1,6 @@
 import './Header.scss';
 import logo from '../img/logo.svg';
-import RoundBtn from '../RoundBtn/RoundBtn';
+import RoundBtn from '../common/RoundBtn/RoundBtn';
 import Avatar from '../Main/Content/Avatar';
 import {NavLink} from 'react-router-dom';
 

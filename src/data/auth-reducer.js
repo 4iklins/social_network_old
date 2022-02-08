@@ -26,7 +26,7 @@ function authReducer(state=intialState, action) {
  }
 }
 export const setAuthData = (id,login,email)=>({type:SET_AUTH_DATA, data: {id,login,email} });
-export const setUser = (profile) => ({type: SET_USER, profile:profile});
+export const setMyProfile = (profile) => ({type: SET_USER, profile:profile});
 export default authReducer;
 
 

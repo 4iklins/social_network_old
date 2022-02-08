@@ -1,8 +1,8 @@
 import Friends from "./Friends";
 import { connect } from "react-redux";
 import React from "react";
-import * as axios from "axios";
-import { follow, resetUsers, setUsers, unFollow, setCurrentPage, setTotalCount, isFetchingToggle } from "../../../data/friends-reducer";
+import { getUsers } from "../../../api/api";
+import { follow, resetUsers, setUsers, unFollow, setCurrentPage, setTotalCount, isFetchingToggle, isFollowingProgress } from "../../../data/friends-reducer";
 
 
 class FriendsContainer extends React.Component {
@@ -35,10 +35,10 @@ class FriendsContainer extends React.Component {
 
   fetchingUsers(){
       this.props.isFetchingToggle();
-      axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=7&page=${this.props.currentPage}`)
+      getUsers(this.props.currentPage)
       .then(responce=>{
-        this.props.setUsers(responce.data.items);
-        this.props.setTotalCount(responce.data.totalCount);
+        this.props.setUsers(responce.items);
+        this.props.setTotalCount(responce.totalCount);
         this.props.isFetchingToggle();
         document.addEventListener('scroll',this.onScroll);
       })
@@ -52,6 +52,8 @@ class FriendsContainer extends React.Component {
                currentPage={this.props.currentPage}
                follow={this.props.follow}
                unFollow={this.props.unFollow}
+               isFollowing={this.props.isFollowing}
+               isFollowingProgress={this.props.isFollowingProgress}
       />
     </>
     );
@@ -64,7 +66,8 @@ const mapStateToProps = (state) => {
     currentPage: state.friendsPage.currentPage,
     usersCount:state.friendsPage.usersCount,
     totalCount:state.friendsPage.totalCount,
-    isFetching: state.friendsPage.isFetching
+    isFetching: state.friendsPage.isFetching,
+    isFollowing:state.friendsPage.isFollowing
   }
 
 }
@@ -76,7 +79,8 @@ const mapDispatchToProps =  {
     resetUsers:resetUsers,
     setCurrentPage:setCurrentPage,
     setTotalCount:setTotalCount,
-    isFetchingToggle:isFetchingToggle
+    isFetchingToggle:isFetchingToggle,
+    isFollowingProgress:isFollowingProgress
 
 }
 

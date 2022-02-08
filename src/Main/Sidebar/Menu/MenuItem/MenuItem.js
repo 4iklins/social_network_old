@@ -1,6 +1,6 @@
 import './MenuItem.scss';
 import {NavLink} from 'react-router-dom';
-import SmallIcon from '../../../../SmallIcon/SmallIcon';
+import SmallIcon from '../../../../common/SmallIcon/SmallIcon';
 
 function MenuItem (props){
   return(

@@ -1,6 +1,6 @@
 import './Post.scss';
 import avatar from '../../../../img/avatar.jpg'
-import MediaButton from '../../../../MediaButton/MediaButton';
+import MediaButton from '../../../../common/MediaButton/MediaButton';
 
 function Post(props) {
   return (

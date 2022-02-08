@@ -1,7 +1,7 @@
 import "./CreatePost.scss";
 import avatar from  '../../../../img/avatar.jpg';
-import RoundBtn from '../../../../RoundBtn/RoundBtn';
-import MediaButton from '../../../../MediaButton/MediaButton';
+import RoundBtn from '../../../../common/RoundBtn/RoundBtn';
+import MediaButton from '../../../../common/MediaButton/MediaButton';
 import React from 'react';
 
 function CreatePost (props) {
