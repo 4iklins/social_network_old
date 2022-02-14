@@ -1,5 +1,7 @@
+import {authMe, getProfile} from '../api/api'
+
 const SET_AUTH_DATA = "SET-AUTH-DATA";
-const SET_USER = 'SET-USER';
+const SET_MY_PROFILE = 'SET-MY-PROFILE';
 
 let intialState = {
   id: null,
@@ -17,7 +19,7 @@ function authReducer(state=intialState, action) {
      ...action.data,
      isAuth:true
    };
-   case SET_USER:
+   case SET_MY_PROFILE:
     return {
       ...state,
       profile:action.profile
@@ -26,7 +28,22 @@ function authReducer(state=intialState, action) {
  }
 }
 export const setAuthData = (id,login,email)=>({type:SET_AUTH_DATA, data: {id,login,email} });
-export const setMyProfile = (profile) => ({type: SET_USER, profile:profile});
+export const setMyProfile = (profile) => ({type: SET_MY_PROFILE, profile:profile});
+
+export const auth = () => (dispatch) => {
+  authMe().then(response =>{
+    if(response.resultCode === 0){
+      let {id, login, email} = response.data
+      dispatch(setAuthData(id,login,email));
+      getProfile(id)
+      .then(response =>{
+        dispatch(setMyProfile(response.data));
+      })
+    }
+  })
+}
+
+
 export default authReducer;
 
 

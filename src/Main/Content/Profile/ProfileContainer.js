@@ -4,9 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Preloader from '../../../common/Preloader/Preloader';
-import {addPost, setUserProfile, updateEnteredPostText} from '../../../data/profile-reduser';
-import {getProfile} from "../../../api/api"
-
+import {addPost, getUserProfile, updateEnteredPostText} from '../../../data/profile-reduser';
 
 class ProfileContainer extends React.Component{
 
@@ -15,11 +13,7 @@ class ProfileContainer extends React.Component{
     if(!userId){
       userId = 21869
     }
-
-    getProfile(userId)
-    .then(response => {
-      this.props.setUserProfile(response.data);
-    })
+    this.props.getUserProfile(userId);
   }
 
   render(){
@@ -44,7 +38,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
     updateEnteredPostText:updateEnteredPostText,
     addPost:addPost,
-    setUserProfile:setUserProfile
+    getUserProfile:getUserProfile
 }
 
 const WithRouteProfileContainer = withRouter(ProfileContainer);

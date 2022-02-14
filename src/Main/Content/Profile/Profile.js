@@ -3,6 +3,7 @@ import './Profile.scss';
 import Post from './Post/Post';
 import CreatePost from './CreatePost/CreatePost';
 import Contacts from './Contacts';
+import withoutAvatarMock from '../../../img/withoutAvatarMock.jpg'
 
 function Profile(props) {
 
@@ -10,7 +11,10 @@ function Profile(props) {
     <div className="profile_wrapper">
       <div className="profile_container">
         <div className="profile_photo">
-          <img src={props.profile.photos.large} alt="" className="" />
+          {props.profile.photos.large 
+          ? <img src={props.profile.photos.large} alt="" className="" />
+          : <img src={withoutAvatarMock} alt="" className="" />}
+          
         </div>
         <div className="profile_description">
           <div className="profile_name">{props.profile.fullName}</div>
