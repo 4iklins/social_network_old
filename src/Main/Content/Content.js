@@ -4,6 +4,7 @@ import Events from './Events/Events';
 import {Route} from 'react-router-dom';
 import ProfileContainer from './Profile/ProfileContainer';
 import FriendsContainer from './Friends/FriendsContainer';
+import Login from './Login/Login';
 
 function Content() {
   return (
@@ -12,6 +13,7 @@ function Content() {
         <Route path='/profile/:id?' render={ () => <ProfileContainer />}/>
         <Route path='/messages' render={ () => <DialogsContainer />}/>
         <Route path ='/friends' render= { () => <FriendsContainer/>}/>
+        <Route path ='/login' render= { () => <Login/>}/>
       </div>
       <div className="other_content">
         <Events/>

@@ -17,15 +17,13 @@ class HeaderContainer extends React.Component{
 }
 
 const mapStateToProps = (state)=> {
-  return(
-    {
+  return {
       id:state.auth.id,
       login:state.auth.login,
       email:state.auth.email,
       isAuth: state.auth.isAuth,
       profile:state.auth.profile
     }
-  )
 }
 const mapDispatchToProps = {
   auth:auth
