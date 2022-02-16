@@ -5,20 +5,19 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Preloader from '../../../common/Preloader/Preloader';
 import {addPost, getUserProfile, updateEnteredPostText} from '../../../data/profile-reduser';
-import { withAuthRedirect } from '../../../hoc/withAuthRedirect';
 
 class ProfileContainer extends React.Component{
 
   componentDidMount(){
     let userId = this.props.match.params.id
     if(!userId){
-      userId = 21869
+      userId = this.props.authId
     }
     this.props.getUserProfile(userId);
   }
 
   render(){
-    if(!this.props.profile){
+    if(!this.props.profile && this.props.authId){
       return <Preloader/>
     }
     return (
@@ -32,7 +31,8 @@ const mapStateToProps = (state) => {
   return {
     posts:state.profilePage.posts,
     newPostText:state.profilePage.newPostText,
-    profile:state.profilePage.profile
+    profile:state.profilePage.profile,
+    authId:state.auth.id
   }
 }
 
@@ -42,6 +42,6 @@ const mapDispatchToProps = {
     getUserProfile:getUserProfile
 }
 
-const WithRouteProfileContainer = withRouter(withAuthRedirect(ProfileContainer));
+const WithRouteProfileContainer = withRouter(ProfileContainer);
 
 export default connect(mapStateToProps,mapDispatchToProps)(WithRouteProfileContainer);

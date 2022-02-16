@@ -1,19 +1,23 @@
 import HeaderContainer from './Header/HeaderContainer';
-import Main from './Main/Main';
+import MainContainer from './Main/MainContainer';
 import Footer from './Footer/Footer';
 import './App.scss';
 import {BrowserRouter} from 'react-router-dom';
+import React from 'react';
 
-function App() {
-  return (
-    <BrowserRouter>
-    <div className="App">
-      <HeaderContainer />
-      <Main />
-      <Footer />
-    </div>
-    </BrowserRouter>
-  );
+class App extends React.Component {
+  render(){
+    return (
+      <BrowserRouter>
+      <div className="App">
+        <HeaderContainer />
+        <MainContainer />
+        <Footer />
+      </div>
+      </BrowserRouter>
+    );
+  }
+
 }
 
 export default App;
