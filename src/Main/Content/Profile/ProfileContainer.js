@@ -17,12 +17,11 @@ class ProfileContainer extends React.Component{
   }
 
   render(){
-    if(!this.props.profile && this.props.authId){
-      return <Preloader/>
+    debugger
+    if(this.props.profile && this.props.authId){
+      return <Profile {...this.props}/>
     }
-    return (
-      <Profile {...this.props}/>
-    )
+    return <Preloader/>
   }
 
 }
