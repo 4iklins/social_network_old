@@ -3,25 +3,28 @@ import Profile from './Profile';
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import Preloader from '../../../common/Preloader/Preloader';
+import { compose } from 'redux';
+import withPreloader from '../../../hoc/withPreloader';
 import {addPost, getUserProfile, updateEnteredPostText} from '../../../data/profile-reduser';
+
+
+const ProfileWithPreloader = withPreloader('profile')(Profile)
 
 class ProfileContainer extends React.Component{
 
+  componentDidUpdate(){
+    if(this.props.profile.userId !== Number(this.props.match.params.id)){
+      this.props.getUserProfile(this.props.match.params.id);
+    } 
+  }
+
   componentDidMount(){
     let userId = this.props.match.params.id
-    if(!userId){
-      userId = this.props.authId
-    }
     this.props.getUserProfile(userId);
   }
 
   render(){
-    debugger
-    if(this.props.profile && this.props.authId){
-      return <Profile {...this.props}/>
-    }
-    return <Preloader/>
+      return <ProfileWithPreloader {...this.props}/>
   }
 
 }
@@ -41,6 +44,7 @@ const mapDispatchToProps = {
     getUserProfile:getUserProfile
 }
 
-const WithRouteProfileContainer = withRouter(ProfileContainer);
-
-export default connect(mapStateToProps,mapDispatchToProps)(WithRouteProfileContainer);
+export default compose(
+  connect(mapStateToProps,mapDispatchToProps),
+  withRouter
+)(ProfileContainer)

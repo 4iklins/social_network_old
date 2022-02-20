@@ -6,7 +6,6 @@ import Contacts from './Contacts';
 import withoutAvatarMock from '../../../img/withoutAvatarMock.jpg'
 
 function Profile(props) {
-
   return (
     <div className="profile_wrapper">
       <div className="profile_container">

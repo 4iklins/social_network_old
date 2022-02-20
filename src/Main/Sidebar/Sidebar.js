@@ -3,10 +3,10 @@ import Menu from './Menu/Menu';
 import Account from './Account/Account';
 
 
-function Sidebar() {
+function Sidebar(props) {
   return (
     <div className="sidebar">
-      <Menu />
+      <Menu myId={props.myId}/>
       <Account/>
     </div>
   );

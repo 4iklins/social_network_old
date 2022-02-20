@@ -2,10 +2,10 @@ import './Main.scss';
 import Content from './Content/Content';
 import Sidebar from './Sidebar/Sidebar';
 
-function Main() {
+function Main(props) {
   return (
     <div className="main">
-      <Sidebar />
+      <Sidebar myId={props.id}/>
       <Content />
     </div>
   );
