@@ -26,6 +26,14 @@ export const getProfile = (userId) => {
   return instance.get(`profile/${userId}`)
 }
 
+export const getStatus = (userId) => {
+  return instance.get(`profile/status/${userId}`)
+}
+
+export const setStatus = () => {
+  return instance.put(`profile/status`)
+}
+
 export const authMe = () => {
   return instance.get("auth/me")
   .then( response => response.data)
