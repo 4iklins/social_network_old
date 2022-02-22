@@ -80,7 +80,6 @@ export const getUserStatus = (userId) => (dispatch) => {
 }
 
 export const setUserStatus = (statusText) => (dispatch) => {
-  debugger
   setStatus(statusText)
   .then(response => {
     if(response.resultCode === 0){

@@ -10,24 +10,33 @@ class Status extends React.Component {
     }
     this.enableEditMode = this.enableEditMode.bind(this);
     this.disableEditMode = this.disableEditMode.bind(this);
+    this.onStatusChange = this.onStatusChange.bind(this);
   }
 
   enableEditMode(){
     this.setState({editMode:true})
   }
-  disableEditMode(e){
-    debugger
-    console.log(e.target.value);
+  disableEditMode(){
     this.setState({editMode:false})
-    this.props.setUserStatus(e.target.value)
+    if(this.state.statusText !== this.props.status){
+      this.props.setUserStatus(this.state.statusText)
+    }
+  }
+  onStatusChange(evt){
+    this.setState({statusText:evt.currentTarget.value})
+  }
+  componentDidUpdate(prevProps,prevState){
+    if(prevProps.status !== this.props.status){
+      this.setState({statusText: this.props.status})
+    }
   }
 
   render(){
     return(
       <div className="status">
         {this.state.editMode
-        ? <input type="text" className="status_input" value={this.props.status} onBlur={this.disableEditMode} autoFocus={true}/>
-        : <div className="status_text" onClick={this.enableEditMode}>{this.state.statusText}</div>
+        ? <input type="text" className="status_input" value={this.state.statusText} onBlur={this.disableEditMode} onChange={this.onStatusChange} autoFocus={true}/>
+        : <div className="status_text" onClick={this.enableEditMode}><span>Status: </span>{this.props.status}</div>
         }
       </div>
     )
