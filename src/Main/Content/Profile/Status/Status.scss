@@ -1,5 +1,19 @@
 @import "../../../../variables.scss";
 
+.status {
+  input {
+    border: 2px solid #f1f1f1;
+    border-radius: 5px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #888;
+    &:focus-visible {
+      outline: none;
+    }
+  }
+}
+
 .status_text {
   display: flex;
   align-items: center;

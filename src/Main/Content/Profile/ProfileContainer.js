@@ -21,7 +21,8 @@ class ProfileContainer extends React.Component{
 
   componentDidMount(){
     let userId = this.props.match.params.id
-    this.props.getUserProfile(userId);
+    debugger
+    this.props.getUserProfile(userId);//getUserProfile(userId) = dispatch(getUserProfile(userId)) где переданная в dispatch getUserProfile(userId) это thunk
     this.props.getUserStatus(userId);
   }
 
