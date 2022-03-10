@@ -1,5 +1,5 @@
 import Main from "./Main";
-import Login from "./Content/Login/Login";
+import Login from "../Login/Login";
 import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import {auth} from "../data/auth-reducer";
