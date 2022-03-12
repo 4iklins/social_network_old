@@ -1,12 +1,17 @@
 import React from 'react';
 import './Profile.scss';
 import Post from './Post/Post';
-import CreatePost from './CreatePost/CreatePost';
+import CreatePostForm from './CreatePost/CreatePostForm';
 import Contacts from './Contacts';
 import withoutAvatarMock from '../../../img/withoutAvatarMock.jpg';
 import Status from './Status/Status';
 
 function Profile(props) {
+  const addNewPost = (formData) =>{
+    console.log(formData.postText)
+    props.addPost(formData.postText);
+  }
+
   return (
     <div className="profile_wrapper">
       <div className="profile_container">
@@ -27,7 +32,7 @@ function Profile(props) {
           </div>
         </div>
       </div>
-      <CreatePost {...props}/>
+      <CreatePostForm {...props} onSubmit={addNewPost}/>
       {props.posts.map(post => {
         return <Post postData={post} key={post.id}/>
       })}

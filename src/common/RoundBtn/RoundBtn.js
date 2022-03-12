@@ -1,10 +1,10 @@
 import './RoundBtn.scss';
 
-function RoundBtn() {
+function RoundBtn(props) {
   return (
-    <div className="round_btn">
-
-    </div>
+    <button className="round_btn" type={props.type}>
+      <img src={props.icon}></img>
+    </button>
   );
 }
 

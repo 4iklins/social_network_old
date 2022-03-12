@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import withPreloader from '../../../hoc/withPreloader';
-import {addPost, getUserProfile, updateEnteredPostText, getUserStatus, setUserStatus} from '../../../data/profile-reduser';
+import {addPost, getUserProfile, getUserStatus, setUserStatus} from '../../../data/profile-reduser';
 
 
 const ProfileWithPreloader = withPreloader('profile')(Profile)
@@ -42,7 +42,6 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-    updateEnteredPostText:updateEnteredPostText,
     addPost:addPost,
     getUserProfile:getUserProfile,
     getUserStatus: getUserStatus,

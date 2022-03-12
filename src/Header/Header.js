@@ -3,6 +3,8 @@ import logo from '../img/logo.svg';
 import RoundBtn from '../common/RoundBtn/RoundBtn';
 import Avatar from '../Main/Content/Avatar';
 import {NavLink} from 'react-router-dom';
+import settingsIcon from '../img/settings_icon.svg';
+import userIcon from '../img/user_icon.svg';
 
 
 function Header(props) {
@@ -20,7 +22,7 @@ function Header(props) {
         <div className="header_menu">
           <div className="header_settings">
             <NavLink to ="/settings">
-              <RoundBtn />
+              <RoundBtn icon={settingsIcon} type="button"/>
             </NavLink>
           </div>
           <div className="header_user">
@@ -29,7 +31,7 @@ function Header(props) {
               <Avatar user={props.profile}/>
              </NavLink>
             :<NavLink to ="/login">
-              <RoundBtn />
+              <RoundBtn icon={userIcon} type="button"/>
             </NavLink>}
           </div>
         </div>

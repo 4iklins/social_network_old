@@ -1,10 +1,9 @@
 import './MediaButton.scss';
-import SmallIcon from '../SmallIcon/SmallIcon';
 
 function MediaButton(props) {
   return(
-    <button className={"media_button " + props.icon}>
-      <SmallIcon/>
+    <button className="media_button" type={props.type}>
+      <img src={props.icon}></img>
     </button>
   )
 }

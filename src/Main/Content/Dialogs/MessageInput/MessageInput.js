@@ -1,6 +1,11 @@
 import './MessageInput.scss';
 import React from 'react';
 import MediaButton from '../../../../common/MediaButton/MediaButton';
+import RoundBtn from '../../../../common/RoundBtn/RoundBtn';
+import imageIcon from '../../../../img/image_icon.svg';
+import videoIcon from '../../../../img/video_icon.svg';
+import audioIcon from '../../../../img/music_icon.svg';
+import sendIcon from '../../../../img/send_icon.svg';
 
 
 
@@ -27,13 +32,13 @@ function MessageInput (props) {
                 onChange={onEnteredTextChange}/>
 
         <div className="chat_buttons" onClick = {onSendMessage}>
-          <button className="chat_send"></button>
+          <RoundBtn icon={sendIcon} type="submit"/>
         </div>
       </div>
       <div className="chat_media_buttons">
-        <MediaButton icon="image"/>
-        <MediaButton icon="video"/>
-        <MediaButton icon="audio"/>
+       <MediaButton icon={imageIcon} type="button"/>
+       <MediaButton icon={videoIcon} type="button"/>
+       <MediaButton icon={audioIcon} type="button"/>
       </div>
     </div>
   )
