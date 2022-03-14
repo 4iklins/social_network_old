@@ -60,7 +60,7 @@ const postsReducer = (state = initialState, action) => {
 
 export const addPost= (text) => ({type:ADD_NEW_POST, text:text});
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile:profile});
-export const setUserStatusText = (status) => ({type:SET_USER_STATUS,status:status})
+export const setUserStatusText = (status) => ({type:SET_USER_STATUS,status:status});
 
 export const getUserStatus = (userId) => (dispatch) => {
   getStatus(userId)

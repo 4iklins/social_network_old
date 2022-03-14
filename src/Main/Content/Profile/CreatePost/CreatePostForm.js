@@ -7,7 +7,11 @@ import sendIcon from '../../../../img/send_icon.svg';
 import imageIcon from '../../../../img/image_icon.svg';
 import videoIcon from '../../../../img/video_icon.svg';
 import audioIcon from '../../../../img/music_icon.svg';
-import { Field, reduxForm } from "redux-form";
+import { Field, reduxForm, reset } from "redux-form";
+import { maxLength, empty } from "../../../../utils/validators/validators";
+import {Textarea} from '../../../../common/FormFields/FormFields'
+
+let maxLength100 = maxLength(10);
 
 function CreatePost (props) {
   debugger
@@ -19,24 +23,28 @@ function CreatePost (props) {
       </div>
       <Field 
         name="postText"
-        component="textarea"
-       id="" rows="5" 
-       placeholder="What's on your mind?"
-       value={props.newPostText}
+        component={Textarea}
+        id="" rows="5" 
+        placeholder="What's on your mind?"
+        validate = {[maxLength100, empty]}
        />
+       {/* {meta.error && <span>error</span>} */}
     </div>
     <div className="create_post_media">
       <MediaButton icon={imageIcon} type="button"/>
       <MediaButton icon={videoIcon} type="button"/>
       <MediaButton icon={audioIcon} type="button"/>
     </div>
-    <div className="create_post_button">
+    <div className="create_post_button" >
       <RoundBtn icon={sendIcon} type="submit"/>
     </div>
   </form>
   )
 }
+const afterSubmit = (result, dispatch) =>
+  dispatch(reset('createPost'));
 
 export default reduxForm({
-  form:'createPost'
+  form:'createPost',
+  onSubmitSuccess:afterSubmit
 })(CreatePost);

@@ -6,6 +6,7 @@ import Contacts from './Contacts';
 import withoutAvatarMock from '../../../img/withoutAvatarMock.jpg';
 import Status from './Status/Status';
 
+
 function Profile(props) {
   const addNewPost = (formData) =>{
     console.log(formData.postText)
