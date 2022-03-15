@@ -56,3 +56,15 @@
 .create_post_media {
   margin-left: auto;
 }
+.warning_postText {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 50px;
+  left: 14px;
+  font-weight: 500;
+  font-size: 12px;
+  span {
+    margin-left: 5px;
+  }
+}

@@ -3,5 +3,5 @@ export const maxLength = (max) => (value) => {
   return undefined
 };
 
-export const required = (value) => value ? undefined : 'Required field';
+export const required = (value) => value ? undefined : 'Required';
 

@@ -5,4 +5,32 @@
   width: 75%;
   min-width: 800px;
   flex: 1 1 auto;
+
+  .login_item {
+    position: relative;
+  }
+
+  .validField_login_error,
+  .validField_password_error {
+    .warning_login,
+    .warning_password {
+      position: absolute;
+      top: 6px;
+      right: 5px;
+      span {
+        display: none;
+      }
+    }
+    input {
+      border: 1px solid $warning;
+    }
+  }
+}
+.login_submit {
+  cursor: pointer;
+  &:disabled {
+    background-color: $button-grey;
+    color: $font-color;
+    cursor: auto;
+  }
 }

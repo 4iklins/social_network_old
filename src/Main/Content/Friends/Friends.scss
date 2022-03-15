@@ -51,7 +51,8 @@
   .friend_follow_button {
     background-color: $green;
     &:disabled {
-      background-color: gray;
+      background-color: $button-grey;
+      color: $font-color;
       cursor: auto;
     }
   }
