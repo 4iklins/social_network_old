@@ -8,13 +8,12 @@ import imageIcon from '../../../../img/image_icon.svg';
 import videoIcon from '../../../../img/video_icon.svg';
 import audioIcon from '../../../../img/music_icon.svg';
 import { Field, reduxForm, reset } from "redux-form";
-import { maxLength, empty } from "../../../../utils/validators/validators";
+import { maxLength} from "../../../../utils/validators/validators";
 import {Textarea} from '../../../../common/FormFields/FormFields'
 
 let maxLength100 = maxLength(10);
 
 function CreatePost (props) {
-  debugger
   return(
     <form className="create_post" onSubmit={props.handleSubmit}>
     <div className="create_post_text">
@@ -26,9 +25,8 @@ function CreatePost (props) {
         component={Textarea}
         id="" rows="5" 
         placeholder="What's on your mind?"
-        validate = {[maxLength100, empty]}
+        validate = {[maxLength100]}
        />
-       {/* {meta.error && <span>error</span>} */}
     </div>
     <div className="create_post_media">
       <MediaButton icon={imageIcon} type="button"/>
@@ -36,7 +34,7 @@ function CreatePost (props) {
       <MediaButton icon={audioIcon} type="button"/>
     </div>
     <div className="create_post_button" >
-      <RoundBtn icon={sendIcon} type="submit"/>
+      <RoundBtn icon={sendIcon} type="submit" disabled = {props.pristine}/>
     </div>
   </form>
   )

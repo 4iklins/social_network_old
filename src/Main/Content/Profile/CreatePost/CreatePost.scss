@@ -48,6 +48,9 @@
 
 .create_post_button .round_btn {
   background-color: $pink;
+  &:disabled {
+    background-color: $button-grey;
+  }
 }
 
 .create_post_media {

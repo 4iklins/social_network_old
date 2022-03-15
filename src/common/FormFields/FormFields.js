@@ -1,10 +1,16 @@
-
-export const Textarea = ({input, meta:{ touched, error, warning }, ...props}) => {
-  debugger
+export const CreateField = ({input, meta:{ touched, error, warning },children, ...props}) => {
   return(
     <div>
-      <textarea {...input} {...props}></textarea>
+      {children}
       {error && <span>{error}</span>}
     </div>
+  )
+}
+
+
+export const Textarea = (props) => {
+  const {input, ...restProps} = props
+  return(
+    <CreateField {...props}><textarea {...input} {...props}/></CreateField>
   )
 }
