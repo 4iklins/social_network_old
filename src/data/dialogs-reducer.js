@@ -1,5 +1,4 @@
 const SEND_MESSAGE = 'SEND-MESSAGE';
-const UPDATE_ENTERED_MESSAGE_TEXT = 'UPDATE_ENTERED_MESSAGE_TEXT';
 
 const initialState = {
   me: {
@@ -93,42 +92,32 @@ const initialState = {
       },
       messages: []
     },
-  ],
-  newMessageText:""
+  ]
 }
 
-const _newMessage = (state) => {
+const _newMessage = (state, messageText,id) => {
+  debugger
   let message = {}
   message.isMe = true;
-  message.message = state.newMessageText;
+  message.message = messageText;
   message.date = new Date();
 
   let stateCopy = {...state,
-    users: [...state.users],
-    newMessageText:''
+    users: [...state.users]
   }
-  stateCopy.users[0].messages = [...state.users[0].messages, message]
+  stateCopy.users[id].messages = [...state.users[id].messages, message]
 
   return stateCopy
 };
 
-const _updateEnteredMessageText = (state, text) => {
-  return {...state,
-    newMessageText: text
-  }
-}
-
 const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
     case SEND_MESSAGE:
-      return _newMessage(state);
-    case UPDATE_ENTERED_MESSAGE_TEXT:
-      return _updateEnteredMessageText(state, action.text);
+      return _newMessage(state, action.messageText,action.userId);
     default: return state;
   }
 }
 
-export const sendMessage = () => ({type:SEND_MESSAGE});
-export const enteredTextChange = (text) => ({type:UPDATE_ENTERED_MESSAGE_TEXT, text: text});
+export const sendMessage = (text,id) => ({type:SEND_MESSAGE, messageText:text,userId:id});
 
 export default dialogsReducer

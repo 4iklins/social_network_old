@@ -1,4 +1,4 @@
-import './MessageInput.scss';
+import './SendMessageForm.scss';
 import React from 'react';
 import MediaButton from '../../../../common/MediaButton/MediaButton';
 import RoundBtn from '../../../../common/RoundBtn/RoundBtn';
@@ -6,33 +6,22 @@ import imageIcon from '../../../../img/image_icon.svg';
 import videoIcon from '../../../../img/video_icon.svg';
 import audioIcon from '../../../../img/music_icon.svg';
 import sendIcon from '../../../../img/send_icon.svg';
+import { reduxForm, Field, reset } from 'redux-form';
+import {Textarea} from '../../../../common/FormFields/FormFields'
 
-
-
-
-function MessageInput (props) {
-  
-  let newMessageElement = React.createRef();
-  let onSendMessage = () => {
-    props.sendMessage();
-  };
-
-  let onEnteredTextChange = () => {
-      let text = newMessageElement.current.value;
-      props.enteredTextChange(text);
-  };
-
+function SendMessageForm (props) {
   return (
-    <div className="message_input">
+    <form className="message_input" onSubmit={props.handleSubmit}>
       <div className="chat_message_input">
 
-      <textarea name="" id="" 
-                value={props.dialogsPage.newMessageText}
-                ref={newMessageElement}
-                onChange={onEnteredTextChange}/>
+      <Field 
+        name="sendMessage"
+        component={Textarea}
+        id="" 
+      />
 
-        <div className="chat_buttons" onClick = {onSendMessage}>
-          <RoundBtn icon={sendIcon} type="submit"/>
+        <div className="chat_buttons">
+          <RoundBtn icon={sendIcon} type="submit" disabled = {props.pristine}/>
         </div>
       </div>
       <div className="chat_media_buttons">
@@ -40,8 +29,13 @@ function MessageInput (props) {
        <MediaButton icon={videoIcon} type="button"/>
        <MediaButton icon={audioIcon} type="button"/>
       </div>
-    </div>
+    </form>
   )
 }
+const afterSubmit = (result, dispatch) =>
+  dispatch(reset('sendMessage'));
 
-export default MessageInput
+export default reduxForm({
+  form: "sendMessage",
+  onSubmitSuccess:afterSubmit
+})(SendMessageForm)

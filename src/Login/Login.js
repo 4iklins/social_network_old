@@ -1,9 +1,11 @@
 import './Login.scss'
 import LoginForm from './LoginForm/LoginForm';
 
-function Login() {
+function Login(props) {
   const onSubmit = (formData) => {
-    console.log(formData)
+    console.log(props)
+    const {email,password,rememberMe} = formData
+    props.login(email,password,rememberMe)
   }
 
   return (

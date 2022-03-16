@@ -5,10 +5,13 @@
   padding: 0 15px;
   display: flex;
   align-items: center;
+  .validField_sendMessage {
+    width: 100%;
+    height: 45px;
+  }
 
   textarea {
     width: 100%;
-    min-height: 45px;
     box-sizing: border-box;
     border: $border-gray;
     border-radius: 15px;
@@ -26,6 +29,11 @@
   }
   .round_btn {
     background-color: $pink;
+    cursor: pointer;
+    &:disabled {
+      cursor: auto;
+      background-color: $button-grey;
+    }
   }
 }
 

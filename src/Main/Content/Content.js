@@ -10,7 +10,7 @@ function Content() {
     <div className="content">
       <div className="main_content">
         <Route path='/profile/:id?' render={ () => <ProfileContainer />}/>
-        <Route path='/messages' render={ () => <DialogsContainer />}/>
+        <Route path='/messages/:dialog?/:id?' render={ () => <DialogsContainer />}/>
         <Route path ='/friends' render= { () => <FriendsContainer/>}/>
       </div>
       <div className="other_content">

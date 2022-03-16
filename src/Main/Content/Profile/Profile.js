@@ -12,7 +12,6 @@ function Profile(props) {
     console.log(formData.postText)
     props.addPost(formData.postText);
   }
-
   return (
     <div className="profile_wrapper">
       <div className="profile_container">

@@ -1,4 +1,4 @@
-import {authMe, getProfile} from '../api/api'
+import {authMe, getProfile, loginMe} from '../api/api'
 
 const SET_AUTH_DATA = "SET-AUTH-DATA";
 const SET_MY_PROFILE = 'SET-MY-PROFILE';
@@ -52,6 +52,14 @@ export const auth = () => (dispatch) => {
     }
   })
 }
+export const login = (email,password,rememderMe) => (dispatch) => {
+  loginMe(email,password,rememderMe).then(response =>{
+    if(response.resultCode === 0){
+      dispatch(auth())
+    }
+  })
+}
+
 
 
 export default authReducer;

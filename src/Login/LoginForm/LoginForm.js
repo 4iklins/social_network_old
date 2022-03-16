@@ -9,11 +9,11 @@ const LoginForm = (props) => {
       <div className="login_item">
         <label>
           <Field 
-            name='login' 
+            name='email' 
             component={Input}
             type='text' 
-            id='login' 
-            placeholder="login"
+            id='email' 
+            placeholder="email"
             validate={[required]}/>
         </label>
       </div>
@@ -31,7 +31,7 @@ const LoginForm = (props) => {
       <div className="login_item login_item--checkbox">
         <label>
           <span>Remember me</span>
-          <Field name ='remember' component='input'type='checkbox' id='remember'/>
+          <Field name ='rememberMe' component='input'type='checkbox' id='rememberMe'/>
         </label>
       </div>
       <button className="login_submit" type="submit" disabled={props.invalid}>Login</button>

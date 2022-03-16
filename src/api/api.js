@@ -36,3 +36,7 @@ export const setStatus = (status) => {
 export const authMe = () => {
   return instance.get("auth/me").then((response) => response.data);
 };
+
+export const loginMe = (email,password,rememderMe = false) => {
+  return instance.post ("auth/login",{email:email,password:password,rememderMe:rememderMe});
+};

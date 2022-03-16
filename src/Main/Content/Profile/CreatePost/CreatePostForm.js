@@ -11,7 +11,7 @@ import { Field, reduxForm, reset } from "redux-form";
 import { maxLength} from "../../../../utils/validators/validators";
 import {Textarea} from '../../../../common/FormFields/FormFields'
 
-let maxLength100 = maxLength(10);
+let maxLength140 = maxLength(140);
 
 function CreatePost (props) {
   return(
@@ -25,7 +25,7 @@ function CreatePost (props) {
         component={Textarea}
         id="" rows="5" 
         placeholder="What's on your mind?"
-        validate = {[maxLength100]}
+        validate = {[maxLength140]}
        />
     </div>
     <div className="create_post_media">

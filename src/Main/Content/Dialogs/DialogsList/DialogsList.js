@@ -9,7 +9,7 @@ const DialogsList = (props) => {
     {props.dialogsPage.users.map(user =>
     <li className="dialogs_item" key={user.id.toString()}>
       <Avatar user={user}/>
-      <NavLink to={`/messages/dialog/id${user.id}`} className="dialog_name">{user.name}</NavLink>
+      <NavLink to={`/messages/dialog/${user.id}`} className="dialog_name">{user.name}</NavLink>
     </li>
     )}
   </ul>

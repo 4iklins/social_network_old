@@ -1,10 +1,14 @@
 import './Dialogs.scss';
 import Messages from './Messages/Messages';
 import DialogsList from './DialogsList/DialogsList';
-import MessageInput from './MessageInput/MessageInput';
+import SendMessageForm from './SendMessageForm/SendMessageForm';
 import {Route} from 'react-router-dom';
 
 function Dialogs(props) {
+  debugger
+  const onMessageSend = (formData) => {
+    props.sendMessage(formData.sendMessage,props.match.params.id)
+  }
   return (
     <div className="dialogs_box">
       <div className="dialogs">
@@ -17,10 +21,11 @@ function Dialogs(props) {
         <div className="chat">
           <div className="chat_content_wrapper">
             <div className="chat_content">
-              <Route path="/messages/dialog/id0" render={ ()=> <Messages dialogsPage={props.dialogsPage}/>}/>
+              <Route path="/messages/dialog/:id?" render={ ()=> <Messages{...props}/>}/>
             </div>
           </div>
-          <Route path ="/messages/dialog" render={ () => <MessageInput sendMessage={props.sendMessage} enteredTextChange={props.enteredTextChange} dialogsPage={props.dialogsPage}/>}/>
+          <Route path ="/messages/dialog" 
+                 render={ () => <SendMessageForm onSubmit={onMessageSend}/>}/>
         </div>
       </div>
     </div>

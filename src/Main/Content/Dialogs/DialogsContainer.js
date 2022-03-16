@@ -1,7 +1,9 @@
 import './Dialogs.scss';
 import Dialogs from './Dialogs';
 import { connect } from 'react-redux';
-import { sendMessage, enteredTextChange} from '../../../data/dialogs-reducer';
+import { sendMessage} from '../../../data/dialogs-reducer';
+import { withRouter } from 'react-router-dom';
+import { compose } from 'redux';
 
 
 const mapStateToProps = (state) => {
@@ -10,11 +12,11 @@ const mapStateToProps = (state) => {
   }
 }
 const mapDispatchToProps = {
-    sendMessage:sendMessage,
-    enteredTextChange:enteredTextChange
+    sendMessage:sendMessage
 }
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
 
-
-export default DialogsContainer;
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  withRouter
+)(Dialogs)
