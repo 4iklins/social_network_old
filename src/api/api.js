@@ -38,5 +38,5 @@ export const authMe = () => {
 };
 
 export const loginMe = (email,password,rememderMe = false) => {
-  return instance.post ("auth/login",{email:email,password:password,rememderMe:rememderMe});
+  return instance.post ("auth/login",{email,password,rememderMe});
 };

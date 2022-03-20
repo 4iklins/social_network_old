@@ -1,5 +1,5 @@
 import Main from "./Main";
-import Login from "../Login/Login";
+import LoginContainer from "../Login/LoginContainer";
 import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import {auth} from "../data/auth-reducer";
@@ -16,7 +16,7 @@ class MainContainer extends React.Component{
   render(){
     return (
       <Fragment>
-        {this.props.isAuth ? <MainWithPreloader {...this.props}/>:<Login/>}
+        {this.props.isAuth ? <MainWithPreloader {...this.props}/>:<LoginContainer/>}
       </Fragment>
     );
   }

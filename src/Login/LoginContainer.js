@@ -13,13 +13,13 @@ class LoginContainer extends React.Component{
   }
 }
 const mapDispathToprops = (state) =>{
-  return(
-    {}
-  )
+  return{
+      isAuth:state.auth.isAuth
+    }
 }
 const mapStateToProps = {
   login:login
 }
 export default compose(
-  connect(null,mapStateToProps)
+  connect(mapDispathToprops,mapStateToProps)
 )(LoginContainer)

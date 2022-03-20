@@ -3,7 +3,6 @@ import LoginForm from './LoginForm/LoginForm';
 
 function Login(props) {
   const onSubmit = (formData) => {
-    console.log(props)
     const {email,password,rememberMe} = formData
     props.login(email,password,rememberMe)
   }

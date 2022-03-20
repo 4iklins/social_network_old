@@ -54,7 +54,8 @@ export const auth = () => (dispatch) => {
 }
 export const login = (email,password,rememderMe) => (dispatch) => {
   loginMe(email,password,rememderMe).then(response =>{
-    if(response.resultCode === 0){
+    debugger
+    if(response.data.resultCode === 0){
       dispatch(auth())
     }
   })
