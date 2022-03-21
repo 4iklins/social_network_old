@@ -22,17 +22,14 @@ function Header(props) {
         <div className="header_menu">
           <div className="header_settings">
             <NavLink to ="/settings">
-              <RoundBtn icon={settingsIcon} type="button"/>
+              <RoundBtn icon={settingsIcon} type="button" />
             </NavLink>
           </div>
           <div className="header_user">
             {props.isAuth && props.profile
-            ?<NavLink to="/logout">
-              <Avatar user={props.profile}/>
-             </NavLink>
-            :<NavLink to ="/login">
-              <RoundBtn icon={userIcon} type="button"/>
-            </NavLink>}
+            ?<div onClick={props.logout}><Avatar user={props.profile}/></div>
+            :<RoundBtn icon={userIcon} type="button"/>
+            }
           </div>
         </div>
 

@@ -40,3 +40,6 @@ export const authMe = () => {
 export const loginMe = (email,password,rememderMe = false) => {
   return instance.post ("auth/login",{email,password,rememderMe});
 };
+export const logoutMe = () => {
+  return instance.delete ("auth/login");
+}

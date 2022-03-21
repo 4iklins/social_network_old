@@ -1,8 +1,9 @@
-import {authMe, getProfile, loginMe} from '../api/api'
+import {authMe, getProfile, loginMe, logoutMe} from '../api/api'
 
 const SET_AUTH_DATA = "SET-AUTH-DATA";
 const SET_MY_PROFILE = 'SET-MY-PROFILE';
 const AUTH_PROGRESS = "AUTH-PROGRESS";
+const RESET_AUTH_DATA = "RESET-AUTH-DATA";
 
 let intialState = {
   id: null,
@@ -31,12 +32,22 @@ function authReducer(state=intialState, action) {
         ...state,
         authProgress:action.progress
       }
+     case RESET_AUTH_DATA:
+       return {
+          ...state,
+          id: null,
+          email: null,
+          login: null,
+          isAuth:false,
+          profile:null
+       }
    default: return state;
  }
 }
 export const setAuthData = (id,login,email)=>({type:SET_AUTH_DATA, data: {id,login,email} });
 export const setMyProfile = (profile) => ({type: SET_MY_PROFILE, profile:profile});
 export const authProgress = (progress) => ({type: AUTH_PROGRESS, progress:progress});
+export const resetAuthData = () => ({type: RESET_AUTH_DATA});
 
 export const auth = () => (dispatch) => {
   dispatch(authProgress(true))
@@ -50,13 +61,25 @@ export const auth = () => (dispatch) => {
         dispatch(setMyProfile(response.data));
       })
     }
+    if(response.resultCode === 1){
+      
+    }
   })
 }
 export const login = (email,password,rememderMe) => (dispatch) => {
   loginMe(email,password,rememderMe).then(response =>{
-    debugger
     if(response.data.resultCode === 0){
       dispatch(auth())
+    }
+  })
+}
+
+export const logout = () => (dispatch) => {
+  debugger
+  logoutMe().then(response => {
+    if (response.data.resultCode === 0){
+      dispatch(resetAuthData());
+      dispatch(auth());
     }
   })
 }
