@@ -92,7 +92,7 @@ export const unFollow = (userId) => (dispatch) => {
   deleteFollow(userId)
   .then((response) => {
     if(response.resultCode === 0)
-    dispatch(followToggle(userId, true));
+    dispatch(followToggle(userId, false));
     dispatch(isFollowingProgress(false, userId));
   });
 }

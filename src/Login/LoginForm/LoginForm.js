@@ -45,7 +45,7 @@ const LoginForm = (props) => {
                component={Input}
                type='input'
                validate={[required]}/>
-        <img src ={props.captchaUrl}></img>
+        <img src ={props.captchaUrl} className="login_captcha-img"></img>
       </div>}
  
       <button className="login_submit" type="submit" disabled={props.invalid}>Login</button>
