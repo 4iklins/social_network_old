@@ -2,6 +2,7 @@ import { Field, reduxForm } from "redux-form";
 import './LoginForm.scss';
 import { Input } from "../../common/FormFields/FormFields";
 import { required } from "../../utils/validators/validators";
+import errorImg from '../../img/warning_icon.svg'
 
 const LoginForm = (props) => {
   return(
@@ -34,6 +35,19 @@ const LoginForm = (props) => {
           <Field name ='rememberMe' component='input'type='checkbox' id='rememberMe'/>
         </label>
       </div>
+
+      {props.error &&  <div className="login_fail">
+        <img src ={errorImg}></img><span>{props.error}</span>
+      </div>}
+
+      {props.captchaUrl && <div className="login_captcha">
+        <Field name ='captcha'
+               component={Input}
+               type='input'
+               validate={[required]}/>
+        <img src ={props.captchaUrl}></img>
+      </div>}
+ 
       <button className="login_submit" type="submit" disabled={props.invalid}>Login</button>
     </form>
   )

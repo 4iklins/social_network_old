@@ -14,7 +14,8 @@ class LoginContainer extends React.Component{
 }
 const mapDispathToprops = (state) =>{
   return{
-      isAuth:state.auth.isAuth
+      isAuth:state.auth.isAuth,
+      captchaUrl:state.auth.captchaUrl
     }
 }
 const mapStateToProps = {

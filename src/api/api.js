@@ -37,9 +37,12 @@ export const authMe = () => {
   return instance.get("auth/me").then((response) => response.data);
 };
 
-export const loginMe = (email,password,rememderMe = false) => {
-  return instance.post ("auth/login",{email,password,rememderMe});
+export const loginMe = (email,password,rememderMe = false,captcha) => {
+  return instance.post ("auth/login",{email,password,rememderMe,captcha});
 };
 export const logoutMe = () => {
   return instance.delete ("auth/login");
+}
+export const getCaptcha = () => {
+  return instance.get("/security/get-captcha-url");
 }

@@ -1,9 +1,11 @@
-import {authMe, getProfile, loginMe, logoutMe} from '../api/api'
+import {authMe, getProfile, loginMe, logoutMe, getCaptcha} from '../api/api';
+import {stopSubmit} from 'redux-form';
 
 const SET_AUTH_DATA = "SET-AUTH-DATA";
 const SET_MY_PROFILE = 'SET-MY-PROFILE';
 const AUTH_PROGRESS = "AUTH-PROGRESS";
 const RESET_AUTH_DATA = "RESET-AUTH-DATA";
+const SET_CAPTCHA = "SET-CAPTCHA";
 
 let intialState = {
   id: null,
@@ -12,6 +14,7 @@ let intialState = {
   authProgress:true,
   isAuth:false,
   profile:null,
+  captchaUrl:null,
 }
 
 function authReducer(state=intialState, action) {
@@ -39,8 +42,15 @@ function authReducer(state=intialState, action) {
           email: null,
           login: null,
           isAuth:false,
-          profile:null
+          profile:null,
+          captchaUrl:null
        }
+       case SET_CAPTCHA:
+         debugger
+         return{
+           ...state,
+           captchaUrl:action.url
+         }
    default: return state;
  }
 }
@@ -48,6 +58,7 @@ export const setAuthData = (id,login,email)=>({type:SET_AUTH_DATA, data: {id,log
 export const setMyProfile = (profile) => ({type: SET_MY_PROFILE, profile:profile});
 export const authProgress = (progress) => ({type: AUTH_PROGRESS, progress:progress});
 export const resetAuthData = () => ({type: RESET_AUTH_DATA});
+export const setCaptcha = (url) => ({type:SET_CAPTCHA, url:url})
 
 export const auth = () => (dispatch) => {
   dispatch(authProgress(true))
@@ -61,21 +72,29 @@ export const auth = () => (dispatch) => {
         dispatch(setMyProfile(response.data));
       })
     }
-    if(response.resultCode === 1){
-      
-    }
   })
 }
-export const login = (email,password,rememderMe) => (dispatch) => {
-  loginMe(email,password,rememderMe).then(response =>{
+export const login = (email,password,rememderMe,captcha) => (dispatch) => {
+  loginMe(email,password,rememderMe,captcha).then(response =>{
     if(response.data.resultCode === 0){
       dispatch(auth())
+    }
+    if(response.data.resultCode === 1){
+      
+      dispatch(stopSubmit('login', {_error:response.data.messages[0]}))
+    }
+    if(response.data.resultCode === 10){
+      let errorMessage = response.data.messages[0]
+      getCaptcha().then(response =>{
+        dispatch(setCaptcha(response.data.url));
+        dispatch(stopSubmit('login', {_error:errorMessage}))
+      })
     }
   })
 }
 
 export const logout = () => (dispatch) => {
-  debugger
+  
   logoutMe().then(response => {
     if (response.data.resultCode === 0){
       dispatch(resetAuthData());
