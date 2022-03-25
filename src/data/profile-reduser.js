@@ -20,7 +20,6 @@ let initialState = {
       comments: 15,
     },
   ],
-  newPostText: "",
   profile: null,
   status:null
 }
@@ -34,8 +33,7 @@ const _newPost = (state,text) => {
   post.comments = 0;
   return {
       ...state,
-      posts:[post, ...state.posts],
-      newPostText: ""
+      posts:[post, ...state.posts]
   }
 };
 
@@ -70,7 +68,7 @@ export const getUserStatus = (userId) => (dispatch) => {
 }
 
 export const setUserStatus = (statusText) => (dispatch) => {
-  setStatus(statusText)
+  return setStatus(statusText)
   .then(response => {
     if(response.resultCode === 0){
       dispatch(setUserStatusText(statusText))
@@ -79,7 +77,7 @@ export const setUserStatus = (statusText) => (dispatch) => {
 }
 
 export const getUserProfile = (userId) => (dispatch) => {
-  getProfile(userId)
+   return getProfile(userId)
   .then(response => {
     dispatch(setUserProfile(response.data));
   })

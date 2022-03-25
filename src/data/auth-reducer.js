@@ -63,13 +63,13 @@ export const setCaptcha = (url) => ({type:SET_CAPTCHA, url:url})
 export const auth = () => (dispatch) => {
   dispatch(authProgress(true))
   authMe().then(response =>{
-    dispatch(authProgress(false))
     if(response.resultCode === 0){
       let {id, login, email} = response.data
       dispatch(setAuthData(id,login,email));
       getProfile(id)
       .then(response =>{
         dispatch(setMyProfile(response.data));
+        dispatch(authProgress(false))
       })
     }
   })

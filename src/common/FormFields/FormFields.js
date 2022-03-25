@@ -22,7 +22,6 @@ export const Textarea = (props) => {
 }
 
 export const Input = (props) => {
-  debugger
   const {input,meta, ...restProps} = props
   return(
     <CreateField {...props} ><input {...input} {...restProps}/></CreateField>
