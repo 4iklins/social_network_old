@@ -84,6 +84,7 @@ export const login = (email,password,rememderMe,captcha) => (dispatch) => {
       dispatch(stopSubmit('login', {_error:response.data.messages[0]}))
     }
     if(response.data.resultCode === 10){
+      debugger
       let errorMessage = response.data.messages[0]
       getCaptcha().then(response =>{
         dispatch(setCaptcha(response.data.url));

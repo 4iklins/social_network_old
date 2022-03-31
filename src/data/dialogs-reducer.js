@@ -113,11 +113,11 @@ const _newMessage = (state, messageText,id) => {
 const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
     case SEND_MESSAGE:
-      return _newMessage(state, action.messageText,action.userId);
+      return _newMessage(state, action.messageText, action.userId);
     default: return state;
   }
 }
 
-export const sendMessage = (text,id) => ({type:SEND_MESSAGE, messageText:text,userId:id});
+export const sendMessage = (text,id) => ({type:SEND_MESSAGE, messageText:text, userId:id});
 
 export default dialogsReducer

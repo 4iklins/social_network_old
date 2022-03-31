@@ -21,7 +21,7 @@ function Dialogs(props) {
         <div className="chat">
           <div className="chat_content_wrapper">
             <div className="chat_content">
-              <Route path="/messages/dialog/:id?" render={ ()=> <Messages{...props}/>}/>
+              <Route path="/messages/dialog/:id" render={ ()=> <Messages{...props}/>}/>
             </div>
           </div>
           <Route path ="/messages/dialog" 
