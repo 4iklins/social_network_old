@@ -1,5 +1,6 @@
 import './Status.scss';
 import React from 'react';
+import StatusForm from './StatusForm';
 
 class Status extends React.Component {
   constructor(props){
@@ -38,6 +39,7 @@ class Status extends React.Component {
         ? <input type="text" className="status_input" value={this.state.statusText} onBlur={this.disableEditMode} onChange={this.onStatusChange} autoFocus={true}/>
         : <div className="status_text" onClick={this.enableEditMode}><span>Status: </span>{this.props.status}</div>
         }
+        <StatusForm/>
       </div>
     )
   }

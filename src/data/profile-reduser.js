@@ -48,6 +48,7 @@ const postsReducer = (state = initialState, action) => {
         profile:action.profile
       }
     case SET_USER_STATUS:
+      debugger
       return {
         ...state,
         status:action.status
@@ -72,6 +73,9 @@ export const setUserStatus = (statusText) => (dispatch) => {
   .then(response => {
     if(response.resultCode === 0){
       dispatch(setUserStatusText(statusText))
+    }
+    if(response.resultCode === 1){
+      
     }
   })
 }

@@ -30,7 +30,7 @@ export const getStatus = (userId) => {
 };
 
 export const setStatus = (status) => {
-  return instance.put(`profile/status`,{status:status});
+  return instance.put(`profile/status`,{status:status}).then((response) => response.data);
 };
 
 export const authMe = () => {

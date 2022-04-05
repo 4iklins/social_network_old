@@ -5,6 +5,7 @@ import CreatePostForm from './CreatePost/CreatePostForm';
 import Contacts from './Contacts';
 import withoutAvatarMock from '../../../img/withoutAvatarMock.jpg';
 import Status from './Status/Status';
+import StatusWithHooks from './Status/StatusWithHooks';
 
 
 function Profile(props) {
@@ -23,7 +24,7 @@ function Profile(props) {
         <div className="profile_description">
           <div className="profile_name">{props.profile.fullName}</div>
           {props.authId === props.profile.userId
-          ? <Status status={props.status} setUserStatus={props.setUserStatus}/>
+          ? <StatusWithHooks status={props.status} setUserStatus={props.setUserStatus}/>
           : <div className="profile_user_status"><span>Status: </span>{props.status}</div> }
           <div className="profile_about">Abount me: {props.profile.aboutMe}</div>
           <div className="profile_contacts">
