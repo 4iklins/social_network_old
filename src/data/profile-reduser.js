@@ -1,4 +1,4 @@
-import {getProfile, getStatus, setStatus} from "../api/api"
+import {getProfile, getStatus, setStatus} from "../api/api";
 
 const ADD_NEW_POST = 'ADD-NEW-POST';
 const SET_USER_PROFILE = 'SET-USER-PROFILE';

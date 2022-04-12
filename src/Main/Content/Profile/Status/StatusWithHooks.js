@@ -1,6 +1,7 @@
 import './Status.scss';
 import {React, useState, useEffect} from 'react';
 
+
 const StatusWithHooks = (props) => {
 
   let [editMode, setEditMode] = useState(false);
@@ -30,6 +31,7 @@ const StatusWithHooks = (props) => {
         : <div className="status_text" onClick={enableEditMode}><span>Status: </span>{props.status}</div>
         }
       </div>
+      
     )
 }
 
