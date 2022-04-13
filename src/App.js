@@ -4,14 +4,25 @@ import Footer from './Footer/Footer';
 import './App.scss';
 import {BrowserRouter} from 'react-router-dom';
 import React from 'react';
+import withPreloader from './hoc/withPreloader';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { auth } from './data/auth-reducer';
+
+const MainContainerWithPrelodaer = withPreloader('authProgress')(MainContainer);
 
 class App extends React.Component {
+
+  componentDidMount(){
+    this.props.auth()
+  }
+
   render(){
     return (
       <BrowserRouter>
       <div className="App">
         <HeaderContainer />
-        <MainContainer />
+        <MainContainerWithPrelodaer {...this.props}/>
         <Footer />
       </div>
       </BrowserRouter>
@@ -20,4 +31,14 @@ class App extends React.Component {
 
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  authProgress:state.auth.authProgress
+})
+
+const mapDispathToprops = {
+  auth:auth
+}
+export default compose(
+  connect(mapStateToProps, mapDispathToprops)
+)(App)
+

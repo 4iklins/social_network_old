@@ -72,6 +72,9 @@ export const auth = () => (dispatch) => {
         dispatch(authProgress(false))
       })
     }
+    if(response.resultCode === 1){
+      dispatch(authProgress(false))
+    }
   })
 }
 export const login = (email,password,rememderMe,captcha) => (dispatch) => {
@@ -84,7 +87,6 @@ export const login = (email,password,rememderMe,captcha) => (dispatch) => {
       dispatch(stopSubmit('login', {_error:response.data.messages[0]}))
     }
     if(response.data.resultCode === 10){
-      debugger
       let errorMessage = response.data.messages[0]
       getCaptcha().then(response =>{
         dispatch(setCaptcha(response.data.url));
@@ -95,7 +97,6 @@ export const login = (email,password,rememderMe,captcha) => (dispatch) => {
 }
 
 export const logout = () => (dispatch) => {
-  
   logoutMe().then(response => {
     if (response.data.resultCode === 0){
       dispatch(resetAuthData());

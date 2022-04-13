@@ -5,7 +5,6 @@ import SendMessageForm from './SendMessageForm/SendMessageForm';
 import {Route} from 'react-router-dom';
 
 function Dialogs(props) {
-  debugger
   const onMessageSend = (formData) => {
     props.sendMessage(formData.sendMessage,props.match.params.id)
   }

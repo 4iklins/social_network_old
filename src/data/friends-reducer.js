@@ -13,7 +13,7 @@ const initialState = {
   currentPage:1,
   totalCount:0,
   usersCount:7,
-  isFetching: false,
+  isFetching: true,
   isFollowing:[]
 };
 
@@ -42,9 +42,7 @@ const friendsReducer = (state = initialState, action) => {
     case SET_TOTAL_COUNT:
       return { ...state, totalCount:action.totalCount };
     case IS_FETCHING:
-      stateCopy = {...state}
-      stateCopy.isFetching = !stateCopy.isFetching
-      return stateCopy
+      return {...state, isFetching:action.fetching}
     case IS_FOLLOWING_PROGRESS:
       return {
         ...state,
@@ -63,17 +61,16 @@ export const setUsers = (users) => ({type: SET_USERS,users: users,});
 export const resetUsers = () => ({ type: RESET_USERS });
 export const setCurrentPage = (currentPage) => ({type:SET_CURRENT_PAGE, currentPage:currentPage});
 export const setTotalCount = (totalCount) => ({type:SET_TOTAL_COUNT, totalCount:totalCount});
-export const isFetchingProgress = () => ({type: IS_FETCHING});
+export const isFetchingProgress = (fetching) => ({type: IS_FETCHING, fetching:fetching});
 export const isFollowingProgress = (followInProgress,id) => ({type:IS_FOLLOWING_PROGRESS, followInProgress:followInProgress, id:id})
 
-export const fetchUsers = (currentPage, onScroll) => (dispatch) => {
-  dispatch(isFetchingProgress());
+export const fetchUsers = (currentPage) => (dispatch) => {
   getUsers(currentPage)
   .then(responce=>{
     dispatch(setUsers(responce.items));
     dispatch(setTotalCount(responce.totalCount));
-    dispatch(isFetchingProgress());
-    document.addEventListener('scroll',onScroll);
+    dispatch(setCurrentPage(currentPage + 1))
+    dispatch(isFetchingProgress(false));
   })
 }
 

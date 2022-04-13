@@ -2,21 +2,14 @@ import Main from "./Main";
 import LoginContainer from "../Login/LoginContainer";
 import React, { Fragment } from "react";
 import { connect } from "react-redux";
-import {auth} from "../data/auth-reducer";
 import { compose } from "redux";
-import withPreloader from "../hoc/withPreloader";
-
-
-const MainWithPreloader = withPreloader('authProgress')(Main)
 
 class MainContainer extends React.Component{
-  componentDidMount(){
-    this.props.auth()
-  }
+
   render(){
     return (
       <Fragment>
-        {this.props.isAuth ? <MainWithPreloader {...this.props}/>:<LoginContainer/>}
+        {this.props.isAuth ? <Main {...this.props}/>:<LoginContainer/>}
       </Fragment>
     );
   }
@@ -24,12 +17,9 @@ class MainContainer extends React.Component{
 
 const mapStateToProps = (state) => ({
   isAuth:state.auth.isAuth,
-  authProgress:state.auth.authProgress,
   id:state.auth.id
 })
-const mapDispathToprops = {
-  auth:auth
-}
+
 export default compose(
-  connect(mapStateToProps, mapDispathToprops)
+  connect(mapStateToProps, {})
 )(MainContainer)

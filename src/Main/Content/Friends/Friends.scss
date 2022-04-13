@@ -8,13 +8,6 @@
   box-sizing: border-box;
   position: relative;
 
-  img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
   .user_without_avatar {
     width: 100px;
     height: 100px;
@@ -27,6 +20,12 @@
   display: flex;
   padding: 20px;
   border-bottom: $border-gray;
+  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
 }
 
 .friend_name_box {

@@ -48,7 +48,6 @@ const postsReducer = (state = initialState, action) => {
         profile:action.profile
       }
     case SET_USER_STATUS:
-      debugger
       return {
         ...state,
         status:action.status

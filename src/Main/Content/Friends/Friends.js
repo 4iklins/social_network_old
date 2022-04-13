@@ -9,7 +9,6 @@ function Friends(props) {
   return (
     <div className="friends">
       {props.isFetching ? <Preloader /> : null}
-      <div className="current-page">{props.currentPage}</div>
       <ul className="friends_list">
         {props.users.map((user) => (
           <li className="friends_item" key={user.id}>
