@@ -24,7 +24,7 @@ function SendMessageForm (props) {
           <RoundBtn icon={sendIcon} type="submit" disabled = {props.pristine}/>
         </div>
       </div>
-      <div className="chat_media_buttons">
+      <div className="chat_media__buttons">
        <MediaButton icon={imageIcon} type="button"/>
        <MediaButton icon={videoIcon} type="button"/>
        <MediaButton icon={audioIcon} type="button"/>

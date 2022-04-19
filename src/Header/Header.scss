@@ -8,7 +8,7 @@
   z-index: 10;
 }
 
-.header_wrapper {
+.header__wrapper {
   height: 96px;
   width: 75%;
   min-width: 800px;
@@ -17,33 +17,33 @@
   align-items: center;
 }
 
-.header_menu {
+.header__menu {
   margin-left: auto;
   display: flex;
 }
 
-.header_logo a {
+.header__logo a {
   display: flex;
 }
 
-.header_logo_icon img {
+.header__logo-icon img {
   height: 36px;
   margin-top: 4px;
   margin-right: 4px;
 }
 
-.header_logo_name {
+.header__logo-name {
   font-family: "Fredoka One", cursive;
   font-size: 36px;
   color: $pink;
 }
 
-.header_settings .round_btn {
+.header__settings .round-btn {
   background-color: #f5f5f5;
-  animation: setting_logo_spin infinite 10s linear;
+  animation: setting-logo-spin infinite 10s linear;
 }
 
-@keyframes setting_logo_spin {
+@keyframes setting-logo-spin {
   from {
     transform: rotate(0deg);
   }
@@ -52,27 +52,18 @@
   }
 }
 
-.header_user .round_btn {
+.header__user .round-btn {
   background-color: #f5f5f5;
 }
 
-.header_user {
+.header__user {
   position: relative;
-  .user_without_avatar {
-    margin: 8px;
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
-    line-height: 47px;
-    cursor: pointer;
-    &:hover {
-      box-shadow: 0 0 12px -5px rgba(0, 0, 0, 0.5);
-    }
-  }
+  margin:8px;
 }
 
-.heager_logout {
+.heager__logout {
   position: absolute;
+  margin:0;
   font-weight: 500;
   font-size: 13px;
   color: $white;
@@ -81,17 +72,23 @@
   opacity: 0;
   top: 0;
   left: 0;
-  margin: 8px;
   width: 50px;
   height: 50px;
   border-radius: 50%;
   background-color: $pink;
   transition: ease opacity 1s;
   cursor: pointer;
-  box-shadow: 0 0 12px -5px rgba(0, 0, 0, 0.5);
 }
-.header_user:hover {
-  .heager_logout {
+
+.header__user-icon {
+  border-radius: 50%;
+}
+
+.header__user:hover {
+  .header__user-icon {
+    box-shadow: 0 0 12px -5px rgba(0, 0, 0, 0.5);
+  }
+  .heager__logout {
     opacity: 1;
     transition-delay: 0.3s;
   }

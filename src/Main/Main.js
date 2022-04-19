@@ -4,10 +4,10 @@ import Sidebar from './Sidebar/Sidebar';
 
 function Main(props) {
   return (
-    <div className="main">
+    <main className="main">
       <Sidebar myId={props.id}/>
       <Content />
-    </div>
+    </main>
   );
 }
 

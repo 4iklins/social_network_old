@@ -7,25 +7,12 @@
   padding: 15px;
   box-sizing: border-box;
   position: relative;
-
-  .user_without_avatar {
-    width: 100px;
-    height: 100px;
-    font-size: 30px;
-    line-height: 100px;
-  }
 }
 
 .friends_item {
   display: flex;
   padding: 20px;
   border-bottom: $border-gray;
-  img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
 }
 
 .friend_name_box {

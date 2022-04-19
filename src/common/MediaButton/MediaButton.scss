@@ -1,6 +1,6 @@
 @import "../../variables.scss";
 
-.media_button {
+.media__button {
   border: none;
   padding: 0;
   width: 32px;
@@ -9,6 +9,6 @@
   cursor: pointer;
 }
 
-.media_button:hover {
+.media__button:hover {
   transform: scale(1.1);
 }

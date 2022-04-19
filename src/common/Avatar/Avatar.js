@@ -1,3 +1,5 @@
+import './Avatar.scss';
+import classNames from 'classnames';
 
 let Avatar = (props) => {
   let name
@@ -13,9 +15,9 @@ let Avatar = (props) => {
     out += word[0].toUpperCase()
     )
   if(props.user.photos.small !== null){
-    return <img src={props.user.photos.small} alt="" />
+    return <img src={props.user.photos.small} className={classNames ("avatar__img",{"avatar__img--big":props.big})} alt="" />
     }
-  else return <p className="user_without_avatar">{out}</p>
+  else return <p className={classNames ("avatar__without-img",{"avatar__without-img--big":props.big})}>{out}</p>
 };
 
 export default Avatar

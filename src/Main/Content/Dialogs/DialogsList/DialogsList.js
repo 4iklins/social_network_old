@@ -1,5 +1,5 @@
 import './DialogsList.scss';
-import Avatar from '../../Avatar';
+import Avatar from '../../../../common/Avatar/Avatar';
 import {NavLink} from 'react-router-dom';
 
 

@@ -2,9 +2,9 @@ import './Footer.scss';
 
 function Footer() {
   return (
-    <div className="footer">
+    <footer className="footer">
       <p>dev by bor</p>
-    </div>
+    </footer>
   );
 }
 
