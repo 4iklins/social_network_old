@@ -27,8 +27,8 @@ const StatusWithHooks = (props) => {
     return(
       <div className="status">
         {editMode
-        ? <input type="text" className="status_input" value={status} onBlur={disableEditMode} onChange={onStatusChange} autoFocus={true}/>
-        : <div className="status_text" onClick={enableEditMode}><span>Status: </span>{props.status}</div>
+        ? <input type="text" className="status__input" value={status} onBlur={disableEditMode} onChange={onStatusChange} autoFocus={true}/>
+        : <div className="status__text" onClick={enableEditMode}><span>Status: </span>{props.status}</div>
         }
       </div>
       

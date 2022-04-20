@@ -4,33 +4,34 @@ import MediaButton from '../../../../common/MediaButton/MediaButton';
 import likeIcon from '../../../../img/like_border_icon.svg';
 import commentIcon from '../../../../img/comment_icon.svg';
 import shareIcon from '../../../../img/share_icon.svg';
+import Avatar from '../../../../common/Avatar/Avatar';
 
 function Post(props) {
   return (
     <div className="post">
-      <div className="post_user_info">
-        <div className="post_user_avatar">
-          <img src={avatar} alt="" />
+      <div className="post__user-info">
+        <div className="post__user-avatar">
+          <Avatar user={props.profile}/>
         </div>
-        <div className="post_user_name">
-          Andrei Bortnik
-          <p className="post_time">3 hour ago</p>
+        <div className="post__user-name">
+          {props.profile.fullName}
+          <p className="post__time">3 hour ago</p>
         </div>
       </div>
-      <div className="post_text">
+      <div className="post__text">
         {props.postData.text}
       </div>
-      <div className="post_media"></div>
-      <div className="post_grades">
-      <div className="post_grade like">
+      <div className="post__media"></div>
+      <div className="post__grades">
+      <div className="post__grade like">
         <MediaButton icon={likeIcon} type="button"/>
-        <div className="post_grade_likeCount">{props.postData.likes}</div>
+        <div className="post__grade-likeCount">{props.postData.likes}</div>
       </div>
-      <div className="post_grade comment">
+      <div className="post__grade comment">
         <MediaButton icon={commentIcon} type="button"/>
-        <div className="post_grade_commentCount">{props.postData.comments}</div>
+        <div className="post__grade-commentCount">{props.postData.comments}</div>
       </div>
-      <div className="post_grade share">
+      <div className="post__grade share">
         <MediaButton icon={shareIcon} type="button"/>
       </div>
       </div>

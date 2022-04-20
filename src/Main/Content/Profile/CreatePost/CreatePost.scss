@@ -1,6 +1,6 @@
 @import "../../../../variables.scss";
 
-.create_post {
+.create-post {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -9,13 +9,13 @@
   border-radius: 15px;
 }
 
-.create_post_text {
+.create-post__text {
   box-sizing: border-box;
   position: relative;
   width: 100%;
 }
 
-.create_post_text textarea {
+.create-post__text textarea {
   width: 100%;
   resize: vertical;
   height: 45px;
@@ -30,41 +30,39 @@
   color: $font-color;
 }
 
-.create_post_text textarea:focus-visible {
+.create-post__text textarea:focus-visible {
   outline: none;
 }
 
-.create_post_user_avatar {
+.create-post__user-avatar {
   position: absolute;
   left: 10px;
   top: 8px;
 }
 
-.create_post_user_avatar img {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-}
-
-.create_post_button .round_btn {
+.create-post__button .round-btn {
   background-color: $pink;
   &:disabled {
     background-color: $button-grey;
   }
 }
 
-.create_post_media {
+.create-post__media {
   margin-left: auto;
 }
-.warning_postText {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  top: 50px;
-  left: 14px;
-  font-weight: 500;
-  font-size: 12px;
-  span {
-    margin-left: 5px;
+
+.validField__create-post--error{
+  .validField__warning-text {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 50px;
+    left: 14px;
+    font-weight: 500;
+    font-size: 12px;
+    span {
+      margin-left: 5px;
+    }
   }
 }
+

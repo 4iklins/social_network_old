@@ -5,13 +5,13 @@ import analyticsIcon from '../../../img/analytics_icon.svg';
 
 function Account() {
   return (
-    <div className="account">
-      <p className="account_description">Account</p>
-      <ul className="account_list">
+    <nav className="account">
+      <p className="account__description">Account</p>
+      <ul className="account__list">
         <MenuItem text="settings" icon={settingsIcon}/>
         <MenuItem text="analytics" icon={analyticsIcon}/>
         </ul>
-    </div>
+    </nav>
   );
 }
 

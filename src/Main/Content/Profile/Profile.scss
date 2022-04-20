@@ -1,34 +1,34 @@
 @import "../../../variables.scss";
 
-.profile_wrapper {
+.profile {
   min-width: 650px;
 }
-.profile_container {
+.profile__container {
   display: flex;
   margin-bottom: 15px;
   padding: 15px;
   border-radius: $border-radius;
   box-shadow: $block-shadow;
 }
-.profile_photo {
+.profile__photo {
   img {
     width: 200px;
     height: 200px;
     border-radius: $border-radius;
   }
 }
-.profile_description {
+.profile__description {
   margin-left: 20px;
   display: flex;
   flex-direction: column;
 }
-.profile_about {
+.profile__about {
   font-size: 14px;
   line-height: 26px;
   font-weight: 500;
   color: #adb5bd;
 }
-.profile_contacts {
+.profile__contacts {
   display: flex;
   align-items: center;
   font-size: 14px;
@@ -45,25 +45,34 @@
     background-size: cover;
     margin-right: 10px;
   }
-  .contact_facebook {
+  .contact__facebook {
     background-image: url("../../../img/facebook.png");
   }
-  .contact_twitter {
+  .contact__twitter {
     background-image: url("../../../img/twitter.png");
   }
-  .contact_youtube {
+  .contact__youtube {
     background-image: url("../../../img/youtube.png");
   }
-  .contact_vk {
+  .contact__vk {
     background-image: url("../../../img/vk.png");
   }
-  .contact_website {
+  .contact__website {
     background-image: url("../../../img/website.png");
   }
-  .contact_github {
+  .contact__github {
     background-image: url("../../../img/github.png");
   }
-  .contact_instagram {
+  .contact__instagram {
     background-image: url("../../../img/instagram.png");
+  }
+}
+
+.profile__user-status {
+  span {
+    font-size: 14px;
+    line-height: 26px;
+    font-weight: 500;
+    color: #adb5bd;
   }
 }

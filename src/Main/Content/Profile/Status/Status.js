@@ -35,8 +35,8 @@ class Status extends React.Component {
     return(
       <div className="status">
         {this.state.editMode
-        ? <input type="text" className="status_input" value={this.state.statusText} onBlur={this.disableEditMode} onChange={this.onStatusChange} autoFocus={true}/>
-        : <div className="status_text" onClick={this.enableEditMode}><span>Status: </span>{this.props.status}</div>
+        ? <input type="text" className="status__input" value={this.state.statusText} onBlur={this.disableEditMode} onChange={this.onStatusChange} autoFocus={true}/>
+        : <div className="status__text" onClick={this.enableEditMode}><span>Status: </span>{this.props.status}</div>
         }
       </div>
     )

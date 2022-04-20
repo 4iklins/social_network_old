@@ -5,10 +5,10 @@ import Account from './Account/Account';
 
 function Sidebar(props) {
   return (
-    <div className="sidebar">
+    <aside className="sidebar">
       <Menu myId={props.myId}/>
       <Account/>
-    </div>
+    </aside>
   );
 }
 

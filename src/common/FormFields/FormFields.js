@@ -3,10 +3,10 @@ import errorImg from '../../img/warning_icon.svg'
 const CreateField = ({input, meta:{ touched, error, warning },children, ...props}) => {
   const hasError = touched && error
   return(
-    <div className ={"validField_" + input.name + (hasError ? "_error": "")}>
+    <div className ={"validField__" + input.name + (hasError ? "--error": "")}>
       {children}
-      {hasError && <div className={`warning_${input.name}`}>
-        <img src ={errorImg}></img>
+      {hasError && <div className={`validField__warning-text`}>
+        <img src ={errorImg} alt="error"></img>
         <span>{error}</span>
       </div>}
     </div>

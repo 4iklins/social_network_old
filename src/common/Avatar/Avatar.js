@@ -15,9 +15,9 @@ let Avatar = (props) => {
     out += word[0].toUpperCase()
     )
   if(props.user.photos.small !== null){
-    return <img src={props.user.photos.small} className={classNames ("avatar__img",{"avatar__img--big":props.big})} alt="" />
+    return <img src={props.user.photos.small} className={classNames ("avatar__img",{"avatar__img--big":props.big},{"avatar__img--small":props.small})} alt="" />
     }
-  else return <p className={classNames ("avatar__without-img",{"avatar__without-img--big":props.big})}>{out}</p>
+  else return <p className={classNames ("avatar__without-img",{"avatar__without-img--big":props.big},{"avatar__without-img--small":props.small})}>{out}</p>
 };
 
 export default Avatar

@@ -8,16 +8,16 @@ import FriendsContainerWithHooks from './Friends/FriendsContainerWithHooks';
 
 function Content() {
   return (
-    <div className="content">
-      <div className="main_content">
+    <section className="content">
+      <div className="content__main">
         <Route path='/profile/:id?' render={ () => <ProfileContainer />}/>
         <Route path='/messages/:dialog?/:id?' render={ () => <DialogsContainer />}/>
         <Route path ='/friends' render= { () => <FriendsContainerWithHooks/>}/>
       </div>
-      <div className="other_content">
+      <aside className="content__other">
         <Events/>
-      </div>
-    </div>
+      </aside>
+    </section>
   );
 }
 

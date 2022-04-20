@@ -1,15 +1,19 @@
-
+import {useState, useEffect} from 'react';
 
 function Toggle() {
-  let toggle = {isToggleOn: true};
+
+  let[isToggleOn,setToggle] = useState(true);
+
+  // useEffect(()=>{
+
+  // },[isToggleOn])
   
   function handleClick() {
-    console.log(toggle.isToggleOn)
-      toggle.isToggleOn = !toggle.isToggleOn
+    setToggle(!isToggleOn)
   }
       return (
         <button onClick={handleClick}>
-          {toggle.isToggleOn ? 'ON' : 'OFF'}
+          {isToggleOn ? 'ON' : 'OFF'}
         </button>
       );
 }

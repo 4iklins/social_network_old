@@ -10,9 +10,9 @@ import musicIcon from '../../../img/music_icon.svg';
 
 function Menu(props) {
   return (
-    <div className="menu">
-      <div className="menu_description"></div>
-      <ul className="menu_list">
+    <nav className="menu">
+      <div className="menu__description"></div>
+      <ul className="menu__list">
         <MenuItem text="profile" myId={props.myId} icon={profileIcon}/>
         <MenuItem text="messages" icon={messageIcon}/>
         <MenuItem text="friends" icon={friendIcon}/>
@@ -20,7 +20,7 @@ function Menu(props) {
         <MenuItem text="music" icon={musicIcon}/>
         <MenuItem text="video" icon={videoIcon}/>
       </ul>
-    </div>
+    </nav>
   );
 }
 

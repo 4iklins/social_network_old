@@ -10,30 +10,31 @@ import audioIcon from '../../../../img/music_icon.svg';
 import { Field, reduxForm, reset } from "redux-form";
 import { maxLength} from "../../../../utils/validators/validators";
 import {Textarea} from '../../../../common/FormFields/FormFields'
+import Avatar from "../../../../common/Avatar/Avatar";
 
 let maxLength140 = maxLength(140);
 
-function CreatePost (props) {
+function CreatePostForm (props) {
   return(
-    <form className="create_post" onSubmit={props.handleSubmit}>
-    <div className="create_post_text">
-      <div className="create_post_user_avatar">
-        <img src={avatar} alt="" />
+    <form className="create-post" onSubmit={props.handleSubmit}>
+    <div className="create-post__text">
+      <div className="create-post__user-avatar">
+        <Avatar user={props.profile} small={true}/>
       </div>
       <Field 
-        name="postText"
+        name="create-post"
         component={Textarea}
         id="" rows="5" 
         placeholder="What's on your mind?"
         validate = {[maxLength140]}
        />
     </div>
-    <div className="create_post_media">
+    <div className="create-post__media">
       <MediaButton icon={imageIcon} type="button"/>
       <MediaButton icon={videoIcon} type="button"/>
       <MediaButton icon={audioIcon} type="button"/>
     </div>
-    <div className="create_post_button" >
+    <div className="create-post__button" >
       <RoundBtn icon={sendIcon} type="submit" disabled = {props.pristine}/>
     </div>
   </form>
@@ -45,4 +46,4 @@ const afterSubmit = (result, dispatch) =>
 export default reduxForm({
   form:'createPost',
   onSubmitSuccess:afterSubmit
-})(CreatePost);
+})(CreatePostForm);

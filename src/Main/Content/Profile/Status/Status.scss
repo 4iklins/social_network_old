@@ -14,7 +14,7 @@
   }
 }
 
-.status_text {
+.status__text {
   display: flex;
   align-items: center;
   min-height: 24px;
@@ -41,11 +41,3 @@
   }
 }
 
-.profile_user_status {
-  span {
-    font-size: 14px;
-    line-height: 26px;
-    font-weight: 500;
-    color: #adb5bd;
-  }
-}
