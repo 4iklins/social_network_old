@@ -22,7 +22,7 @@ function CreatePostForm (props) {
         <Avatar user={props.profile} small={true}/>
       </div>
       <Field 
-        name="create-post"
+        name="postText"
         component={Textarea}
         id="" rows="5" 
         placeholder="What's on your mind?"
@@ -41,9 +41,9 @@ function CreatePostForm (props) {
   )
 }
 const afterSubmit = (result, dispatch) =>
-  dispatch(reset('createPost'));
+  dispatch(reset('create-post'));
 
 export default reduxForm({
-  form:'createPost',
+  form:'create-post',
   onSubmitSuccess:afterSubmit
 })(CreatePostForm);

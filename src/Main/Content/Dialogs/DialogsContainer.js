@@ -5,10 +5,16 @@ import { sendMessage} from '../../../data/dialogs-reducer';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 
+const DialogsContainer = (props) => {
+  return(
+    <Dialogs {...props} />
+  )
+}
 
 const mapStateToProps = (state) => {
   return {
-    dialogsPage:state.dialogsPage
+    dialogsPage:state.dialogsPage,
+    myProfile: state.auth.profile
   }
 }
 const mapDispatchToProps = {
@@ -19,4 +25,4 @@ const mapDispatchToProps = {
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
   withRouter
-)(Dialogs)
+)(DialogsContainer)

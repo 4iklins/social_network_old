@@ -1,11 +1,11 @@
 @import "../../../../variables.scss";
 
-.chat_message_input {
+.message-input__box {
   position: relative;
   padding: 0 15px;
   display: flex;
   align-items: center;
-  .validField_sendMessage {
+  .validField__sendMessage {
     width: 100%;
     height: 45px;
   }
@@ -27,7 +27,7 @@
       outline: none;
     }
   }
-  .round_btn {
+  .round-btn {
     background-color: $pink;
     cursor: pointer;
     &:disabled {
@@ -37,8 +37,12 @@
   }
 }
 
-.chat_media__buttons {
+.message-input__button-send{
+  margin-left: 5px;
+}
+
+.message-input__button-media {
   display: flex;
   flex-direction: row-reverse;
-  padding-right: 25px;
+  padding-right: 65px;
 }

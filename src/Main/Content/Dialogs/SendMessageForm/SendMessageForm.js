@@ -10,21 +10,29 @@ import { reduxForm, Field, reset } from 'redux-form';
 import {Textarea} from '../../../../common/FormFields/FormFields'
 
 function SendMessageForm (props) {
+  let ctrEnterPress = (evt) => {
+    console.log(evt)
+    if(evt.ctrlKey && evt.charCode === 13){
+      props.handleSubmit()
+    }
+  }
+  
   return (
-    <form className="message_input" onSubmit={props.handleSubmit}>
-      <div className="chat_message_input">
+    <form className="message-input" onSubmit={props.handleSubmit}>
+      <div className="message-input__box">
 
       <Field 
+        onCtrEnterPress = {ctrEnterPress}
         name="sendMessage"
         component={Textarea}
         id="" 
       />
 
-        <div className="chat_buttons">
+        <div className="message-input__button-send">
           <RoundBtn icon={sendIcon} type="submit" disabled = {props.pristine}/>
         </div>
       </div>
-      <div className="chat_media__buttons">
+      <div className="message-input__button-media">
        <MediaButton icon={imageIcon} type="button"/>
        <MediaButton icon={videoIcon} type="button"/>
        <MediaButton icon={audioIcon} type="button"/>

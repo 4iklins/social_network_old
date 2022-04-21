@@ -9,17 +9,17 @@ function Dialogs(props) {
     props.sendMessage(formData.sendMessage,props.match.params.id)
   }
   return (
-    <div className="dialogs_box">
-      <div className="dialogs">
-        <p className="dialogs_description">Dialogs</p>
-        <div className="dialogs_wrapper">
+    <div className="dialogs">
+      <div className="dialogs__box">
+        <p className="dialogs__description">Dialogs</p>
+        <div className="dialogs__wrapper">
         <DialogsList dialogsPage={props.dialogsPage}/>
         </div>
       </div>
-      <div className="chat_wrapper">
-        <div className="chat">
-          <div className="chat_content_wrapper">
-            <div className="chat_content">
+      <div className="dialogs__chat-wrapper">
+        <div className="dialogs__chat">
+          <div className="dialogs__chat-content-wrapper">
+            <div className="dialogs__chat-content">
               <Route path="/messages/dialog/:id" render={ ()=> <Messages{...props}/>}/>
             </div>
           </div>

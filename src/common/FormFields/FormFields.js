@@ -17,7 +17,7 @@ const CreateField = ({input, meta:{ touched, error, warning },children, ...props
 export const Textarea = (props) => {
   const {input,meta, ...restProps} = props
   return(
-    <CreateField {...props}><textarea {...input} {...restProps}/></CreateField>
+    <CreateField {...props}><textarea onKeyPress={props.onCtrEnterPress} {...input} {...restProps}/></CreateField>
   )
 }
 

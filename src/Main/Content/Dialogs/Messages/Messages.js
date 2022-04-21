@@ -2,7 +2,6 @@ import './Messages.scss';
 import Message from './Message/Message';
 
 function Messages (props) {
-  debugger
   let avatar ="";
   let dialog = props.match.params.id;
 
@@ -10,12 +9,12 @@ function Messages (props) {
     return (
       props.dialogsPage.users[dialog].messages.map(message => {
         if(message.isMe === true){
-          avatar = props.dialogsPage.me.avatar;
+          avatar = props.myProfile.photos.small;
         } else {
           avatar = props.dialogsPage.users[dialog].photos.small
         }
         return(
-          <Message avatar = {avatar} text={message.message} date={message.date} isMe={message.isMe}/>
+          <Message avatar = {avatar} text={message.message} date={message.date} isMe={message.isMe} user={props.myProfile}/>
         )
       })
     )

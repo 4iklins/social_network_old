@@ -1,6 +1,8 @@
 import Main from "./Main";
 import LoginContainer from "../Login/LoginContainer";
 import React, { Fragment } from "react";
+import { compose } from "redux";
+import withPreloader from "../hoc/withPreloader";
 
 class MainContainer extends React.Component{
 
@@ -13,4 +15,6 @@ class MainContainer extends React.Component{
   }
   }
 
-export default MainContainer
+export default compose(
+  withPreloader('authProgress')
+)(MainContainer)

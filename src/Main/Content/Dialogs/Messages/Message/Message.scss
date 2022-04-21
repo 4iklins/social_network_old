@@ -7,20 +7,21 @@
   margin-bottom: 25px;
 }
 
-.message_user_avatar {
-  width: 45px;
-  height: 45px;
+.message__user-avatar {
+  width: 50px;
+  height: 50px;
   margin-right: 5px;
   img {
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
   }
+
 }
 
-.message_content {
+.message__content {
   position: relative;
-  .message_bubble {
+  .message__bubble {
     padding: 10px;
     margin-bottom: 4px;
     background-color: $green;
@@ -29,14 +30,14 @@
     border-bottom-right-radius: 15px;
   }
 
-  .message_text {
+  .message__text {
     font-size: 14px;
     margin: 0;
     font-weight: 500;
     color: $white;
   }
 
-  .message_date {
+  .message__date {
     width: 150px;
     font-size: 10px;
     font-weight: 500;
@@ -49,19 +50,19 @@
 .message--isme {
   align-self: flex-end;
   flex-direction: row-reverse;
-  .message_user_avatar {
+  .message__user-avatar {
     margin-left: 5px;
     margin-right: 0;
   }
 
-  .message_content {
-    .message_bubble {
+  .message__content {
+    .message__bubble {
       border-bottom-left-radius: 15px;
       border-bottom-right-radius: 0;
       background-color: $white;
       border: $border-gray;
     }
-    .message_text {
+    .message__text {
       color: $font-color;
     }
   }
