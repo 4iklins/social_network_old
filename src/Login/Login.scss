@@ -5,61 +5,9 @@
   width: 75%;
   min-width: 800px;
   flex: 1 1 auto;
-
-  .login_item {
-    position: relative;
-  }
-
-  .validField_email_error,
-  .validField_password_error,
-  .validField_captcha_error {
-    .warning_email,
-    .warning_password,
-    .warning_captcha {
-      position: absolute;
-      top: 6px;
-      right: 5px;
-      span {
-        display: none;
-      }
-    }
-    input {
-      border: 1px solid $warning;
-    }
-  }
 }
-.login_submit {
-  cursor: pointer;
-  &:disabled {
-    background-color: $button-grey;
-    color: $font-color;
-    cursor: auto;
-  }
-}
-
-.login_captcha {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-  .login_captcha-img {
-    width: 100px;
-    height: 50px;
-  }
-}
-.validField_captcha,
-.validField_captcha_error {
-  position: relative;
-  input {
-    width: 80px;
-    border: 2px solid #f1f1f1;
-    border-radius: $border-radius;
-    font-family: "Open Sans", sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-    color: #888;
-    padding: 10px;
-    &:focus-visible {
-      outline: none;
-    }
-  }
+.login__form-wrapper{
+  width: 230px;
+  margin: 0 auto;
+  margin-top: 100px;
 }

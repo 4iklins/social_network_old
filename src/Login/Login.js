@@ -10,7 +10,9 @@ function Login(props) {
   return (
     <div className="login">
       <h1 className="visibility-hidden">Login</h1>
-      <LoginForm onSubmit={onSubmit} captchaUrl={props.captchaUrl}/>
+      <div className="login__form-wrapper">
+        <LoginForm onSubmit={onSubmit} captchaUrl={props.captchaUrl}/>
+      </div>
     </div>
   );
 }

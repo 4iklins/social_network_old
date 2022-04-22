@@ -7,7 +7,7 @@ import errorImg from '../../img/warning_icon.svg'
 const LoginForm = (props) => {
   return(
     <form onSubmit={props.handleSubmit} className="login-form">
-      <div className="login_item">
+      <div className="login-form__item">
         <label>
           <Field 
             name='email' 
@@ -18,7 +18,7 @@ const LoginForm = (props) => {
             validate={[required]}/>
         </label>
       </div>
-      <div className="login_item">
+      <div className="login-form__item">
         <label>
           <Field 
             name ='password' 
@@ -29,26 +29,26 @@ const LoginForm = (props) => {
             validate={[required]}/>
         </label>
       </div>
-      <div className="login_item login_item--checkbox">
+      <div className="login-form__item login-form__item--checkbox">
         <label>
           <span>Remember me</span>
           <Field name ='rememberMe' component='input'type='checkbox' id='rememberMe'/>
         </label>
       </div>
 
-      {props.error &&  <div className="login_fail">
+      {props.error &&  <div className="login-form__fail">
         <img src ={errorImg}></img><span>{props.error}</span>
       </div>}
 
-      {props.captchaUrl && <div className="login_captcha">
+      {props.captchaUrl && <div className="login-form__captcha">
         <Field name ='captcha'
                component={Input}
                type='input'
                validate={[required]}/>
-        <img src ={props.captchaUrl} className="login_captcha-img"></img>
+        <img src ={props.captchaUrl} className="login-form__captcha-img" alt={"captcha"}></img>
       </div>}
  
-      <button className="login_submit" type="submit" disabled={props.invalid}>Login</button>
+      <button className="login-form__submit" type="submit" disabled={props.invalid}>Login</button>
     </form>
   )
 }

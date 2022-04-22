@@ -9,17 +9,17 @@
   position: relative;
 }
 
-.friends_item {
+.friends__item {
   display: flex;
   padding: 20px;
   border-bottom: $border-gray;
 }
 
-.friend_name_box {
+.friend__name-box {
   margin-left: 20px;
 }
 
-.friends_buttons {
+.friends__follow-buttons {
   button {
     border: none;
     color: $white;
@@ -27,14 +27,14 @@
     padding: 10px;
     border-radius: $border-radius;
   }
-  .friend_unfollow_button {
+  .friends__unfollow-button {
     background-color: $pink;
     &:disabled {
       background-color: gray;
       cursor: auto;
     }
   }
-  .friend_follow_button {
+  .friends__follow-button {
     background-color: $green;
     &:disabled {
       background-color: $button-grey;

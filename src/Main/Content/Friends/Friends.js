@@ -9,20 +9,20 @@ function Friends(props) {
   return (
     <div className="friends">
       {props.isFetching ? <Preloader /> : null}
-      <ul className="friends_list">
+      <ul className="friends__list">
         {props.users.map((user) => (
-          <li className="friends_item" key={user.id}>
+          <li className="friends__item" key={user.id}>
             <NavLink to={`profile/${user.id}`}>
               <Avatar user={user} big={true}/>
             </NavLink>
-            <div className="friend_name_box">
-              <p className="friend_name">{user.name}</p>
-              <div className="friends_buttons">
+            <div className="friend__name-box">
+              <p className="friend__name">{user.name}</p>
+              <div className="friends__follow-buttons">
                 {
                 user.followed ? 
-                <button className={`friend_unfollow_button`} disabled = {props.isFollowing.some(id =>id === user.id)} onClick={() => {props.unFollow(user.id)}}>Unfollow</button>
+                <button className={`friends__unfollow-button`} disabled = {props.isFollowing.some(id =>id === user.id)} onClick={() => {props.unFollow(user.id)}}>Unfollow</button>
                  : 
-                <button className={`friend_follow_button`} disabled = {props.isFollowing.some(id =>id === user.id)} onClick={() => {props.follow(user.id)}}>Follow</button>
+                <button className={`friends__follow-button`} disabled = {props.isFollowing.some(id =>id === user.id)} onClick={() => {props.follow(user.id)}}>Follow</button>
                 }
               </div>
             </div>

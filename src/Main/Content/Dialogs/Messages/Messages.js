@@ -1,5 +1,6 @@
 import './Messages.scss';
 import Message from './Message/Message';
+import classNames from 'classnames';
 
 function Messages (props) {
   let avatar ="";
@@ -14,7 +15,9 @@ function Messages (props) {
           avatar = props.dialogsPage.users[dialog].photos.small
         }
         return(
-          <Message avatar = {avatar} text={message.message} date={message.date} isMe={message.isMe} user={props.myProfile}/>
+          <div className={classNames("dialogs__message",{"dialogs__message--isMe":message.isMe})}>
+            <Message avatar = {avatar} text={message.message} date={message.date} isMe={message.isMe} user={props.myProfile}/>
+          </div>
         )
       })
     )
