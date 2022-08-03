@@ -40,7 +40,7 @@ const LoginForm = (props) => {
         <img src ={errorImg}></img><span>{props.error}</span>
       </div>}
 
-      {props.captchaUrl && <div className="login-form__captcha">
+      {props.captchaUrl && <div className="login-form__item login-form__item--captcha">
         <Field name ='captcha'
                component={Input}
                type='input'

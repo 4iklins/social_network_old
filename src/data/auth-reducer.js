@@ -46,7 +46,6 @@ function authReducer(state=intialState, action) {
           captchaUrl:null
        }
        case SET_CAPTCHA:
-         debugger
          return{
            ...state,
            captchaUrl:action.url
