@@ -23,7 +23,7 @@ function Dialogs(props) {
               <Route path="/messages/dialog/:id" render={ ()=> <Messages{...props}/>}/>
             </div>
           </div>
-          <Route path ="/messages/dialog" 
+          <Route path ="/messages/dialog/:id" 
                  render={ () => <SendMessageForm onSubmit={onMessageSend}/>}/>
         </div>
       </div>
