@@ -38,7 +38,7 @@ const _newPost = (state,text) => {
 };
 
 
-const postsReducer = (state = initialState, action) => {
+const profileReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_NEW_POST:
       return _newPost(state, action.text);
@@ -60,13 +60,6 @@ export const addPost= (text) => ({type:ADD_NEW_POST, text:text});
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile:profile});
 export const setUserStatusText = (status) => ({type:SET_USER_STATUS,status:status});
 
-export const getUserStatus = (userId) => (dispatch) => {
-  getStatus(userId)
-  .then(response => {
-    dispatch(setUserStatusText(response.data))
-  })
-}
-
 export const setUserStatus = (statusText) => (dispatch) => {
   return setStatus(statusText)
   .then(response => {
@@ -83,8 +76,12 @@ export const getUserProfile = (userId) => (dispatch) => {
    return getProfile(userId)
   .then(response => {
     dispatch(setUserProfile(response.data));
+    getStatus(userId)
+      .then(response => {
+      dispatch(setUserStatusText(response.data))
+    })
   })
 }
 
 
-export default postsReducer;
+export default profileReducer;

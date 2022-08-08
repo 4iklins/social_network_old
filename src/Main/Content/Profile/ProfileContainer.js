@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import withPreloader from '../../../hoc/withPreloader';
-import {addPost, getUserProfile, getUserStatus, setUserStatus} from '../../../data/profile-reduser';
+import {addPost, getUserProfile, setUserStatus} from '../../../data/profile-reduser';
 
 
 const ProfileWithPreloader = withPreloader('profile')(Profile)
@@ -13,16 +13,14 @@ const ProfileWithPreloader = withPreloader('profile')(Profile)
 class ProfileContainer extends React.Component{
 
   componentDidUpdate(){
-    if(this.props.profile && this.props.profile.userId !== Number(this.props.match.params.id)){
+    if(this.props.profile.userId !== Number(this.props.match.params.id)){
       this.props.getUserProfile(this.props.match.params.id);
-      this.props.getUserStatus(this.props.match.params.id);
     }
   }
 
   componentDidMount(){
     let userId = this.props.match.params.id
-    this.props.getUserProfile(userId);//getUserProfile(userId) = dispatch(getUserProfile(userId)) где переданная в dispatch getUserProfile(userId) это thunk
-    this.props.getUserStatus(userId);
+    this.props.getUserProfile(userId);
   }
 
   render(){
@@ -44,7 +42,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
     addPost:addPost,
     getUserProfile:getUserProfile,
-    getUserStatus: getUserStatus,
     setUserStatus:setUserStatus
 }
 
