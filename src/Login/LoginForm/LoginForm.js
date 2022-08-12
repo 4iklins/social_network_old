@@ -1,6 +1,6 @@
 import { Field, reduxForm } from "redux-form";
 import './LoginForm.scss';
-import { Input } from "../../common/FormFields/FormFields";
+import { CreateField } from "../../common/FormFields/FormFields";
 import { required } from "../../utils/validators/validators";
 import errorImg from '../../img/warning_icon.svg'
 
@@ -11,7 +11,8 @@ const LoginForm = (props) => {
         <label>
           <Field 
             name='email' 
-            component={Input}
+            component={CreateField}
+            fieldType = "input"
             type='text' 
             id='email' 
             placeholder="email"
@@ -22,7 +23,8 @@ const LoginForm = (props) => {
         <label>
           <Field 
             name ='password' 
-            component={Input}
+            component={CreateField}
+            fieldType = "input"
             type='password' 
             id='password' 
             placeholder="password"
@@ -42,8 +44,9 @@ const LoginForm = (props) => {
 
       {props.captchaUrl && <div className="login-form__item login-form__item--captcha">
         <Field name ='captcha'
-               component={Input}
-               type='input'
+               component={CreateField}
+               fieldType = "input"
+               type='text'
                validate={[required]}/>
         <img src ={props.captchaUrl} className="login-form__captcha-img" alt={"captcha"}></img>
       </div>}

@@ -7,24 +7,19 @@ import videoIcon from '../../../../img/video_icon.svg';
 import audioIcon from '../../../../img/music_icon.svg';
 import sendIcon from '../../../../img/send_icon.svg';
 import { reduxForm, Field, reset } from 'redux-form';
-import {Textarea} from '../../../../common/FormFields/FormFields'
+import {CreateField} from '../../../../common/FormFields/FormFields'
 
 function SendMessageForm (props) {
-  let ctrEnterPress = (evt) => {
-    console.log(evt)
-    if(evt.ctrlKey && evt.charCode === 13){
-      props.handleSubmit()
-    }
-  }
   
   return (
     <form className="message-input" onSubmit={props.handleSubmit}>
       <div className="message-input__box">
 
       <Field 
-        onCtrEnterPress = {ctrEnterPress}
         name="sendMessage"
-        component={Textarea}
+        component={CreateField}
+        fieldType = "textarea"
+        ctrEnterPress = {props.handleSubmit}
         id="" 
       />
 

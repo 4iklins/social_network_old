@@ -1,29 +1,21 @@
 import errorImg from '../../img/warning_icon.svg'
 
-const CreateField = ({input, meta:{ touched, error, warning },children, ...props}) => {
+export const CreateField = ({input, meta:{ touched, error },ctrEnterPress,fieldType, ...props}) => {
+  let onCtrEnterPress = (evt) => {
+    console.log(evt)
+    if(evt.ctrlKey && evt.charCode === 13){
+      ctrEnterPress()
+    }
+  }
   const hasError = touched && error
+  const Field = fieldType
   return(
     <div className ={"validField__" + input.name + (hasError ? "--error": "")}>
-      {children}
+      <Field {...input} {...props} onKeyPress = {onCtrEnterPress}/>
       {hasError && <div className={`validField__warning-text`}>
         <img src ={errorImg} alt="error"></img>
         <span>{error}</span>
       </div>}
     </div>
-  )
-}
-
-
-export const Textarea = (props) => {
-  const {input,meta, ...restProps} = props
-  return(
-    <CreateField {...props}><textarea onKeyPress={props.onCtrEnterPress} {...input} {...restProps}/></CreateField>
-  )
-}
-
-export const Input = (props) => {
-  const {input,meta, ...restProps} = props
-  return(
-    <CreateField {...props} ><input {...input} {...restProps}/></CreateField>
   )
 }

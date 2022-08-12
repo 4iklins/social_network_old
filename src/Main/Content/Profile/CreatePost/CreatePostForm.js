@@ -9,7 +9,7 @@ import videoIcon from '../../../../img/video_icon.svg';
 import audioIcon from '../../../../img/music_icon.svg';
 import { Field, reduxForm, reset } from "redux-form";
 import { maxLength} from "../../../../utils/validators/validators";
-import {Textarea} from '../../../../common/FormFields/FormFields'
+import {CreateField} from '../../../../common/FormFields/FormFields';
 import Avatar from "../../../../common/Avatar/Avatar";
 
 let maxLength140 = maxLength(140);
@@ -23,10 +23,12 @@ function CreatePostForm (props) {
       </div>
       <Field 
         name="postText"
-        component={Textarea}
+        component={CreateField}
+        fieldType = "textarea"
         id="" rows="5" 
         placeholder="What's on your mind?"
         validate = {[maxLength140]}
+        ctrEnterPress = {props.handleSubmit}
        />
     </div>
     <div className="create-post__media">
