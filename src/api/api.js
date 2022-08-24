@@ -8,41 +8,44 @@ const instance = axios.create({
   },
 });
 
-export const getUsers = (currentPage = 1) => {
-  return instance
-    .get(`users?count=7&page=${currentPage}`)
-    .then((response) => response.data);
+
+export const friendsApi = {
+  getUsers(currentPage = 1) {
+    return instance
+      .get(`users?count=7&page=${currentPage}`)
+      .then((response) => response.data);
+  },
+  postFollow(user) {
+    return instance.post(`follow/${user}`).then((response) => response.data);
+  },
+  deleteFollow(user) {
+    return instance.delete(`follow/${user}`).then((response) => response.data);
+  }
 };
 
-export const postFollow = (user) => {
-  return instance.post(`follow/${user}`).then((response) => response.data);
-};
-export const deleteFollow = (user) => {
-  return instance.delete(`follow/${user}`).then((response) => response.data);
-};
-
-export const getProfile = (userId) => {
-  return instance.get(`profile/${userId}`);
-};
-
-export const getStatus = (userId) => {
-  return instance.get(`profile/status/${userId}`);
+export const profileApi = {
+  getProfile(userId) {
+    return instance.get(`profile/${userId}`);
+  },
+  getStatus(userId) {
+    return instance.get(`profile/status/${userId}`);
+  },
+  setStatus(status) {
+    return instance.put(`profile/status`,{status:status}).then((response) => response.data);
+  }
 };
 
-export const setStatus = (status) => {
-  return instance.put(`profile/status`,{status:status}).then((response) => response.data);
+export const authApi = {
+  auth() {
+    return instance.get("auth/me").then((response) => response.data);
+  },
+  login(email,password,rememderMe = false,captcha) {
+    return instance.post ("auth/login",{email,password,rememderMe,captcha});
+  },
+  logout() {
+    return instance.delete ("auth/login");
+  },
+  getCaptcha() {
+    return instance.get("/security/get-captcha-url");
+  }
 };
-
-export const authMe = () => {
-  return instance.get("auth/me").then((response) => response.data);
-};
-
-export const loginMe = (email,password,rememderMe = false,captcha) => {
-  return instance.post ("auth/login",{email,password,rememderMe,captcha});
-};
-export const logoutMe = () => {
-  return instance.delete ("auth/login");
-}
-export const getCaptcha = () => {
-  return instance.get("/security/get-captcha-url");
-}

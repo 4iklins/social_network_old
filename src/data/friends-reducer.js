@@ -1,11 +1,11 @@
-import { getUsers, postFollow, deleteFollow } from "../api/api";
+import { friendsApi } from "../api/api";
 
 const FOLLOW_TOGGLE = "FOLLOW-TOGGLE";
 const SET_USERS = "SET-USERS";
 const RESET_USERS = "RESET-USERS";
 const SET_CURRENT_PAGE = "SET-CURRENTPAGE";
 const SET_TOTAL_COUNT = "SET-TOTAL-COUNT";
-const IS_FETCHING = "IS-FETCHING";
+const IS_FETCHING_PROGRESS = "IS-FETCHING-PROGRESS";
 const IS_FOLLOWING_PROGRESS = "IS-FOLLOWING-TOGGLE"
 
 const initialState = {
@@ -21,7 +21,6 @@ const friendsReducer = (state = initialState, action) => {
   let stateCopy = {};
   switch (action.type) {
     case FOLLOW_TOGGLE:
-      debugger
       stateCopy = {
         ...state,
         users: state.users.map((user) => {
@@ -41,7 +40,7 @@ const friendsReducer = (state = initialState, action) => {
       return { ...state, currentPage:action.currentPage };
     case SET_TOTAL_COUNT:
       return { ...state, totalCount:action.totalCount };
-    case IS_FETCHING:
+    case IS_FETCHING_PROGRESS:
       return {...state, isFetching:action.fetching}
     case IS_FOLLOWING_PROGRESS:
       return {
@@ -61,22 +60,22 @@ export const setUsers = (users) => ({type: SET_USERS,users: users,});
 export const resetUsers = () => ({ type: RESET_USERS });
 export const setCurrentPage = (currentPage) => ({type:SET_CURRENT_PAGE, currentPage:currentPage});
 export const setTotalCount = (totalCount) => ({type:SET_TOTAL_COUNT, totalCount:totalCount});
-export const isFetchingProgress = (fetching) => ({type: IS_FETCHING, fetching:fetching});
+export const isFetchingProgress = (fetching) => ({type: IS_FETCHING_PROGRESS, fetching:fetching});
 export const isFollowingProgress = (followInProgress,id) => ({type:IS_FOLLOWING_PROGRESS, followInProgress:followInProgress, id:id})
 
 export const fetchUsers = (currentPage) => (dispatch) => {
-  getUsers(currentPage)
+  friendsApi.getUsers(currentPage)
   .then(responce=>{
     dispatch(setUsers(responce.items));
     dispatch(setTotalCount(responce.totalCount));
-    dispatch(setCurrentPage(currentPage + 1))
+    dispatch(setCurrentPage(currentPage + 1));
     dispatch(isFetchingProgress(false));
   })
 }
 
 export const follow = (userId) => (dispatch) => {
   dispatch(isFollowingProgress(true, userId));
-  postFollow(userId)
+  friendsApi.postFollow(userId)
   .then((response) => {
     if(response.resultCode === 0)
     dispatch(followToggle(userId, true));
@@ -86,7 +85,7 @@ export const follow = (userId) => (dispatch) => {
 
 export const unFollow = (userId) => (dispatch) => {
   dispatch(isFollowingProgress(true, userId));
-  deleteFollow(userId)
+  friendsApi.deleteFollow(userId)
   .then((response) => {
     if(response.resultCode === 0)
     dispatch(followToggle(userId, false));

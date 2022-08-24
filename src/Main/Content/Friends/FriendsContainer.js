@@ -1,7 +1,7 @@
 import Friends from "./Friends";
 import { connect } from "react-redux";
 import React from "react";
-import { followToggle, resetUsers, setCurrentPage, isFollowingProgress, fetchUsers, follow, unFollow } from "../../../data/friends-reducer";
+import { followToggle, resetUsers, setCurrentPage, isFollowingProgress, fetchUsers, follow, unFollow, isFetchingProgress } from "../../../data/friends-reducer";
 
 
 class FriendsContainer extends React.Component {
@@ -16,18 +16,20 @@ class FriendsContainer extends React.Component {
 
   componentWillUnmount(){
     document.removeEventListener('scroll', this.onScroll);
-    this.props.resetUsers();
-    this.props.setCurrentPage(1);
+  }
+
+  componentDidUpdate(prevProps){
+    if(this.props.isFetching && prevProps.isFetching !== this.props.isFetching){
+      console.log('fetch');
+      this.props.fetchUsers(this.props.currentPage);
+    }
   }
 
   onScroll(evt){
     let totalPages = Math.ceil(this.props.totalCount / this.props.usersCount);
     let scrollHeight = evt.target.documentElement.scrollHeight - (evt.target.documentElement.scrollTop + window.innerHeight);
     if(scrollHeight < 100 && this.props.currentPage <= totalPages){
-      document.removeEventListener('scroll', this.onScroll);
-      let currentPage = this.props.currentPage + 1;
-      this.props.setCurrentPage(currentPage);
-      this.props.fetchUsers(currentPage, this.onScroll);
+      this.props.isFetchingProgress(true);
     }
   }
 
@@ -51,13 +53,14 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps =  {
 
-    followToggle:followToggle,
-    resetUsers:resetUsers,
-    setCurrentPage:setCurrentPage,
-    isFollowingProgress:isFollowingProgress,
-    fetchUsers:fetchUsers,
-    follow:follow,
-    unFollow:unFollow
+    followToggle,
+    resetUsers,
+    setCurrentPage,
+    isFollowingProgress,
+    fetchUsers,
+    follow,
+    unFollow,
+    isFetchingProgress
 
 }
 

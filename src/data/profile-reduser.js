@@ -1,4 +1,4 @@
-import {getProfile, getStatus, setStatus} from "../api/api";
+import {profileApi} from "../api/api";
 
 const ADD_NEW_POST = 'ADD-NEW-POST';
 const SET_USER_PROFILE = 'SET-USER-PROFILE';
@@ -61,7 +61,7 @@ export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile:pro
 export const setUserStatusText = (status) => ({type:SET_USER_STATUS,status:status});
 
 export const setUserStatus = (statusText) => (dispatch) => {
-  return setStatus(statusText)
+  return profileApi.setStatus(statusText)
   .then(response => {
     if(response.resultCode === 0){
       dispatch(setUserStatusText(statusText))
@@ -73,10 +73,10 @@ export const setUserStatus = (statusText) => (dispatch) => {
 }
 
 export const getUserProfile = (userId) => (dispatch) => {
-   return getProfile(userId)
+   return profileApi.getProfile(userId)
   .then(response => {
     dispatch(setUserProfile(response.data));
-    getStatus(userId)
+    profileApi.getStatus(userId)
       .then(response => {
       dispatch(setUserStatusText(response.data))
     })

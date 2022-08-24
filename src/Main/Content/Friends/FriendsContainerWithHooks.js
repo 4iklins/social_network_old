@@ -46,14 +46,14 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps =  {
 
-    followToggle:followToggle,
-    resetUsers:resetUsers,
-    setCurrentPage:setCurrentPage,
-    isFollowingProgress:isFollowingProgress,
-    fetchUsers:fetchUsers,
-    isFetchingProgress:isFetchingProgress,
-    follow:follow,
-    unFollow:unFollow
+    followToggle,
+    resetUsers,
+    setCurrentPage,
+    isFollowingProgress,
+    fetchUsers,
+    isFetchingProgress,
+    follow,
+    unFollow
 
 }
 

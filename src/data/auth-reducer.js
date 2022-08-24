@@ -1,4 +1,4 @@
-import {authMe, getProfile, loginMe, logoutMe, getCaptcha} from '../api/api';
+import {authApi, profileApi} from '../api/api';
 import {stopSubmit} from 'redux-form';
 
 const SET_AUTH_DATA = "SET-AUTH-DATA";
@@ -61,11 +61,11 @@ export const setCaptcha = (url) => ({type:SET_CAPTCHA, url:url})
 
 export const auth = () => (dispatch) => {
   dispatch(authProgress(true))
-  authMe().then(response =>{
+  authApi.auth().then(response =>{
     if(response.resultCode === 0){
       let {id, login, email} = response.data
       dispatch(setAuthData(id,login,email));
-      getProfile(id)
+      profileApi.getProfile(id)
       .then(response =>{
         dispatch(setMyProfile(response.data));
         dispatch(authProgress(false))
@@ -77,7 +77,7 @@ export const auth = () => (dispatch) => {
   })
 }
 export const login = (email,password,rememderMe,captcha) => (dispatch) => {
-  loginMe(email,password,rememderMe,captcha).then(response =>{
+  authApi.login(email,password,rememderMe,captcha).then(response =>{
     if(response.data.resultCode === 0){
       dispatch(auth())
     }
@@ -87,7 +87,7 @@ export const login = (email,password,rememderMe,captcha) => (dispatch) => {
     }
     if(response.data.resultCode === 10){
       let errorMessage = response.data.messages[0]
-      getCaptcha().then(response =>{
+      authApi.getCaptcha().then(response =>{
         dispatch(setCaptcha(response.data.url));
         dispatch(stopSubmit('login', {_error:errorMessage}))
       })
@@ -96,7 +96,7 @@ export const login = (email,password,rememderMe,captcha) => (dispatch) => {
 }
 
 export const logout = () => (dispatch) => {
-  logoutMe().then(response => {
+  authApi.logout().then(response => {
     if (response.data.resultCode === 0){
       dispatch(resetAuthData());
       dispatch(auth());
