@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { sendMessage} from '../../../data/dialogs-reducer';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
+import { getProfile } from '../../../data/auth_selectors';
 
 const DialogsContainer = (props) => {
   return(
@@ -14,7 +15,7 @@ const DialogsContainer = (props) => {
 const mapStateToProps = (state) => {
   return {
     dialogsPage:state.dialogsPage,
-    myProfile: state.auth.profile
+    myProfile: getProfile(state)
   }
 }
 const mapDispatchToProps = {

@@ -7,6 +7,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { auth } from './data/auth-reducer';
+import { getAuthProgress, getIsAuth, getAuthId } from './data/auth_selectors';
 
 class App extends React.Component {
 
@@ -29,9 +30,9 @@ class App extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  authProgress:state.auth.authProgress,
-  isAuth:state.auth.isAuth,
-  id:state.auth.id
+  authProgress:getAuthProgress(state),
+  isAuth:getIsAuth(state),
+  id:getAuthId(state)
 })
 
 const mapDispathToprops = {

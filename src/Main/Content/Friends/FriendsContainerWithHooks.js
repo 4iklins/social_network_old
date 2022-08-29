@@ -1,11 +1,11 @@
 import Friends from "./Friends";
 import { connect } from "react-redux";
 import React, {useEffect} from "react";
-import { followToggle, resetUsers, setCurrentPage, isFollowingProgress, fetchUsers, follow, unFollow, isFetchingProgress } from "../../../data/friends-reducer";
+import { resetUsers, setCurrentPage, isFollowingProgress, fetchUsers, follow, unFollow, isFetchingProgress } from "../../../data/friends-reducer";
+import { getUsers, getCurrentPage, getTotalCount, getUsersCount, getIsFetching, getIsFollowing } from "../../../data/friends-selectors";
 
 
 const FriendsContainer = (props) => {
-
   useEffect(()=>{
     document.addEventListener('scroll',onScroll);
     return ()=>{
@@ -35,18 +35,17 @@ const FriendsContainer = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    users: state.friendsPage.users,
-    currentPage: state.friendsPage.currentPage,
-    usersCount:state.friendsPage.usersCount,
-    totalCount:state.friendsPage.totalCount,
-    isFetching: state.friendsPage.isFetching,
-    isFollowing:state.friendsPage.isFollowing
+    users: getUsers(state),
+    currentPage: getCurrentPage(state), 
+    usersCount:getUsersCount(state),
+    totalCount:getTotalCount(state),
+    isFetching: getIsFetching(state),
+    isFollowing:getIsFollowing(state)
   }
-
+  
 }
 const mapDispatchToProps =  {
 
-    followToggle,
     resetUsers,
     setCurrentPage,
     isFollowingProgress,

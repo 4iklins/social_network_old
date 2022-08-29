@@ -5,7 +5,10 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import withPreloader from '../../../hoc/withPreloader';
-import {addPost, getUserProfile, setUserStatus} from '../../../data/profile-reduser';
+import {addPost, requestUserProfile, setUserStatus} from '../../../data/profile-reduser';
+import { getPosts, getProfile, getStatus } from '../../../data/profile-selectors';
+import { getAuthId } from '../../../data/auth_selectors';
+
 
 
 const ProfileWithPreloader = withPreloader('profile')(Profile)
@@ -14,13 +17,13 @@ class ProfileContainer extends React.Component{
 
   componentDidUpdate(){
     if(this.props.profile.userId !== Number(this.props.match.params.id)){
-      this.props.getUserProfile(this.props.match.params.id);
+      this.props.requestUserProfile(this.props.match.params.id);
     }
   }
 
   componentDidMount(){
     let userId = this.props.match.params.id
-    this.props.getUserProfile(userId);
+    this.props.requestUserProfile(userId);
   }
 
   render(){
@@ -31,18 +34,17 @@ class ProfileContainer extends React.Component{
 
 const mapStateToProps = (state) => {
   return {
-    posts:state.profilePage.posts,
-    newPostText:state.profilePage.newPostText,
-    profile:state.profilePage.profile,
-    status:state.profilePage.status,
-    authId:state.auth.id
+    posts:getPosts(state),
+    profile:getProfile(state),
+    status:getStatus(state),
+    authId:getAuthId(state)
   }
 }
 
 const mapDispatchToProps = {
-    addPost:addPost,
-    getUserProfile:getUserProfile,
-    setUserStatus:setUserStatus
+    addPost,
+    requestUserProfile,
+    setUserStatus
 }
 
 export default compose(
