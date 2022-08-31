@@ -4,14 +4,13 @@ import React from "react";
 import Preloader from "../../../common/Preloader/Preloader";
 import { NavLink } from "react-router-dom";
 
-function Friends(props) {
-
+const Friends = React.forwardRef((props,ref) => {
   return (
     <div className="friends">
       {props.isFetching ? <Preloader /> : null}
       <ul className="friends__list">
-        {props.users.map((user) => (
-          <li className="friends__item" key={user.id}>
+        {props.users.map((user,i) => (
+          <li className="friends__item" ref={i === props.users.length-1 ? ref : null}>
             <NavLink to={`profile/${user.id}`}>
               <Avatar user={user} big={true}/>
             </NavLink>
@@ -31,6 +30,6 @@ function Friends(props) {
       </ul>
     </div>
   );
-}
+})
 
 export default Friends;
