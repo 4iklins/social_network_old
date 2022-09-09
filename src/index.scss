@@ -1,4 +1,8 @@
 @import "./variables.scss";
+html {
+  overflow-x: hidden;
+  margin-right: calc(-1 * (100vw - 100%));
+}
 body {
   margin: 0;
   font-family: "Open Sans", sans-serif;
@@ -28,13 +32,13 @@ body {
   scrollbar-width: thin;
 }
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 10px;
   height: 5px; /* ширина для вертикального скролла */
   border-radius: 5px;
   background-color: #f1f1f1;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: $pink;
+  background-color: $green;
   border-radius: 30%;
   box-shadow: inset 1px 1px 10px #fff;
 }
