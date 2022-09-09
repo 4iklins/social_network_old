@@ -3,6 +3,8 @@ import {profileApi} from "../api/api";
 const ADD_NEW_POST = 'ADD-NEW-POST';
 const SET_USER_PROFILE = 'SET-USER-PROFILE';
 const SET_USER_STATUS = 'SET-USER-STATUS';
+const STATUS_ERROR = 'STATUS-ERROR';
+const LOADING_DATA = 'LOADING-DATA'
 
 
 let initialState = {
@@ -21,7 +23,10 @@ let initialState = {
     },
   ],
   profile: null,
-  status:null
+  status:null,
+  statusError:false,
+  statusErrorMessage:"",
+  loadingData: true
 }
 
 
@@ -52,6 +57,18 @@ const profileReducer = (state = initialState, action) => {
         ...state,
         status:action.status
       }
+    case STATUS_ERROR:
+      return {
+        ...state,
+        statusError:action.error,
+        statusErrorMessage:action.errorMessage
+      }
+    case LOADING_DATA:
+      return {
+        ...state,
+        loadingData:action.loadingData
+      }
+
     default: return state;
   }
 }
@@ -59,6 +76,8 @@ const profileReducer = (state = initialState, action) => {
 export const addPost= (text) => ({type:ADD_NEW_POST, text:text});
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile:profile});
 export const setUserStatusText = (status) => ({type:SET_USER_STATUS,status:status});
+export const showStatusError = (error,errorMessage) => ({type:STATUS_ERROR, error, errorMessage});
+export const loadData = (loadingData) => ({type:LOADING_DATA,loadingData})
 
 export const setUserStatus = (statusText) => (dispatch) => {
   return profileApi.setStatus(statusText)
@@ -67,20 +86,34 @@ export const setUserStatus = (statusText) => (dispatch) => {
       dispatch(setUserStatusText(statusText))
     }
     if(response.resultCode === 1){
-      
+      dispatch(showStatusError(true,response.messages[0]))
+      setTimeout(()=>{
+        dispatch(showStatusError(false,""))
+      },4000)
     }
   })
 }
 
 export const requestUserProfile = (userId) => (dispatch) => {
-   return profileApi.getProfile(userId)
+  return profileApi.getProfile(userId)
   .then(response => {
     dispatch(setUserProfile(response.data));
-    profileApi.getStatus(userId)
-      .then(response => {
-      dispatch(setUserStatusText(response.data))
-    })
   })
+}
+
+export const requestUserStatus = (userId) => (dispatch) => {
+  return profileApi.getStatus(userId)
+  .then(response => {
+    dispatch(setUserStatusText(response.data))
+  })
+}
+
+export const requestUserData = (userId) => (dispatch) => {
+  dispatch(loadData(true))
+  const profile = dispatch(requestUserProfile(userId))
+  const status = dispatch(requestUserStatus(userId))
+  Promise.all([profile,status])
+  .then(() => dispatch(loadData(false)))
 }
 
 

@@ -5,25 +5,25 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import withPreloader from '../../../hoc/withPreloader';
-import {addPost, requestUserProfile, setUserStatus} from '../../../data/profile-reduser';
+import {addPost, requestUserData, setUserStatus} from '../../../data/profile-reduser';
 import { getPosts, getProfile, getStatus } from '../../../data/profile-selectors';
 import { getAuthId } from '../../../data/auth_selectors';
 
 
 
-const ProfileWithPreloader = withPreloader('profile')(Profile)
+const ProfileWithPreloader = withPreloader('loadingData')(Profile)
 
 class ProfileContainer extends React.Component{
 
   componentDidUpdate(){
-    if(this.props.profile.userId !== Number(this.props.match.params.id)){
-      this.props.requestUserProfile(this.props.match.params.id);
+    if(this.props.profile && this.props.profile.userId !== Number(this.props.match.params.id)){
+      this.props.requestUserData(this.props.match.params.id);
     }
   }
 
   componentDidMount(){
     let userId = this.props.match.params.id
-    this.props.requestUserProfile(userId);
+    this.props.requestUserData(userId);
   }
 
   render(){
@@ -37,13 +37,16 @@ const mapStateToProps = (state) => {
     posts:getPosts(state),
     profile:getProfile(state),
     status:getStatus(state),
-    authId:getAuthId(state)
+    authId:getAuthId(state),
+    statusError:state.profilePage.statusError,
+    statusErrorMessage:state.profilePage.statusErrorMessage,
+    loadingData: state.profilePage.loadingData
   }
 }
 
 const mapDispatchToProps = {
     addPost,
-    requestUserProfile,
+    requestUserData,
     setUserStatus
 }
 

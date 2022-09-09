@@ -1,4 +1,3 @@
-import "./CreatePost.scss";
 import avatar from  '../../../../img/avatar.jpg';
 import RoundBtn from '../../../../common/RoundBtn/RoundBtn';
 import MediaButton from '../../../../common/MediaButton/MediaButton';
