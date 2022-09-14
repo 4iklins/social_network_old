@@ -28,7 +28,7 @@ function Header(props) {
           <div className="header__user">
             {props.isAuth && props.profile
             ?<div onClick={props.logout} className="header__user-icon">
-              <Avatar user={props.profile}/>
+              <Avatar userName={props.profile.fullName} photo={props.profile.photos.small}/>
               <p className='heager__logout'>Logout</p>
             </div>
             :<RoundBtn icon={userIcon} type="button"/>

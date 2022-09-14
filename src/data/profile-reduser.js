@@ -1,10 +1,10 @@
 import {profileApi} from "../api/api";
 
-const ADD_NEW_POST = 'ADD-NEW-POST';
-const SET_USER_PROFILE = 'SET-USER-PROFILE';
-const SET_USER_STATUS = 'SET-USER-STATUS';
-const STATUS_ERROR = 'STATUS-ERROR';
-const LOADING_DATA = 'LOADING-DATA'
+const ADD_NEW_POST = 'profile/ADD-NEW-POST';
+const SET_USER_PROFILE = 'profile/SET-USER-PROFILE';
+const SET_USER_STATUS = 'profile/SET-USER-STATUS';
+const STATUS_ERROR = 'profile/STATUS-ERROR';
+const LOADING_DATA = 'profile/LOADING-DATA'
 
 
 let initialState = {
@@ -79,33 +79,27 @@ export const setUserStatusText = (status) => ({type:SET_USER_STATUS,status:statu
 export const showStatusError = (error,errorMessage) => ({type:STATUS_ERROR, error, errorMessage});
 export const loadData = (loadingData) => ({type:LOADING_DATA,loadingData})
 
-export const setUserStatus = (statusText) => (dispatch) => {
-  return profileApi.setStatus(statusText)
-  .then(response => {
-    if(response.resultCode === 0){
-      dispatch(setUserStatusText(statusText))
-    }
-    if(response.resultCode === 1){
-      dispatch(showStatusError(true,response.messages[0]))
-      setTimeout(()=>{
-        dispatch(showStatusError(false,""))
-      },4000)
-    }
-  })
+export const setUserStatus = (statusText) => async (dispatch) => {
+  let response = await profileApi.setStatus(statusText)
+  if(response.resultCode === 0){
+    dispatch(setUserStatusText(statusText))
+  }
+  if(response.resultCode === 1){
+    dispatch(showStatusError(true,response.messages[0]))
+    setTimeout(()=>{
+      dispatch(showStatusError(false,""))
+    },4000)
+  }
 }
 
-export const requestUserProfile = (userId) => (dispatch) => {
-  return profileApi.getProfile(userId)
-  .then(response => {
-    dispatch(setUserProfile(response.data));
-  })
+export const requestUserProfile = (userId) => async (dispatch) => {
+  let response = await profileApi.getProfile(userId)
+  dispatch(setUserProfile(response.data));
 }
 
-export const requestUserStatus = (userId) => (dispatch) => {
-  return profileApi.getStatus(userId)
-  .then(response => {
-    dispatch(setUserStatusText(response.data))
-  })
+export const requestUserStatus = (userId) => async (dispatch) => {
+  let response = await profileApi.getStatus(userId)
+  dispatch(setUserStatusText(response.data))
 }
 
 export const requestUserData = (userId) => (dispatch) => {

@@ -18,7 +18,7 @@ function CreatePostForm (props) {
     <form className="create-post" onSubmit={props.handleSubmit}>
     <div className="create-post__text">
       <div className="create-post__user-avatar">
-        <Avatar user={props.profile} small={true}/>
+        <Avatar userName={props.profile.fullName} photo={props.profile.photos.small} size="small"/>
       </div>
       <Field 
         name="postText"

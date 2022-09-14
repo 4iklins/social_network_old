@@ -1,11 +1,11 @@
 import {authApi, profileApi} from '../api/api';
 import {stopSubmit} from 'redux-form';
 
-const SET_AUTH_DATA = "SET-AUTH-DATA";
-const SET_MY_PROFILE = 'SET-MY-PROFILE';
-const AUTH_PROGRESS = "AUTH-PROGRESS";
-const RESET_AUTH_DATA = "RESET-AUTH-DATA";
-const SET_CAPTCHA = "SET-CAPTCHA";
+const SET_AUTH_DATA = "auth/SET-AUTH-DATA";
+const SET_MY_PROFILE = 'auth/SET-MY-PROFILE';
+const AUTH_PROGRESS = "auth/AUTH-PROGRESS";
+const RESET_AUTH_DATA = "auth/RESET-AUTH-DATA";
+const SET_CAPTCHA = "auth/SET-CAPTCHA";
 
 let intialState = {
   id: null,
@@ -59,49 +59,43 @@ export const authProgress = (progress) => ({type: AUTH_PROGRESS, progress:progre
 export const resetAuthData = () => ({type: RESET_AUTH_DATA});
 export const setCaptcha = (url) => ({type:SET_CAPTCHA, url:url})
 
-export const auth = () => (dispatch) => {
+export const auth = () => async (dispatch) => {
   dispatch(authProgress(true))
-  authApi.auth().then(response =>{
-    if(response.resultCode === 0){
-      let {id, login, email} = response.data
-      dispatch(setAuthData(id,login,email));
-      profileApi.getProfile(id)
-      .then(response =>{
-        dispatch(setMyProfile(response.data));
+  let auth = await authApi.auth()
+  if(auth.resultCode === 0){
+    let {id, login, email} = auth.data
+    dispatch(setAuthData(id,login,email));
+    let profile = await profileApi.getProfile(id)
+        dispatch(setMyProfile(profile.data));
         dispatch(authProgress(false))
-      })
     }
-    if(response.resultCode === 1){
-      dispatch(authProgress(false))
-    }
-  })
+  if(auth.resultCode === 1){
+    dispatch(authProgress(false))
+  }
 }
-export const login = (email,password,rememderMe,captcha) => (dispatch) => {
-  authApi.login(email,password,rememderMe,captcha).then(response =>{
-    if(response.data.resultCode === 0){
-      dispatch(auth())
-    }
-    if(response.data.resultCode === 1){
+export const login = (email,password,rememderMe,captcha) => async (dispatch) => {
+  let response = await authApi.login(email,password,rememderMe,captcha)
+  if(response.data.resultCode === 0){
+     dispatch(auth())
+  }
+  if(response.data.resultCode === 1){
       
-      dispatch(stopSubmit('login', {_error:response.data.messages[0]}))
-    }
-    if(response.data.resultCode === 10){
-      let errorMessage = response.data.messages[0]
-      authApi.getCaptcha().then(response =>{
-        dispatch(setCaptcha(response.data.url));
-        dispatch(stopSubmit('login', {_error:errorMessage}))
-      })
-    }
-  })
+    dispatch(stopSubmit('login', {_error:response.data.messages[0]}))
+  }
+  if(response.data.resultCode === 10){
+    let errorMessage = response.data.messages[0]
+    let captcha = await authApi.getCaptcha()
+    dispatch(setCaptcha(captcha.data.url));
+    dispatch(stopSubmit('login', {_error:errorMessage}))
+  }
 }
 
-export const logout = () => (dispatch) => {
-  authApi.logout().then(response => {
-    if (response.data.resultCode === 0){
-      dispatch(resetAuthData());
-      dispatch(auth());
-    }
-  })
+export const logout = () => async (dispatch) => {
+  let response = await authApi.logout()
+  if (response.data.resultCode === 0){
+    dispatch(resetAuthData());
+    dispatch(auth());
+  }
 }
 
 

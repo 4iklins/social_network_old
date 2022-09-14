@@ -1,7 +1,7 @@
 import Friends from "./Friends";
 import { connect } from "react-redux";
 import React from "react";
-import { followToggle, resetUsers, setCurrentPage, isFollowingProgress, fetchUsers, follow, unFollow, isFetchingProgress } from "../../../data/friends-reducer";
+import { followedToggle, resetUsers, setCurrentPage, isFollowingProgress, fetchUsers, follow, unFollow, isFetchingProgress } from "../../../data/friends-reducer";
 
 
 class FriendsContainer extends React.Component {
@@ -20,7 +20,6 @@ class FriendsContainer extends React.Component {
 
   componentDidUpdate(prevProps){
     if(this.props.isFetching && prevProps.isFetching !== this.props.isFetching){
-      console.log('fetch');
       this.props.fetchUsers(this.props.currentPage);
     }
   }
@@ -53,7 +52,7 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps =  {
 
-    followToggle,
+    followedToggle,
     resetUsers,
     setCurrentPage,
     isFollowingProgress,

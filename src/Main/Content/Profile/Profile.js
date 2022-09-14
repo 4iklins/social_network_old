@@ -1,6 +1,5 @@
 import React from 'react';
 import './Profile.scss';
-import Post from './Post/Post';
 import ProfileInfo from './ProfileInfo';
 import CreatePost from './CreatePost/CreatePost';
 

@@ -12,7 +12,7 @@ const Friends = React.forwardRef((props,ref) => {
         {props.users.map((user,i) => (
           <li className="friends__item" ref={i === props.users.length-1 ? ref : null}>
             <NavLink to={`profile/${user.id}`}>
-              <Avatar user={user} big={true}/>
+              <Avatar userName={user.name} photo={user.photos.small} size="big"/>
             </NavLink>
             <div className="friend__name-box">
               <p className="friend__name">{user.name}</p>

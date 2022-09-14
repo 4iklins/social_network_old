@@ -3,22 +3,24 @@ import Message from './Message/Message';
 import classNames from 'classnames';
 
 function Messages (props) {
-  let avatar ="";
   let dialog = props.match.params.id;
 
   if(props.dialogsPage.users[dialog].messages.length !== 0){
     return (
       props.dialogsPage.users[dialog].messages.map(message => {
-        if(message.isMe === true){
-          avatar = props.myProfile.photos.small;
+        if(message.isMe){
+          return(
+            <div className={classNames("dialogs__message","dialogs__message--isMe")}>
+              <Message text={message.message} date={message.date} isMe={message.isMe} avatar={props.myProfile.photos.small} name={props.myProfile.fullName}/>
+            </div>
+          )
         } else {
-          avatar = props.dialogsPage.users[dialog].photos.small
+          return(
+            <div className={classNames("dialogs__message")}>
+              <Message text={message.message} date={message.date} isMe={message.isMe} avatar={props.dialogsPage.users[dialog].photos.small} name={props.dialogsPage.users[dialog].name}/>
+            </div>
+          )
         }
-        return(
-          <div className={classNames("dialogs__message",{"dialogs__message--isMe":message.isMe})}>
-            <Message avatar = {avatar} text={message.message} date={message.date} isMe={message.isMe} user={props.myProfile}/>
-          </div>
-        )
       })
     )
   } else {

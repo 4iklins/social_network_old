@@ -2,7 +2,6 @@ import errorImg from '../../img/warning_icon.svg'
 
 export const CreateField = ({input, meta:{ touched, error },ctrEnterPress,fieldType, ...props}) => {
   let onCtrEnterPress = (evt) => {
-    console.log(evt)
     if(evt.ctrlKey && evt.charCode === 13){
       ctrEnterPress()
     }

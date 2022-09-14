@@ -11,7 +11,7 @@ function Post(props) {
     <div className="post">
       <div className="post__user-info">
         <div className="post__user-avatar">
-          <Avatar user={props.profile}/>
+          <Avatar userName={props.profile.fullName} photo={props.profile.photos.small}/>
         </div>
         <div className="post__user-name">
           {props.profile.fullName}

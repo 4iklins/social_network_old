@@ -8,7 +8,7 @@ const DialogsList = (props) => {
     <ul className="dialogs_list">
     {props.dialogsPage.users.map(user =>
     <li className="dialogs_item" key={user.id.toString()}>
-      <Avatar user={user}/>
+      <Avatar userName={user.name} photo={user.photos.small}/>
       <NavLink to={`/messages/dialog/${user.id}`} className="dialog_name">{user.name}</NavLink>
     </li>
     )}
