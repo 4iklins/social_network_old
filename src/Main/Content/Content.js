@@ -1,4 +1,5 @@
 import './Content.scss';
+import { lazy } from 'react';
 import DialogsContainer from './Dialogs/DialogsContainer';
 import Events from './Events/Events';
 import {Route} from 'react-router-dom';
