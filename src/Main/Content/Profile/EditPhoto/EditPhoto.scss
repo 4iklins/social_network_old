@@ -1,0 +1,19 @@
+@import "../../../../variables.scss";
+
+.edit-photo {
+  position:absolute;
+  left: -60px;
+  top: 150px;
+  border: 4px solid $white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: $pink;
+  background-image: url(../../../../img/photo_camera_white_icon.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  input {
+    display: none;
+  }
+}

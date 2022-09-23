@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import withPreloader from '../../../hoc/withPreloader';
-import {addPost, requestUserData, setUserStatus} from '../../../data/profile-reduser';
+import {addPost, requestUserData, setUserStatus, setPhoto} from '../../../data/profile-reduser';
 import { getPosts, getProfile, getStatus } from '../../../data/profile-selectors';
 import { getAuthId } from '../../../data/auth_selectors';
 
@@ -47,7 +47,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
     addPost,
     requestUserData,
-    setUserStatus
+    setUserStatus,
+    setPhoto
 }
 
 export default compose(

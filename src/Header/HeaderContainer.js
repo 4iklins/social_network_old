@@ -5,6 +5,7 @@ import { logout } from "../data/auth-reducer";
 import { getIsAuth, getProfile } from "../data/auth_selectors";
 
 class HeaderContainer extends React.Component{
+
   render(){
     return(
       <Header {...this.props}/>

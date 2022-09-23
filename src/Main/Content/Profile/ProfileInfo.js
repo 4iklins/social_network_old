@@ -3,6 +3,7 @@ import withoutAvatarMock from '../../../img/withoutAvatarMock.jpg';
 import Status from './Status/Status';
 import StatusWithHooks from './Status/StatusWithHooks';
 import Contacts from './Contacts';
+import EditPhoto from './EditPhoto/EditPhoto';
 
 const ProfileInfo = React.memo((props) => {
    return (
@@ -23,6 +24,7 @@ const ProfileInfo = React.memo((props) => {
         <div>Contacts:</div>
         <Contacts contacts = {props.profile.contacts}/>
       </div>
+      {props.authId === props.profile.userId && <EditPhoto setPhoto = {props.setPhoto} userId={props.authId}/>}
     </div>
   </div>
    )

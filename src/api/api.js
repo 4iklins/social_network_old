@@ -1,4 +1,5 @@
 import * as axios from "axios";
+import EditPhoto from "../Main/Content/Profile/EditPhoto/EditPhoto";
 
 const instance = axios.create({
   withCredentials: true,
@@ -32,6 +33,15 @@ export const profileApi = {
   },
   setStatus(status) {
     return instance.put(`profile/status`,{status:status}).then((response) => response.data);
+  },
+  editPhoto(photo) {
+    let formData = new FormData();
+    formData.append("image", photo);
+    return instance.put(`profile/photo`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    })
   }
 };
 

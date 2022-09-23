@@ -110,5 +110,16 @@ export const requestUserData = (userId) => (dispatch) => {
   .then(() => dispatch(loadData(false)))
 }
 
+export const setPhoto = (photo, userId) => async (dispatch) => {
+  let response = await profileApi.editPhoto(photo)
+  debugger
+  if(response.data.resultCode === 0){
+    dispatch(requestUserProfile(userId))
+  }
+  if(response.data.resultCode === 1){
+
+  }
+}
+
 
 export default profileReducer;
