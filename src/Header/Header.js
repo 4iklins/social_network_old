@@ -26,9 +26,9 @@ function Header(props) {
             </NavLink>
           </div>
           <div className="header__user">
-            {props.isAuth && props.profile
+            {props.isAuth && props.myProfile
             ?<div onClick={props.logout} className="header__user-icon">
-              <Avatar userName={props.profile.fullName} photo={props.profile.photos.small}/>
+              <Avatar userName={props.myProfile.fullName} photo={props.myProfile.photos.small}/>
               <p className='heager__logout'>Logout</p>
             </div>
             :<RoundBtn icon={userIcon} type="button"/>

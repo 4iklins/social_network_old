@@ -2,7 +2,7 @@ import "./EditPhoto.scss"
 
 function EditPhoto ({setPhoto, userId}) {
   const onPhotoSelected = (evt) => {
-    setPhoto(evt.target.files[0],userId)
+    setPhoto(evt.target.files[0])
   }
   return (
     <label className = "edit-photo">

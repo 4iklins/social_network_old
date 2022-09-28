@@ -4,7 +4,8 @@ const ADD_NEW_POST = 'profile/ADD-NEW-POST';
 const SET_USER_PROFILE = 'profile/SET-USER-PROFILE';
 const SET_USER_STATUS = 'profile/SET-USER-STATUS';
 const STATUS_ERROR = 'profile/STATUS-ERROR';
-const LOADING_DATA = 'profile/LOADING-DATA'
+const LOADING_DATA = 'profile/LOADING-DATA';
+
 
 
 let initialState = {
@@ -76,50 +77,25 @@ const profileReducer = (state = initialState, action) => {
 export const addPost= (text) => ({type:ADD_NEW_POST, text:text});
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile:profile});
 export const setUserStatusText = (status) => ({type:SET_USER_STATUS,status:status});
-export const showStatusError = (error,errorMessage) => ({type:STATUS_ERROR, error, errorMessage});
-export const loadData = (loadingData) => ({type:LOADING_DATA,loadingData})
+export const loadData = (loadingData) => ({type:LOADING_DATA,loadingData});
 
-export const setUserStatus = (statusText) => async (dispatch) => {
-  let response = await profileApi.setStatus(statusText)
-  if(response.resultCode === 0){
-    dispatch(setUserStatusText(statusText))
-  }
-  if(response.resultCode === 1){
-    dispatch(showStatusError(true,response.messages[0]))
-    setTimeout(()=>{
-      dispatch(showStatusError(false,""))
-    },4000)
-  }
-}
 
-export const requestUserProfile = (userId) => async (dispatch) => {
+export const requestUserProfile = (userId,setProfileAction) => async (dispatch) => {
   let response = await profileApi.getProfile(userId)
-  dispatch(setUserProfile(response.data));
+  dispatch(setProfileAction(response.data));
 }
 
-export const requestUserStatus = (userId) => async (dispatch) => {
+export const requestUserStatus = (userId,setStatusAction) => async (dispatch) => {
   let response = await profileApi.getStatus(userId)
-  dispatch(setUserStatusText(response.data))
+  dispatch(setStatusAction(response.data))
 }
 
-export const requestUserData = (userId) => (dispatch) => {
-  dispatch(loadData(true))
-  const profile = dispatch(requestUserProfile(userId))
-  const status = dispatch(requestUserStatus(userId))
+export const requestUserData = (userId,loadDataAction,setProfileAction,setStatusAction) => (dispatch) => {
+  dispatch(loadDataAction(true))
+  const profile = dispatch(requestUserProfile(userId,setProfileAction))
+  const status = dispatch(requestUserStatus(userId,setStatusAction))
   Promise.all([profile,status])
-  .then(() => dispatch(loadData(false)))
+  .then(() => dispatch(loadDataAction(false)))
 }
-
-export const setPhoto = (photo, userId) => async (dispatch) => {
-  let response = await profileApi.editPhoto(photo)
-  debugger
-  if(response.data.resultCode === 0){
-    dispatch(requestUserProfile(userId))
-  }
-  if(response.data.resultCode === 1){
-
-  }
-}
-
 
 export default profileReducer;

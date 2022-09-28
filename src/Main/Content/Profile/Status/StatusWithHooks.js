@@ -17,7 +17,7 @@ const StatusWithHooks = (props) => {
   const disableEditMode = () => {
     setEditMode(false)
     if(status !== props.status){
-      props.setUserStatus(status)
+      props.setMyStatus(status)
     }
   }
   const onStatusChange = (evt) => {

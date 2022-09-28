@@ -3,11 +3,10 @@ import Login from "./Login";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { login } from "../data/auth-reducer";
-import { getCaptchaUrl, getIsAuth } from "../data/auth_selectors";
+import { getCaptchaUrl, getIsAuth } from "../data/auth-selectors";
 
 class LoginContainer extends React.Component{
   render(){
-    console.log(this.props)
     return(
       <Login {...this.props}/>
     )

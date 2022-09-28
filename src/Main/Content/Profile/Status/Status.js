@@ -19,7 +19,7 @@ class Status extends React.Component {
   disableEditMode(){
     this.setState({editMode:false})
     if(this.state.statusText !== this.props.status){
-      this.props.setUserStatus(this.state.statusText)
+      this.props.setMyStatus(this.state.statusText)
     }
   }
   onStatusChange(evt){

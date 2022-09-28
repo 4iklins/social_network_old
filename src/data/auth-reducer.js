@@ -6,6 +6,7 @@ const SET_MY_PROFILE = 'auth/SET-MY-PROFILE';
 const AUTH_PROGRESS = "auth/AUTH-PROGRESS";
 const RESET_AUTH_DATA = "auth/RESET-AUTH-DATA";
 const SET_CAPTCHA = "auth/SET-CAPTCHA";
+const SET_MY_PHOTO = 'profile/SET-MY-PHOTO';
 
 let intialState = {
   id: null,
@@ -13,7 +14,6 @@ let intialState = {
   login: null,
   authProgress:true,
   isAuth:false,
-  profile:null,
   captchaUrl:null,
 }
 
@@ -28,7 +28,7 @@ function authReducer(state=intialState, action) {
    case SET_MY_PROFILE:
     return {
       ...state,
-      profile:action.profile
+      authProfile:action.profile
     };
     case AUTH_PROGRESS:
       return {
@@ -42,7 +42,6 @@ function authReducer(state=intialState, action) {
           email: null,
           login: null,
           isAuth:false,
-          profile:null,
           captchaUrl:null
        }
        case SET_CAPTCHA:
@@ -50,27 +49,26 @@ function authReducer(state=intialState, action) {
            ...state,
            captchaUrl:action.url
          }
+
    default: return state;
  }
 }
 export const setAuthData = (id,login,email)=>({type:SET_AUTH_DATA, data: {id,login,email} });
 export const setMyProfile = (profile) => ({type: SET_MY_PROFILE, profile:profile});
-export const authProgress = (progress) => ({type: AUTH_PROGRESS, progress:progress});
+export const setAuthProgress = (progress) => ({type: AUTH_PROGRESS, progress:progress});
 export const resetAuthData = () => ({type: RESET_AUTH_DATA});
-export const setCaptcha = (url) => ({type:SET_CAPTCHA, url:url})
+export const setCaptcha = (url) => ({type:SET_CAPTCHA, url:url});
+export const setMyProfilePhoto = (photos) => ({type:SET_MY_PHOTO,photos});
 
 export const auth = () => async (dispatch) => {
-  dispatch(authProgress(true))
+  dispatch(setAuthProgress(true))
   let auth = await authApi.auth()
   if(auth.resultCode === 0){
     let {id, login, email} = auth.data
     dispatch(setAuthData(id,login,email));
-    let profile = await profileApi.getProfile(id)
-        dispatch(setMyProfile(profile.data));
-        dispatch(authProgress(false))
-    }
+  }
   if(auth.resultCode === 1){
-    dispatch(authProgress(false))
+    dispatch(setAuthProgress(false))
   }
 }
 export const login = (email,password,rememderMe,captcha) => async (dispatch) => {
@@ -97,7 +95,6 @@ export const logout = () => async (dispatch) => {
     dispatch(auth());
   }
 }
-
 
 
 export default authReducer;

@@ -16,7 +16,7 @@ const ProfileInfo = React.memo((props) => {
     <div className="profile__description">
       <div className="profile__name">{props.profile.fullName}</div>
       {props.authId === props.profile.userId
-      ? <StatusWithHooks status={props.status} setUserStatus={props.setUserStatus}/>
+      ? <StatusWithHooks status={props.status} setMyStatus={props.setMyStatus}/>
       : <div className="profile__user-status"><span>Status: </span>{props.status}</div> }
       {props.statusError && <div className ="profile__user-status-error">{props.statusErrorMessage}</div>}
       <div className="profile__about">Abount me: {props.profile.aboutMe}</div>
@@ -24,7 +24,7 @@ const ProfileInfo = React.memo((props) => {
         <div>Contacts:</div>
         <Contacts contacts = {props.profile.contacts}/>
       </div>
-      {props.authId === props.profile.userId && <EditPhoto setPhoto = {props.setPhoto} userId={props.authId}/>}
+      {props.authId === props.profile.userId && <EditPhoto setPhoto = {props.setPhoto}/>}
     </div>
   </div>
    )

@@ -6,13 +6,16 @@ import {BrowserRouter} from 'react-router-dom';
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { auth } from './data/auth-reducer';
-import { getAuthProgress, getIsAuth, getAuthId } from './data/auth_selectors';
+import { auth , setAuthProgress} from './data/auth-reducer';
+import { requestMyData, setMyProfile, setMyStatusText } from './data/myProfile-reducer';
+import { getAuthProgress, getIsAuth, getAuthId } from './data/auth-selectors';
 
 class App extends React.Component {
 
   componentDidMount(){
-    this.props.auth()
+      this.props.auth().then(()=>{
+        this.props.requestMyData(this.props.id, this.props.setAuthProgress,this.props.setMyProfile,this.props.setMyStatusText)
+      })
   }
 
   render(){
@@ -36,7 +39,12 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispathToprops = {
-  auth:auth
+  auth,
+  setAuthProgress,
+  requestMyData,
+  setMyProfile,
+  setMyStatusText
+
 }
 export default compose(
   connect(mapStateToProps, mapDispathToprops)
