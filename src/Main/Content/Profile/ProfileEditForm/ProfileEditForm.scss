@@ -1,0 +1,107 @@
+@import '../../../../variables.scss';
+
+.profile-edit-form {
+  margin-left: 20px;
+  width:270px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.profile-edit-form__item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  input{
+    width: 150px;
+    border: 1px solid #f1f1f1;
+    border-radius: 3px;
+    font-family: "Open Sans", sans-serif;
+    color: $font-color;
+    &::placeholder {
+      color: #adb5bd;
+    }
+    
+    &:focus-visible{
+      outline:none;
+      border-color: $green;
+    }
+  }
+  textarea{
+    width: 150px;
+    border: 1px solid #f1f1f1;
+    resize: none;
+    border-radius: 3px;
+    font-family: "Open Sans", sans-serif;
+    color: $font-color;
+    &:focus-visible{
+      outline:none;
+      border-color: $green;
+    }
+    &::placeholder {
+      color: #adb5bd;
+    }
+  }
+}
+.profile-edit-form__item--looking-for-a-job{
+  justify-content: flex-start;
+  input{
+    width: auto;
+  }
+  
+}
+
+.profile-edit-form__contact{
+  padding-left: 10px
+}
+
+.validField__contacts\.facebook--error,
+.validField__contacts\.twitter--error,
+.validField__contacts\.youtube--error,
+.validField__contacts\.instagram--error,
+.validField__contacts\.github--error,
+.validField__contacts\.website--error,
+.validField__contacts\.vk--error,
+.validField__contacts\.mainLink--error{
+  position:relative;
+  .validField__warning-text{
+    display: flex;
+    align-items:center ;
+    font-size: 12px;
+    position:absolute;
+    width:150px;
+    left: 158px;
+    top:0;
+  }
+  input{
+    border-color: $warning;
+  }
+}
+
+.validField__aboutMe--error{
+  position:relative;
+  .validField__warning-text{
+    display: flex;
+    align-items:center ;
+    font-size: 12px;
+    position:absolute;
+    width:150px;
+    left: 158px;
+    top:7px;
+  }
+  textarea{
+    border-color: $warning;
+  }
+}
+
+.profile-edit-form__button-save{
+  display: block;
+  width: 100px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin:0 auto;
+  background-color: $green;
+  border: none;
+  border-radius: 15px;
+  color: white;
+  cursor:pointer;
+}

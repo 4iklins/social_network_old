@@ -1,11 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import withoutAvatarMock from '../../../img/withoutAvatarMock.jpg';
-import Status from './Status/Status';
-import StatusWithHooks from './Status/StatusWithHooks';
-import Contacts from './Contacts';
+import ProfileDescription from './ProfileDescription/ProfileDescription';
 import EditPhoto from './EditPhoto/EditPhoto';
+import ProfileEditForm from './ProfileEditForm/ProfileEditForm';
 
 const ProfileInfo = React.memo((props) => {
+  let [editMode, setEditMode] = useState(false)
+  let enebleEditMode = () => {
+    setEditMode(!editMode)
+  }
+
+  const onSubmit = (formData) => {
+    props.saveProfileInfo(formData)
+    .then(()=>{
+      enebleEditMode()
+    })
+    
+  }
    return (
     <div className="profile__container">
     <div className="profile__photo">
@@ -13,19 +24,14 @@ const ProfileInfo = React.memo((props) => {
       ? <img src={props.profile.photos.large} alt="" className="" />
       : <img src={withoutAvatarMock} alt="" className="" />}
     </div>
-    <div className="profile__description">
-      <div className="profile__name">{props.profile.fullName}</div>
-      {props.authId === props.profile.userId
-      ? <StatusWithHooks status={props.status} setMyStatus={props.setMyStatus}/>
-      : <div className="profile__user-status"><span>Status: </span>{props.status}</div> }
-      {props.statusError && <div className ="profile__user-status-error">{props.statusErrorMessage}</div>}
-      <div className="profile__about">Abount me: {props.profile.aboutMe}</div>
-      <div className="profile__contacts">
-        <div>Contacts:</div>
-        <Contacts contacts = {props.profile.contacts}/>
-      </div>
-      {props.authId === props.profile.userId && <EditPhoto setPhoto = {props.setPhoto}/>}
-    </div>
+    {editMode 
+    ? <ProfileEditForm initialValues={props.profile} onSubmit={onSubmit} profile={props.profile}/>
+    : <ProfileDescription profile={props.profile} authId = {props.authId} status={props.status} setMyStatus={props.setMyStatus}/>
+    }
+    {!editMode && <leabel className="profile__description-edit">
+        <button onClick={enebleEditMode}>Edit</button>
+    </leabel>}
+    {props.authId === props.profile.userId && <EditPhoto editPhoto = {props.editPhoto}/>}
   </div>
    )
   }

@@ -1,0 +1,36 @@
+@import '../../../variables.scss';
+.profile__contacts {
+  display: flex;
+  align-items: center;
+  div {
+    margin-right: 10px;
+  }
+  a {
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: 10px;
+  }
+  .contact__facebook {
+    background-image: url("../../../img/facebook-1.png");
+  }
+  .contact__twitter {
+    background-image: url("../../../img/twitter-1.png");
+  }
+  .contact__youtube {
+    background-image: url("../../../img/youtube-1.png");
+  }
+  .contact__vk {
+    background-image: url("../../../img/vk-1.png");
+  }
+  .contact__website {
+    background-image: url("../../../img/website-1.png");
+  }
+  .contact__github {
+    background-image: url("../../../img/github-1.png");
+  }
+  .contact__instagram {
+    background-image: url("../../../img/instagram-1.png");
+  }
+}

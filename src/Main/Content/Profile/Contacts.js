@@ -1,3 +1,4 @@
+import './Contacts.scss'
 
 function Contacts (props) {
   let contacts = []

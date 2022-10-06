@@ -6,10 +6,10 @@ import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import withPreloader from '../../../hoc/withPreloader';
 import {addPost, requestUserData, loadData, setUserProfile, setUserStatusText} from '../../../data/profile-reducer';
-import {setPhoto, setMyStatus} from '../../../data/myProfile-reducer';
-import { getPosts, getProfile, getStatus } from '../../../data/profile-selectors';
+import {editPhoto, setMyStatus, saveProfileInfo} from '../../../data/myProfile-reducer';
+import { getPosts, getProfile, getStatus, getLoadingData } from '../../../data/profile-selectors';
 import { getAuthId } from '../../../data/auth-selectors';
-import { getMyProfile, getMyStatus } from '../../../data/myProfile-selectors';
+import { getMyProfile, getMyStatus, getStatusError, getStatusErrorMessage } from '../../../data/myProfile-selectors';
 
 
 
@@ -18,7 +18,6 @@ const ProfileWithPreloader = withPreloader('loadingData')(Profile)
 class ProfileContainer extends React.Component{
 
   componentDidMount(){
-    debugger
     let userId = Number(this.props.match.params.id);
     if(userId !== this.props.authId) {
       this.props.requestUserData(userId,this.props.loadData,this.props.setUserProfile,this.props.setUserStatusText);
@@ -43,8 +42,8 @@ class ProfileContainer extends React.Component{
 
       return <ProfileWithPreloader loadingData = {loadingData} profile={profile} status={status} setMyStatus={this.props.setMyStatus}
                                    statusError={this.props.statusError} statusErrorMessage={this.props.statusErrorMessage}
-                                   authId = {this.props.authId} setPhoto = {this.props.setPhoto}
-                                   posts = {this.props.posts} addPost = {this.props.addPost}
+                                   authId = {this.props.authId} editPhoto = {this.props.editPhoto}
+                                   posts = {this.props.posts} addPost = {this.props.addPost} saveProfileInfo={this.props.saveProfileInfo}
       />
   }
 
@@ -58,9 +57,9 @@ const mapStateToProps = (state) => {
     authId:getAuthId(state),
     myProfile:getMyProfile(state),
     myStatus:getMyStatus(state),
-    statusError:state.profilePage.statusError,
-    statusErrorMessage:state.profilePage.statusErrorMessage,
-    loadingData: state.profilePage.loadingData
+    statusError:getStatusError(state),
+    statusErrorMessage:getStatusErrorMessage(state),
+    loadingData: getLoadingData(state)
   }
 }
 
@@ -68,10 +67,11 @@ const mapDispatchToProps = {
     addPost,
     requestUserData,
     setMyStatus,
-    setPhoto,
+    editPhoto,
     loadData,
     setUserProfile,
-    setUserStatusText
+    setUserStatusText,
+    saveProfileInfo
 }
 
 export default compose(

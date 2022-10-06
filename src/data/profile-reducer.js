@@ -25,8 +25,6 @@ let initialState = {
   ],
   profile: null,
   status:null,
-  statusError:false,
-  statusErrorMessage:"",
   loadingData: true
 }
 

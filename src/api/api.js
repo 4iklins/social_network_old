@@ -1,4 +1,5 @@
 import * as axios from "axios";
+import { saveProfileInfo } from "../data/myProfile-reducer";
 import EditPhoto from "../Main/Content/Profile/EditPhoto/EditPhoto";
 
 const instance = axios.create({
@@ -42,6 +43,9 @@ export const profileApi = {
         'Content-Type': 'multipart/form-data'
       }
     })
+  },
+  saveProfile(profile) {
+    return instance.put(`profile`,profile).then((response) => response.data);
   }
 };
 
