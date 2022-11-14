@@ -15,8 +15,8 @@ const ProfileInfo = React.memo((props) => {
     .then(()=>{
       enebleEditMode()
     })
-    
   }
+
    return (
     <div className="profile__container">
     <div className="profile__photo">
@@ -28,9 +28,10 @@ const ProfileInfo = React.memo((props) => {
     ? <ProfileEditForm initialValues={props.profile} onSubmit={onSubmit} profile={props.profile}/>
     : <ProfileDescription profile={props.profile} authId = {props.authId} status={props.status} setMyStatus={props.setMyStatus}/>
     }
-    {!editMode && <leabel className="profile__description-edit">
-        <button onClick={enebleEditMode}>Edit</button>
-    </leabel>}
+    {!editMode && (props.authId === props.profile.userId) && <label className="profile__description-edit">
+        <div className="profile__description-edit-icon"></div>
+        <button onClick={enebleEditMode}></button>
+    </label>}
     {props.authId === props.profile.userId && <EditPhoto editPhoto = {props.editPhoto}/>}
   </div>
    )

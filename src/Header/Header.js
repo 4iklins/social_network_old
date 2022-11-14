@@ -3,7 +3,6 @@ import logo from '../img/logo.svg';
 import RoundBtn from '../common/RoundBtn/RoundBtn';
 import Avatar from '../common/Avatar/Avatar';
 import {NavLink} from 'react-router-dom';
-import settingsIcon from '../img/settings_icon.svg';
 import userIcon from '../img/user_icon.svg';
 
 
@@ -20,11 +19,6 @@ function Header(props) {
           </NavLink>
         </div>
         <div className="header__menu">
-          <div className="header__settings">
-            <NavLink to ="/settings">
-              <RoundBtn icon={settingsIcon} type="button" />
-            </NavLink>
-          </div>
           <div className="header__user">
             {props.isAuth && props.myProfile
             ?<div onClick={props.logout} className="header__user-icon">

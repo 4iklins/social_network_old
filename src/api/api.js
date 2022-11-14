@@ -1,6 +1,4 @@
 import * as axios from "axios";
-import { saveProfileInfo } from "../data/myProfile-reducer";
-import EditPhoto from "../Main/Content/Profile/EditPhoto/EditPhoto";
 
 const instance = axios.create({
   withCredentials: true,

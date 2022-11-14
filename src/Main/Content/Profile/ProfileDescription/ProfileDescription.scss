@@ -2,7 +2,8 @@
 
 .profile__description {
   position: relative;
-  margin-left: 20px;
+  margin-left: 40px;
+  margin-top: 20px;
   margin-right: auto;
   display: flex;
   flex-direction: column;
@@ -27,4 +28,21 @@
   font-weight: 400;
   color: #adb5bd;
   width:170px;
+}
+.profile__description-edit-icon{
+  width:24px;
+  height:24px;
+  background-image: url(../../../../img/settings_icon.svg);
+  background-repeat: no-repeat;
+  animation: setting-spin infinite 10s linear;
+  cursor:pointer;
+}
+
+@keyframes setting-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

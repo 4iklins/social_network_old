@@ -13,9 +13,10 @@ import { getAuthProgress, getIsAuth, getAuthId } from './data/auth-selectors';
 class App extends React.Component {
 
   componentDidMount(){
-      this.props.auth().then(()=>{
-        this.props.requestMyData(this.props.id, this.props.setAuthProgress,this.props.setMyProfile,this.props.setMyStatusText)
-      })
+      this.props.auth()
+      .then((auth)=>{
+        if(auth)this.props.requestMyData(this.props.id, this.props.setAuthProgress,this.props.setMyProfile,this.props.setMyStatusText)
+    })
   }
 
   render(){

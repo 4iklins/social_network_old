@@ -36,7 +36,7 @@ const myProfileReducer = (state=initialState,action)=> {
         statusErrorMessage:action.errorMessage
       };
     case SET_MY_PHOTO:
-      debugger
+      
       return {
         ...state,
         myProfile:{
@@ -45,7 +45,7 @@ const myProfileReducer = (state=initialState,action)=> {
         }
       };
     case UPDATE_MY_PROFILE:
-      debugger
+      
       return {
         ...state,
         myProfile:{
@@ -99,7 +99,7 @@ export const setMyStatus = (statusText) => async (dispatch) => {
 
 export const saveProfileInfo = (profile) => async (dispatch) => {
     let response = await profileApi.saveProfile(profile)
-    debugger
+    
     if(response.resultCode === 0){
       dispatch(updateMyProfile(profile))
     }

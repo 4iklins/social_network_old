@@ -3,7 +3,9 @@ import Login from "./Login";
 import { connect } from "react-redux";
 import { compose } from "redux";
 import { login } from "../data/auth-reducer";
-import { getCaptchaUrl, getIsAuth } from "../data/auth-selectors";
+import { getCaptchaUrl, getIsAuth, getAuthId } from "../data/auth-selectors";
+import { requestMyData, setMyProfile, setMyStatusText } from '../data/myProfile-reducer';
+import { setAuthProgress} from '../data/auth-reducer';
 
 class LoginContainer extends React.Component{
   render(){
@@ -15,11 +17,16 @@ class LoginContainer extends React.Component{
 const mapDispathToprops = (state) =>{
   return{
       isAuth:getIsAuth(state),
-      captchaUrl: getCaptchaUrl(state)
+      captchaUrl: getCaptchaUrl(state),
+      id:getAuthId(state)
     }
 }
 const mapStateToProps = {
-  login:login
+  login,
+  setAuthProgress,
+  requestMyData,
+  setMyProfile,
+  setMyStatusText
 }
 export default compose(
   connect(mapDispathToprops,mapStateToProps)

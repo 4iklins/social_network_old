@@ -96,7 +96,7 @@ const initialState = {
 }
 
 const _newMessage = (state, messageText,id) => {
-  debugger
+  
   let message = {}
   message.isMe = true;
   message.message = messageText;

@@ -4,7 +4,12 @@ import LoginForm from './LoginForm/LoginForm';
 function Login(props) {
   const onSubmit = (formData) => {
     const {email,password,rememberMe,captcha} = formData
+    
     props.login(email,password,rememberMe,captcha)
+    .then((id)=>{
+      props.requestMyData(id, props.setAuthProgress,props.setMyProfile,props.setMyStatusText)
+    })
+    
   }
 
   return (

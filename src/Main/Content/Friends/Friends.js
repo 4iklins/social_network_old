@@ -10,7 +10,7 @@ const Friends = React.forwardRef((props,ref) => {
       {props.isFetching ? <Preloader /> : null}
       <ul className="friends__list">
         {props.users.map((user,i) => (
-          <li className="friends__item" ref={i === props.users.length-1 ? ref : null}>
+          <li className="friends__item" key ={user.id} ref={i === props.users.length-1 ? ref : null}>
             <NavLink to={`profile/${user.id}`}>
               <Avatar userName={user.name} photo={user.photos.small} size="big"/>
             </NavLink>

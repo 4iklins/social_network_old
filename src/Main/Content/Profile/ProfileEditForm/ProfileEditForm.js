@@ -1,5 +1,5 @@
 import './ProfileEditForm.scss';
-import { Field, reduxForm, reset } from "redux-form";
+import { Field, reduxForm } from "redux-form";
 import { CreateField } from "../../../../common/FormFields/FormFields";
 import {contactAddress, required} from "../../../../utils/validators/validators"
 
@@ -46,7 +46,7 @@ function ProfileEditForm (props) {
         Contacts:
         {Object.keys(props.profile.contacts).map((contact)=>{
           return (
-            <label className={`profile-edit-form__item profile-edit-form__contact profile-edit-form__contact--${contact}`}>
+            <label className={`profile-edit-form__item profile-edit-form__contact profile-edit-form__contact--${contact}`} key={contact}>
             {contact}:
             <Field
             name={`contacts.${contact}`}
