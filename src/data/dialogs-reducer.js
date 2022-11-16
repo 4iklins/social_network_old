@@ -35,22 +35,27 @@ const initialState = {
       messages: [
         {
           isMe: false,
-          message: "Yo man!",
+          message: "First born unicorn",
           date: new Date(2021, 9, 16, 13, 40, 13),
         },
-          {
-            isMe: true,
-            message: "Otherside ",
-            date: new Date(2021, 9, 17, 13, 40, 13),
-          },
+         {
+          isMe: true,
+          message: "Hardcore soft porn",
+          date: new Date(2021, 9, 17, 13, 40, 13),
+        },
+        {
+          isMe: false,
+          message: "Dream of Californication",
+          date: new Date(2021, 9, 18, 13, 40, 13),
+        },
         ]
     },
     {
       id: 2,
       name: "Chad Smith",
       photos:{
-        small:"https://kennyaronoff.com/wp-content/uploads/2016/08/Chad-Smith.jpg",
-        large:"https://kennyaronoff.com/wp-content/uploads/2016/08/Chad-Smith.jpg"
+        small:"https://images.equipboard.com/uploads/user/image/4237/big_chad-smith.jpg?v=1667985656",
+        large:"https://images.equipboard.com/uploads/user/image/4237/big_chad-smith.jpg?v=1667985656"
       },
       messages: []
     },
@@ -58,20 +63,25 @@ const initialState = {
       id: 3,
       name: "Flea",
       photos:{
-        small:"https://thumbnailer.mixcloud.com/unsafe/900x900/extaudio/8/f/9/e/fd7c-7e05-4d36-b23f-025885fd60e1.jpg",
-        large:"https://thumbnailer.mixcloud.com/unsafe/900x900/extaudio/8/f/9/e/fd7c-7e05-4d36-b23f-025885fd60e1.jpg"
+        small:"https://mb.com.ph/wp-content/uploads/2020/10/flea.jpg",
+        large:"https://mb.com.ph/wp-content/uploads/2020/10/flea.jpg"
       },
       messages: [
           {
             isMe: false,
-            message: "Yo man!",
+            message: "California show your teeth",
             date: new Date(2021, 8, 21, 15, 40, 13),
           },
           {
             isMe: true,
-            message: "Yo Flea!",
+            message: "She's my priestess, I'm your priest",
             date: new Date(2021, 8, 21, 16, 44, 13),
           },
+          {
+            isMe: false,
+            message: "Yeah, yeah",
+            date: new Date(2021, 8, 21, 17, 40, 13),
+          }
         ]
     },
     {
@@ -90,7 +100,13 @@ const initialState = {
         small:null,
         large:null
       },
-      messages: []
+      messages: [
+        {
+          isMe: false,
+          message: "The good thing about science is that it’s true whether or not you believe in it.",
+          date: new Date(2021, 8, 21, 15, 40, 13),
+        },
+      ]
     },
   ]
 }

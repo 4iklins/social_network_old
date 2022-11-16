@@ -8,7 +8,8 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { auth , setAuthProgress} from './data/auth-reducer';
 import { requestMyData, setMyProfile, setMyStatusText } from './data/myProfile-reducer';
-import { getAuthProgress, getIsAuth, getAuthId } from './data/auth-selectors';
+import { getAuthProgress, getIsAuth, getAuthId, getSomeError, getSomeErrorMessage } from './data/auth-selectors';
+import SomeError from './SomeError/SomeError';
 
 class App extends React.Component {
 
@@ -25,6 +26,7 @@ class App extends React.Component {
       <div className="App">
         <HeaderContainer />
         <MainContainer {...this.props}/>
+        {this.props.error && <SomeError errorMessage={this.props.errorMessage}/>}
         <Footer />
       </div>
       </BrowserRouter>
@@ -36,7 +38,9 @@ class App extends React.Component {
 const mapStateToProps = (state) => ({
   authProgress:getAuthProgress(state),
   isAuth:getIsAuth(state),
-  id:getAuthId(state)
+  id:getAuthId(state),
+  error:getSomeError(state),
+  errorMessage:getSomeErrorMessage(state)
 })
 
 const mapDispathToprops = {

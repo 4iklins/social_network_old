@@ -18,8 +18,8 @@ const CreatePost =  React.memo((props) => {
   
       {props.posts.map(post => {
         return (
-          <div className="profile__post">
-            <Post profile={props.profile} postData={post} key={post.id}/>
+          <div className="profile__post" key={post.id}>
+            <Post profile={props.profile} postData={post}/>
           </div>
         )
       })}

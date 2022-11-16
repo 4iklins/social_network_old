@@ -1,4 +1,5 @@
 import {profileApi} from "../api/api";
+import {showSomeError} from "./auth-reducer";
 
 const ADD_NEW_POST = 'profile/ADD-NEW-POST';
 const SET_USER_PROFILE = 'profile/SET-USER-PROFILE';
@@ -79,13 +80,27 @@ export const loadData = (loadingData) => ({type:LOADING_DATA,loadingData});
 
 
 export const requestUserProfile = (userId,setProfileAction) => async (dispatch) => {
+  try{
   let response = await profileApi.getProfile(userId)
   dispatch(setProfileAction(response.data));
+  } catch(error){
+    dispatch(showSomeError(true,"Some Error :("))
+    setTimeout(()=>{
+      dispatch(showSomeError(false,""))
+    },4000)
+  }
 }
 
 export const requestUserStatus = (userId,setStatusAction) => async (dispatch) => {
+  try{
   let response = await profileApi.getStatus(userId)
   dispatch(setStatusAction(response.data))
+  } catch(error) {
+    dispatch(showSomeError(true,"Some Error :("))
+    setTimeout(()=>{
+      dispatch(showSomeError(false,""))
+    },4000)
+  }
 }
 
 export const requestUserData = (userId,loadDataAction,setProfileAction,setStatusAction) => (dispatch) => {

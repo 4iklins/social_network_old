@@ -1,4 +1,5 @@
 import { friendsApi } from "../api/api";
+import { showSomeError} from "./auth-reducer";
 
 const FOLLOWED_TOGGLE = "friends/FOLLOWED-TOGGLE";
 const SET_USERS = "friends/SET-USERS";
@@ -64,19 +65,34 @@ export const isFetchingProgress = (fetching) => ({type: IS_FETCHING_PROGRESS, fe
 export const isFollowingProgress = (followInProgress,id) => ({type:IS_FOLLOWING_PROGRESS, followInProgress:followInProgress, id:id})
 
 export const fetchUsers = (currentPage) => async (dispatch) => {
+  try{
   let response = await friendsApi.getUsers(currentPage)
   dispatch(setUsers(response.items));
   dispatch(setTotalCount(response.totalCount));
   dispatch(setCurrentPage(currentPage + 1));
   dispatch(isFetchingProgress(false));
+  } catch(error){
+    dispatch(showSomeError(true,"Some Error :("))
+    setTimeout(()=>{
+      dispatch(showSomeError(false,""))
+    },4000)
+  }
 }
 
 const followUnfollowToggle = async (userId,dispatch,apiMethod,followed) => {
   dispatch(isFollowingProgress(true, userId));
+  try{
   let response = await friendsApi[apiMethod](userId)
   if(response.resultCode === 0)
   dispatch(followedToggle(userId, followed));
   dispatch(isFollowingProgress(false, userId));
+  } catch(error) {
+    dispatch(showSomeError(true,"Some Error :("))
+    setTimeout(()=>{
+      dispatch(showSomeError(false,""))
+    },4000)
+    dispatch(isFollowingProgress(false,userId));
+  }
 }
 
 export const follow = (userId) => (dispatch) => {

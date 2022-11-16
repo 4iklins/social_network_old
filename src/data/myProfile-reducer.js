@@ -1,6 +1,7 @@
 import { profileApi} from '../api/api';
 import {requestUserData} from './profile-reducer';
 import {stopSubmit} from 'redux-form';
+import {showSomeError} from './auth-reducer';
 
 const SET_MY_PROFILE = 'myProfile/SET-MY-PROFILE';
 const SET_MY_PHOTO = 'myProfile/SET-MY-PHOTO';
@@ -75,31 +76,45 @@ export const requestMyData = (myId,authProgressAction,setProfileAction,setStatus
 }
 
 export const editPhoto = (photo) => async (dispatch) => {
-  let response = await profileApi.editPhoto(photo)
-  if(response.data.resultCode === 0){
-    dispatch(setMyProfilePhoto(response.data.data.photos))
-  }
-  if(response.data.resultCode === 1){
-
+  try{
+    let response = await profileApi.editPhoto(photo)
+    if(response.data.resultCode === 0){
+      dispatch(setMyProfilePhoto(response.data.data.photos))
+    }
+    if(response.data.resultCode === 1){
+  
+    }
+  } catch(error) {
+    dispatch(showSomeError(true,"Some Error :("))
+    setTimeout(()=>{
+      dispatch(showSomeError(false,""))
+    },4000)
   }
 }
 
 export const setMyStatus = (statusText) => async (dispatch) => {
-  let response = await profileApi.setStatus(statusText)
-  if(response.resultCode === 0){
-    dispatch(setMyStatusText(statusText))
-  }
-  if(response.resultCode === 1){
-    dispatch(showStatusError(true,response.messages[0]))
+  try {
+    let response = await profileApi.setStatus(statusText)
+    if(response.resultCode === 0){
+      dispatch(setMyStatusText(statusText))
+    }
+    if(response.resultCode === 1){
+      dispatch(showStatusError(true,response.messages[0]))
+      setTimeout(()=>{
+        dispatch(showStatusError(false,""))
+      },4000)
+    }
+  } catch(error){
+    dispatch(showSomeError(true,"Some Error :("))
     setTimeout(()=>{
-      dispatch(showStatusError(false,""))
+      dispatch(showSomeError(false,""))
     },4000)
   }
 }
 
 export const saveProfileInfo = (profile) => async (dispatch) => {
+  try{
     let response = await profileApi.saveProfile(profile)
-    
     if(response.resultCode === 0){
       dispatch(updateMyProfile(profile))
     }
@@ -107,5 +122,11 @@ export const saveProfileInfo = (profile) => async (dispatch) => {
       dispatch(stopSubmit('profile-edit',{_error:response.messages[0]}))
       return Promise.reject()
     }
+  } catch (error){
+    dispatch(showSomeError(true,"Some Error :("))
+    setTimeout(()=>{
+      dispatch(showSomeError(false,""))
+    },4000)
+  }
 }
 export default myProfileReducer;
